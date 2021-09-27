@@ -12,6 +12,7 @@ Output : 6, The path with maximum sum is: 2 -> 1 -> 3 */
 
 #include<iostream>
 #include<queue>
+#include<climits>
 using namespace std;
 
 
@@ -25,7 +26,6 @@ public:
 		data = d;
 		left = NULL;
 		right = NULL;
-
 	// left=right=NULL;
 
 	}
@@ -59,13 +59,26 @@ Node* buildLevelOrder() {
 	return root;
 }
 
-int maxPathSum(Node* root){
+
+int maxPathSum(Node* root, int &maxsum){
+	if(root==nullptr)
+		return 0;
+	
+	int lsum = max(0,maxPathSum(root->left,maxsum));
+	int rsum  = max(0, maxPathSum(root->right, maxsum));
+	maxsum = max(maxsum, root->data + lsum + rsum);
+
+	return max(lsum,rsum)+root->data;
 
 }
 
 
 int main()
-{
+{	Node* a = buildLevelOrder();
+	int ans=INT_MIN;
+
+	cout<<maxPathSum(a,ans);
+	//1 2 3 -1 -1 -1 -1
     
     return 0;
 }

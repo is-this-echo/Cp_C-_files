@@ -3,7 +3,7 @@ using namespace std;
 
 long long int coolSubset(int arr[], int k, int n){
 int j=k-1,nodd=0;
-long long divide = 10E9+7;
+long long divide = 1e9+7;
 long long multiply =1, sum=0;
 
 
