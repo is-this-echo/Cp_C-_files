@@ -50,8 +50,11 @@ void PrintAtLevelK(Node* root, int k){
     if(root==NULL)
         return;
     
-    if(k==0)
+    if(k==0){
         cout<<root->data<<" ";
+        return;
+    }
+        
 
     PrintAtLevelK(root->left,k-1);
     PrintAtLevelK(root->right,k-1);

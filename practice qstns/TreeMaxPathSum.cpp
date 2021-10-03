@@ -37,6 +37,9 @@ Node* buildLevelOrder() {
 	queue<Node*> q;
 
 	cin >> d;
+	if(d==-1)
+		return nullptr;
+
 	Node* root = new Node(d);
 	q.push(root);
 
@@ -59,7 +62,9 @@ Node* buildLevelOrder() {
 	return root;
 }
 
-
+// we do max(0, ..) to ignore negative values in subtrees. The max sum path can include the root node 
+// or it can be in the left subtree or right subtree, also any node can be present in the maxsum path 
+//and any node can also be the last/terminal node in the path, the return takes care of this.
 int maxPathSum(Node* root, int &maxsum){
 	if(root==nullptr)
 		return 0;
@@ -77,7 +82,8 @@ int main()
 {	Node* a = buildLevelOrder();
 	int ans=INT_MIN;
 
-	cout<<maxPathSum(a,ans);
+	maxPathSum(a,ans);
+	cout<<ans;
 	//1 2 3 -1 -1 -1 -1
     
     return 0;
