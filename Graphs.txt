@@ -1,0 +1,392 @@
+
+#include <iostream>
+#include<list>
+using namespace std;
+
+// simple graphs with int data in nodes, without weights
+class Graph {
+    int V;
+    list<int>* l;
+
+    public:
+        Graph(int v) {
+            V = v;
+            l = new list<int>[V];
+        }
+        void addEdge(int i, int j, bool undir=true){
+            l[i].push_back(j);
+            if (undir) {
+                l[j].push_back(i);
+            }
+        }
+        void printList() {
+            for (int i = 0; i < V; i++) {
+                cout << i << "--> ";
+                for (auto node : l[i]) {
+                    cout << node << ", ";
+                }
+                cout << endl;
+            }
+        }
+
+// printing nodes using bfs traversal
+    void bfs(int x){
+        queue<int> q;
+        bool *visited = new bool[V]{0};
+
+        q.push(x);
+        visited[x]= true;
+
+        while(!q.empty()){
+            int curr = q.front();
+            q.pop();
+
+            cout<<curr<<" ";
+            for(auto j : l[curr]){
+                if(!visited[j]){
+                    q.push(j);
+                    visited[j]=true;
+                }    
+            }
+        }
+    }
+
+// shortest path using bfs
+    void bfsTraversal(int source, int dest=-1){
+        queue<int> q;
+        bool *visited = new bool[V]{0};
+
+        // storing parent node for each node to find the shortest path 
+        int *distance = new int[V]{0};
+        int * parent = new int[V];
+        for(int i=0;i<V;i++)
+            parent[i]=-1;
+        //
+        q.push(source);
+        visited[source]= true;
+
+        // setting dist of source node as 0 and its parent as itself
+
+        distance[source]=0;
+        parent[source]=source;
+        //
+
+        while(!q.empty()){
+            int curr = q.front();
+
+            // Print node values for simple bfs traversal
+           // cout<<curr<<" ";
+            q.pop();
+
+            for(auto j : l[curr]){
+                if(!visited[j]){
+                    q.push(j);
+                    visited[j]=true;
+
+                    // first visit will give us the shortest distance from source
+                    distance[j]=distance[curr]+1;
+                    parent[j]=curr;
+                    //
+                }    
+            }
+        }
+        // shortest distance print
+
+        //for(int i=0;i<V;i++)
+        //   cout<<"Shortest distance of "<<i<<" is-> "<<dist[i]<<endl;
+
+        //shortest path print
+
+        if(dest!=-1){
+            int temp=dest;
+            while(temp!=source){
+                cout<<temp<<"-->";
+                temp=parent[temp];
+            }
+            cout<<source;
+        }
+    }
+
+
+// dfs helper function
+    void dfsHelper(int x, bool *visited){
+        visited[x]=true;
+        cout<<x<<"-> ";
+
+        for(auto nbr:l[x]){
+            if(!visited[nbr])
+                dfsHelper(nbr,visited);
+        }
+        return;
+    }
+
+// wrapper function
+    void dfsTraversal(int source){
+        bool *visited = new bool[V]{0};
+        dfsHelper(source, visited);
+    }
+
+
+};
+
+
+int main()
+{
+    Graph g(6);
+    g.addEdge(0, 1);
+    g.addEdge(0, 5);
+    g.addEdge(0, 2);
+    g.addEdge(1, 2);
+    g.addEdge(1, 4);
+    g.addEdge(2, 3);
+    g.addEdge(2, 5);
+    g.addEdge(3, 4);
+    g.addEdge(3, 5);
+
+    g.printList();
+
+    return 0;
+}
+---------------------------------------------------------------------------------
+
+// graph with weights
+class Graph{
+	int V;
+	list<pair<int,int> > *l;
+
+	public:
+	   Graph(int v){
+		V = v;
+		l = new list<pair<int,int> >[V];
+	}
+
+	   void addEdge(int u,int v,int wt,bool undir = true){
+
+		l[u].push_back({wt,v});
+		if(undir){
+			l[v].push_back({wt,u});
+		}
+	}
+
+// dijkstras shortest path algorithm
+
+int dijkstraShortestPath(int src, int dest){
+        vector<int> dist(V,INT_MAX);
+        set<pair<int,int>> s;
+
+        //initialization
+        dist[src] = 0;
+        s.insert({dist[src],src});
+
+        while(!s.empty()){
+            auto itr = s.begin();
+            int distTillNow = itr->first;
+            int node = itr->second;
+
+            // pop the element in the set
+            s.erase(itr);
+
+            // iterate over all the nbrs of the node
+            for( auto nbrPair : l[node]){
+                int nbr =nbrPair.first;
+                int currentEdge = nbrPair.second;
+
+                // comparison to find min. distance
+                if(distTillNow+currentEdge < dist[nbr]){
+                    //remove the node if already present in set
+                    auto p = s.find({dist[nbr],nbr});
+                    if(p!=s.end())
+                        s.erase(p);
+
+                    //re-insert the node with updated values
+                    dist[nbr] = distTillNow+currentEdge;
+                    s.insert({dist[nbr],nbr});
+                } 
+            }
+        }
+        return dist[dest];
+    }
+
+
+};
+
+int main(){
+
+	Graph g(5);
+	g.addEdge(0,1,1);
+	g.addEdge(1,2,2);
+	g.addEdge(0,2,4);
+	g.addEdge(0,3,7);
+	g.addEdge(3,2,2);
+	g.addEdge(3,4,3);
+	
+	return 0;
+}
+------------------------------------------------------------------------------
+
+// graph with complex node data structure
+
+#include<iostream>
+#include<string>
+#include<list>
+#include<vector>
+#include<unordered_map>
+using namespace std;
+
+// data structure to be used in graphs
+class Node{
+public:
+    string name;
+    list<string>nbrs;
+
+    Node(string name){
+        this->name = name;
+    }
+};
+
+// Creating the adjacency list representation of graph
+class Graph{
+    unordered_map<string,Node*> m;
+
+public:
+    Graph(vector<string> cities){
+        for(auto city: cities){
+            m[city] = new Node(city);
+        }
+    }
+
+    void addEdge(string x, string y, bool undir=false){
+        m[x]->nbrs.push_back(y);
+        if(undir){
+            m[y]->nbrs.push_back(x);
+        }
+    }
+
+    void printAdjList(){
+        for(auto cityPair : m){
+            auto city = cityPair.first;
+            Node * node = cityPair.second;
+
+            cout<<city<<"--> ";
+            for(auto nbrs : node->nbrs ){
+                cout<<nbrs<<", ";
+            }
+            cout<<endl;
+        }
+    }
+
+};
+
+
+int main(){
+
+    vector<string> cities = {"LasVegas", "NewYork","Kolkata","Tokyo"};
+
+    Graph g(cities);
+    g.addEdge("LasVegas","NewYork");
+    g.addEdge("LasVegas","Kolkata");
+    g.addEdge("NewYork","Kolkata");
+    g.addEdge("NewYork","Tokyo");
+    g.addEdge("Tokyo","Kolkata");
+    
+    g.printAdjList();
+
+    return 0;
+}
+
+------------------------------------------------------------------------
+// finding cycle in undirected graphs
+
+class Graph{
+    int V;
+    list<int> *l;
+
+    public:
+    Graph(int V){
+        this->V = V;
+        l = new list<int>[V];
+    }
+
+    // undirected graph
+    void addEdge(int x, int y){
+        l[x].push_back(y);
+        l[y].push_back(x);
+    }
+
+    bool dfsHelper(int node, vector<bool> &visited, int parent){
+        visited[node]=true;
+        
+        for(auto nbr : l[node]){
+            // if nbr is not visited, visit it
+            if(!visited[nbr]){
+                bool cycleFound = dfsHelper(nbr,visited,node);
+                if(cycleFound)
+                    return true;
+            }
+            // if parent is the previous node in dfs path which you just visited, then skip
+            else if (nbr!=parent)
+                return true;
+        }
+        return false;
+    }
+    
+    //wrapper function
+    bool containsCycle(){
+        vector<bool> visited(V,false);
+        return dfsHelper(0,visited,-1);
+    }
+};
+
+------------------------------------------------------------------------
+
+// finding cycle in directed graphs
+class Graph {
+    int V;
+    list<int> *l;
+
+    public:
+    Graph(int V){
+        this->V = V;
+        l = new list<int>[V];
+    }
+
+    void addEdge(int x, int y){
+        l[x].push_back(y);
+    }
+
+    bool dfs(int node, vector<bool>&visited, vector<bool> &stack){
+        visited[node]=true;
+        stack[node]  =true;
+
+        for(auto nbr:l[node]){
+            // if nbr node visited, visit it
+            if(!visited[nbr]){
+                bool foundCycle = dfs(nbr,visited,stack);
+                if(foundCycle)
+                    return true;
+            }
+            // if nbr is present in  call stack of dfs path, then its a cyclic graph
+            else if(stack[nbr]==true){
+                return true;
+            }
+        }
+        // while going back to original caller
+        stack[node] = false;
+        return false;
+        
+    }
+
+    // wrapper function
+    bool detectCycle(){
+        vector<bool> visited(V,false);
+        vector<bool> stack(V,false);
+
+        for(int i=0;i<V;i++){
+            bool ans = dfs(i,visited,stack);
+            if(ans==true)
+                return true;
+        }
+        return false;
+    }
+
+};

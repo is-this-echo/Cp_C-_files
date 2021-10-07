@@ -1,0 +1,198 @@
+
+#include <iostream>
+#include<queue>
+using namespace std;
+
+// Node data structure
+class Node {
+public:
+	int data;
+	Node* left;
+	Node* right;
+
+	Node(int d) {
+		data = d;
+		left = NULL;
+		right = NULL;
+
+	// left=right=NULL;
+
+	}
+};
+
+
+// Calculate tree height
+int treeHeight(Node* root) {
+	if (root == NULL) {
+		return 0;
+// return -1, if you want to pass root node of tree and get its height(no. of edges), else this function returns no. of nodes for given root node.
+	}
+	int h1 = treeHeight(root->left);
+	int h2 = treeHeight(root->right);
+
+	return 1 + max(h1, h2);
+}
+
+
+// Calculate tree diameter, unoptimized code
+int treeDiameter(Node* root) {
+	if (root == NULL) {
+		return 0;
+	}
+	int d1 = treeHeight(root->left) + treeHeight(root->right);  // left height + right height, not H(left subtree) + H(right subtree) 
+	int d2 = treeDiameter(root->left);
+	int d3 = treeDiameter(root->right);
+
+	return max(d1, max(d2, d3));
+}
+
+
+// pre order tree-build
+Node* buildTree() {
+	int d;
+	cin >> d;
+
+	if (d == -1) {
+	    return NULL;
+	}
+	Node* n = new Node(d);
+	n->left = buildTree();
+	n->right = buildTree();
+	
+	return n;
+}
+
+
+// function for BFS traversal
+void BFSTraversal(Node* root) {
+	queue<Node*>q;
+	q.push(root);
+	q.push(NULL);
+
+	while (!q.empty()) {
+		Node* current = q.front();
+		if (current == NULL) {
+			cout << endl;
+			q.pop();
+
+			if (!q.empty()) {
+				q.push(NULL);
+			}
+		}
+		else {
+			cout << current->data << " ";
+			q.pop();
+
+			if (current->left) {
+				q.push(current->left);
+			}
+			if (current->right) {
+				q.push(current->right);
+			}
+		}
+	}
+	return;
+}
+
+
+// building tree by level order/BFS
+Node* buildLevelOrder() {
+	int d;
+	queue<Node*> q;
+
+	cin >> d;
+	Node* root = new Node(d);
+	q.push(root);
+
+	while(!q.empty()){
+		Node* current = q.front();
+		q.pop();
+
+		int c1, c2;
+		cin >> c1 >> c2;
+		if(c1!=-1){
+			current->left = new Node(c1);
+			q.push(current->left);
+		}
+
+		if(c2!=-1){
+			current->right = new Node(c2);
+			q.push(current->right);
+		}
+	}
+	return root;
+}
+
+
+// Given the root of a binary tree with unique values and the values of two different nodes of the tree x and y, 
+//return true if the nodes corresponding to the values x and y in the tree are cousins, or false otherwise.
+//Two nodes of a binary tree are cousins if they have the same depth with different parents.
+
+class Solution {
+public:
+    bool isCousins(TreeNode* root, int x, int y) {
+		unordered_map<int, pair<int, int>> m;
+		helper(root, 0, -1, m);
+		return m[x].first == m[y].first && m[x].second != m[y].second;
+    }
+    void helper(TreeNode* node, int depth, int parent, unordered_map<int, pair<int, int>>& m) {
+    	if (!node) return;
+    	m[node->val] = {depth, parent};
+    	helper(node->left, depth + 1, node->val, m);
+    	helper(node->right, depth + 1, node->val, m);
+    }
+};
+
+
+//LCA BST generic
+
+TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(root==NULL)
+            return NULL;
+        
+        if(root==p || root==q)
+            return root;
+        
+        TreeNode* left = lowestCommonAncestor(root->left,p,q);
+        TreeNode* right = lowestCommonAncestor(root->right,p,q);
+        
+        if(left==NULL && right==NULL)
+            return NULL;
+        if(left!=NULL && right!=NULL)
+            return root;
+        
+return left!=NULL?left:right;
+        
+ }
+
+
+// path sum , if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum
+
+bool hasPathSum(TreeNode* root, int targetSum) {
+
+    if(root==nullptr)
+          return false;
+        
+    if(root->left==nullptr && root->right==nullptr && root->val==targetSum)
+          return true;
+        
+
+     bool left = hasPathSum(root->left,targetSum-root->val);
+     bool right = hasPathSum(root->right, targetSum-root->val);
+
+     return left || right;
+        
+    }
+
+
+
+int main()
+{
+	Node* root = buildLevelOrder();
+	BFSTraversal(root);
+	
+	//sample input given in next line
+	// 1 2 3 4 5 -1 6 -1 -1 7 -1 -1 -1 -1 -1
+
+	return 0;
+}

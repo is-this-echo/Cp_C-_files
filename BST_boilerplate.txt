@@ -1,0 +1,77 @@
+
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+	int key;
+	Node* left;
+	Node* right;
+
+	Node(int key) {
+		this->key = key;
+		left = right = NULL;
+	}
+};
+
+
+//inserting values into BST
+Node* insert(Node* root, int data) {
+	if (root == NULL) {
+		return new Node(data);
+	}
+	if (data > root->key) {
+		root->right = insert(root->right, data);
+	}
+	else {
+		root->left = insert(root->left, data);
+	}
+	return root;
+}
+
+
+// print BST inorder traversal is always sorted
+void printInOrder(Node* root) {
+	if (root == NULL) {
+		return;
+	}
+	printInOrder(root->left);
+	cout << root->key << " ";
+	printInOrder(root->right);
+}
+
+
+
+//minimum height BST 
+Node* minHeightBST(int arr[], int start, int end) {
+
+	if (start > end){
+		return NULL;
+	}
+
+	int mid = (start + end) / 2;
+	Node* root = new Node(arr[mid]);
+
+	root->left =  minHeightBST(arr, start, mid - 1);
+	root->right = minHeightBST(arr, mid + 1, end);
+	
+	return root;
+}
+
+
+
+int main()
+{	
+	int arr[] = {4,14,73,1,2,9,8,34,5,10};
+	Node* root = NULL;
+
+	for (int x : arr) {
+		root = insert(root, x);
+	}
+
+	printInOrder(root);
+	return 0;
+}
+
+
+

@@ -1,0 +1,154 @@
+
+// All STL containers are passed by value in a function, arrays by default are passed by reference;
+
+#include<iostream>  -> basic functions, I/O operations
+
+#define ll long long
+using namespace std;
+cin>>
+cout<<
+max(x,y) , min(x,y)
+int prefixProd[n]={1}; // array initialization
+stoi("123") / atoi("123 makdd efef ")  gives 123, converts string to integer
+
+
+
+#include<string>  -> string containers
+string s;
+s.length()
+
+
+
+#include<vector>  -> vector containers
+vector<vector<int>> dp(m,vector<int>(n,INT_MIN));
+dp.push_back(1);
+dp.erase(itr);
+dp.clear();
+
+
+
+#include<cstream>  -> memset to initialize locations with 0 or 1.
+int dp[50][50][50];
+memset(dp,-1,sizeof(dp));
+
+
+
+#include<queue>  ->FIFO queue data structures
+queue<int> q1;
+queue<Node*> q2;
+q.push(), q.pop(), q.front(), q.empty(), q.back()
+
+
+#include<deque>      -> doubly ended queue
+deque<int> Q(k);  // deque of size k
+Q.pop_back();
+Q.pop_front();
+Q.push_front(x);
+Q.push_back(y);
+Q.back()
+
+
+#include<stack>  -> LIFO stack data structure
+stack<int> s;
+s.pop(), s.push(), s.top(), s.empty()
+
+
+#include<climits>  -> for max min value initializations
+int a = INT_MAX;
+int b = INT_MIN;
+
+
+
+
+#include<algorithm>  -> basic sorting and other functions - sort/reverse
+
+//comparing wrt to 2nd element in vector of pairs
+bool compare(const pair<int,int> &a, const pair<int,int> &b){
+	return a.second<=b.second;
+}
+
+vector<pair<int,int>> vec;
+sort(vec.begin(), vec.end(), compare);   // compare function of return type bool to set sorting criterion;
+reverse(vec.begin(), vec.end());
+
+
+
+#include<numeric>  -> some imp functions
+__gcd(int a, int b) = to calculate the gcd of 2 no.s
+
+
+
+#include<utility>  -> some utility functions
+pair<int,int> p = {2,4);
+make_pair(45,10)
+
+
+
+#include<set>  -> for set data structure, to keep unique elements in sorted manner
+set<int>s ;
+set<char> sch;
+sch.insert('d');
+s.insert(1);
+s,erase(iterator);
+s.clear();
+
+// example of storing custom data structure elements in a set, we need to overload operator function to provide sorting condition
+class Node{
+    public:
+    int x, y, s_dist;
+
+    Node(int x, int y, int s_dist){
+        this->x=x;
+        this->y=y;
+        this->s_dist=s_dist;
+    }
+};
+
+class Compare{
+    public:
+    bool operator()(const Node &a,  const Node &b){
+    return a.s_dist<=b.s_dist;
+    }
+};
+
+set<Node*,Compare> sa;
+sa.find(Node(5,12,4)) != sa.end();
+
+
+
+
+#include<map> -> to keep a hash table of elements sorted in ascending order by default based on unique keys
+map<char,int> ch;  by default keys sorted in ascending order
+ch.count('s')  //returns 0 or 1 if depending on the map contains that key or not
+
+map<int,char, greater<int>>>mmp;  // keys sorted in descending order
+mmp.size()   -> provides number of elements inside map
+// elements also can be accessed as itr.first and itr.second
+
+
+#include<map>    //same header file as map, multimap is the same as map but it can store elements having same key values, both key and element pair can be duplicated
+multimap<int,int> m;
+multimap<int,int,greater<int>> mapp;
+
+mapp.insert({9,10});
+mapp.insert(pair<int,int>(2,6));
+mapp.insert(make_pair(9,10));
+
+
+
+#include<unordered_map> -> same as map except that elements are not key sorted, so more time efficient
+unordered_map<Node*,int> m;
+m[node] = 5;
+
+
+
+#include<list> -> stores list of elements of specified data type
+list<int> *l = new list<int>[V];
+ l[x].push_back(10);
+ l[x].push_back(y);
+
+
+
+
+
+
