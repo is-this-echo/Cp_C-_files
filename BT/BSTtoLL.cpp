@@ -80,9 +80,9 @@ int main()
     Node* temp = ll.head;
 
     while(temp){
-        cout<<temp->val<<" ";
+        cout<<temp->val<<"-> ";
         temp=temp->right;
     }
-
+    cout<<"NULL";
     return 0;
 }

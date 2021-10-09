@@ -6,7 +6,7 @@ Let's assume all the folks are standing in an x-axis line. The positions of peop
 Input: n = 5, d = 5, [1,3,5,9,14]
 Output: [1, 3]
 minimum spread = 1 by 14, maximum spread = 3 by 5
-I have solved that problem using the Binary Search Method with O(N logN) 
+I have solved that problem using the Binary Search Method with O(NlogN) 
 Time Complexity & O(1) Space Complexity.
 */
 
