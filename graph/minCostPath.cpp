@@ -6,7 +6,7 @@ using namespace std;
 
 
 class Node{
-    public:
+public:
     int x, y, s_dist;
 
     Node(int x, int y, int s_dist){
@@ -49,8 +49,7 @@ int shortest_path(vector<vector<int>> grid){
             int nx = cx+dx[k];
             int ny = cy+dy[k];
 
-            if(nx>=0 && nx<m && ny>=0 && ny<n && cdist+grid[nx][ny]<dist[nx][ny] ){
-
+            if(nx>=0 && nx<m && ny>=0 && ny<n && cdist+grid[nx][ny]<dist[nx][ny]){
                 Node temp(nx,ny,dist[nx][ny]);
                 auto p = s.find(temp);
                 if(p!=s.end())
