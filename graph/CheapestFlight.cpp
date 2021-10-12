@@ -3,7 +3,7 @@
 #include<set>
 using namespace std;
 
-
+// can be done using Bellman-Ford algo or Dijkstras algo
 
 int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dest, int k) {
 

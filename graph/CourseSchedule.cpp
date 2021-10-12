@@ -23,7 +23,8 @@ bool dfs(int crs,vector<bool>& visited, unordered_map<int,vector<int>> &m){
     // if course can be completed, take out crs from dfs stack, 
     // set prerequisite to 0 for saving time as we know it can be completed
     visited[crs]=false;
-    m[crs] = {};
+   // m[crs] = {};
+    m.erase(crs);
     return true;
 }
 
