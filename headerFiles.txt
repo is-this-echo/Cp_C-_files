@@ -1,5 +1,5 @@
 
-// All STL containers are passed by value in a function, arrays by default are passed by reference;
+// All STL containers are passed by value in a function, arrays by default are passed by reference
 
 #include<iostream>  -> basic functions, I/O operations
 
@@ -16,7 +16,7 @@ stoi("123") / atoi("123 makdd efef ")  gives 123, converts string to integer
 #include<string>  -> string containers
 string s;
 s.length()
-
+s.erase()   // erases whole string, unlike vectors or sets in which clear function deletes all elements
 
 
 #include<vector>  -> vector containers
@@ -25,6 +25,12 @@ dp.push_back(1);
 dp.erase(itr);
 dp.clear();
 
+int gfg[] = { 5, 6, 7, 7, 6, 5, 5, 6 };
+vector<int> v(gfg, gfg + 8); // 5 6 7 7 6 5 5 6
+
+//ways to create deep copy of vectors, shallow-copy -> same memory location on heap, deep-copy -> newly allocated memory
+vector<int>v1{2,432,1};
+vector<int> v2(v1)  or vector<int> v2 , v2=v1;  
 
 
 #include<cstream>  -> memset to initialize locations with 0 or 1.
@@ -117,6 +123,17 @@ sa.find(Node(5,12,4)) != sa.end();
 
 
 
+#include<unordered_set>  -> to use unordered-set where elements are not sorted but they are unique
+unordered_set<int> st;
+st.insert(2);
+st.insert(4); 
+st.clear();
+auto itr = st.begin();
+auto btr = st.end();
+
+
+
+
 #include<map> -> to keep a hash table of elements sorted in ascending order by default based on unique keys
 map<char,int> ch;  by default keys sorted in ascending order
 ch.count('s')  //returns 0 or 1 if depending on the map contains that key or not
@@ -146,9 +163,6 @@ m[node] = 5;
 list<int> *l = new list<int>[V];
  l[x].push_back(10);
  l[x].push_back(y);
-
-
-
 
 
 
