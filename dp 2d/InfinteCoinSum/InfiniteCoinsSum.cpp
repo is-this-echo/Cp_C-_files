@@ -20,7 +20,9 @@ Explanation : The 4 possible ways are
 using namespace std;
 
 const long mod = 1e6+7;
+vector<vector<int>>dp;
 
+// 1) solution using tabulation
 int count(int m, vector<int> &coins){
     int ncoins = coins.size();
     vector<vector<int>> dp(ncoins+1,vector<int>(m+1,0));
@@ -41,17 +43,88 @@ int count(int m, vector<int> &coins){
                 dp[i][j] = dp[i-1][j]%mod;
         }
     }
-    
     return dp[ncoins][m]%mod;
 }
+
+
+// 2) solution approach using recursion
+int coinChange(vector<int>& coins, int n, int amount)
+{
+    if(n==0)
+        return 0;
+
+    if(amount == 0)
+        return 1;
+    
+    if(coins[n-1] > amount)
+        return coinChange(coins, n-1, amount);
+
+    return coinChange(coins, n, amount-coins[n-1]) + coinChange(coins, n-1, amount);
+}
+
+
+int change(int amount, vector<int>& coins) {
+    int n = coins.size();
+    if(amount == 0) {
+        return 1;
+    }
+    if(n==0)
+        return 0;
+
+    return coinChange(coins, n, amount);
+}
+
+
+
+// 3) solution using dp memoization
+int coinChangeDP(vector<int>& coins, int n, int amount)
+{
+    if(n==0)
+        return 0;
+
+    if(amount == 0)
+        return 1;
+    
+    if(dp[n][amount] != -1)
+        return dp[n][amount];
+    
+    if(coins[n-1] > amount)
+    {
+        dp[n][amount] = coinChangeDP(coins, n-1, amount);
+        return dp[n][amount];
+    }
+    dp[n][amount] = coinChangeDP(coins, n, amount-coins[n-1]) + coinChangeDP(coins, n-1, amount);
+
+    return dp[n][amount];
+}
+
+
+int changeDP(int amount, vector<int>& coins) {
+    int n = coins.size();
+    if(amount == 0) 
+        return 1;
+    
+    if(n==0)
+        return 0;
+    
+    dp.resize(n+1,vector<int>(amount+1,-1));
+    dp[n][amount] = coinChangeDP(coins, n, amount);
+
+    return dp[n][amount];
+}
+
 
 
 
 int main()
 {   
     vector<int> denoms = {18, 24, 23, 10, 16, 19, 2, 9, 5, 12, 17, 3, 28, 29, 4, 13, 15, 8};
-    int m=458;
-    cout<<count(m,denoms);
+    int m=458,m2=5;
+    vector<int> denoms2{1,2,5};
+
+    cout<<count(m,denoms)<<endl;
+    cout<<change(m2,denoms2)<<endl;
+    cout<<changeDP(m2,denoms2);
 
     return 0;
 }
