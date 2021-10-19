@@ -4,6 +4,7 @@
 #include<algorithm>
 using namespace std;
 
+
 // recursive soln
 int lcs(string s1, string s2, int i, int j){
     if(i==s1.length() || j==s2.length())
@@ -17,6 +18,7 @@ int lcs(string s1, string s2, int i, int j){
 
     return max(case1, case2);
 }
+
 
 // Top-down dp approach
 // dp(i,j) -> s1(i,n1-1) and s2(j,n2-1)
@@ -35,6 +37,7 @@ int lcsTD(string s1, string s2, int i, int j, vector<vector<int>> &dp){
 
     return dp[i][j] = max(case1, case2);
 }
+
 
 // Bottom-up dp approach
 // dp(i,j) is the state that stores the length of LCS if we take first i characters from string s1,

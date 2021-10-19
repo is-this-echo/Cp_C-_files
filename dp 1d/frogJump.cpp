@@ -3,6 +3,7 @@
 #include<vector>
 using namespace std;
 
+
 //topdown approach
 int frogJump(vector<int> arr, int n, int i, vector<int> &dp){
     if(i==n-1)
@@ -26,6 +27,7 @@ int frogJump(vector<int> arr, int n, int i, vector<int> &dp){
     return dp[i]=ans;
 }
 
+
 //bottom up approach
 int minCost(vector<int> arr){
     int n = arr.size();
@@ -44,8 +46,7 @@ int minCost(vector<int> arr){
 
 
 int main()
-{
-    vector<int> heights{30,10,60,10,60,50};
+{   vector<int> heights{30,10,60,10,60,50};
     int n=heights.size();
     vector<int> dp(n+1,0);
    

@@ -6,9 +6,7 @@ using namespace std;
 int lengthOfLIS(vector<int>& nums) {
     int n=nums.size();
     int lis=1;
-    vector<int> dp(n,0);
-    
-    dp[0]=1;
+    vector<int> dp(n,1); 
     
     for(int i=1;i<n;i++){
         for(int j=i-1;j>=0;j--){
@@ -16,9 +14,7 @@ int lengthOfLIS(vector<int>& nums) {
                 dp[i] = max(dp[i],dp[j]+1);
                 lis = max(lis,dp[i]);
         }
-        dp[i] = max(1,dp[i]);
     }
-
     return lis;
 }
 

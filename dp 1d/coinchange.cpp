@@ -3,9 +3,9 @@
 #include<climits>
 using namespace std;
 
+
 // bottom up approach, iterative solution
 int minCoinsBU(int m, vector<int> &denoms){
-
     vector<int> dp(m+1,0);
     dp[0]=0;
 
@@ -23,7 +23,6 @@ int minCoinsBU(int m, vector<int> &denoms){
 
 //Top down approach using recursion
 int minCoinsTD(int m, vector<int> &denoms, vector<int> &dp){
-
     if(m==0)
         return 0;
     
@@ -42,6 +41,7 @@ int minCoinsTD(int m, vector<int> &denoms, vector<int> &dp){
         }
         return dp[m]==INT_MAX?-1:dp[m];
 }
+
 
 
 int main()

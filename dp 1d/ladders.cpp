@@ -11,7 +11,6 @@ int ladderBU(int n, int k){
         for(int j=i-1;j>=i-k && j>=0;j--)
             dp[i]+=dp[j];
     }
-
     return dp[n];
 }
 
@@ -37,7 +36,6 @@ int main()
 {   
     int n,k;
     cin>>n>>k;
-
     int dp[100]={0};
 
     cout<<ladderTD(n,k,dp);

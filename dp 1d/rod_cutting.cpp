@@ -3,6 +3,7 @@
 #include<vector>
 using namespace std;
 
+
 // recursive solution
 int maxProfit(int n, int price[]){
     if(n<=0){
@@ -46,6 +47,7 @@ int maxProfitBU(int n, int price[]){
     }
     return dp[n];
 }
+
 
 
 int main()

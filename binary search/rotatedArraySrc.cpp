@@ -2,6 +2,8 @@
 #include<vector>
 using namespace std;
 
+
+// discontinuous straight lines
 int search(vector<int>& a, int target) {
     int s=0,e=a.size()-1;
     
