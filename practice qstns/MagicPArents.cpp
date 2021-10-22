@@ -1,3 +1,8 @@
+
+// Need to find sum of all parents such that one children is odd and the other is even
+// Parent having one children or no children are not considered
+// Input will be as given in the main function 
+
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -15,7 +15,7 @@ void helper(vector<int> &nums, vector<vector<int>> &ans,vector<int> &temp, int n
     temp.push_back(nums[n-1]);
     helper(nums, ans,temp,n-1);
 
-   // not taking the last element in the subset
+   // not taking the last element in the subset, we have taken it once, so need to pop back
     temp.pop_back();
     helper(nums,ans,temp,n-1);
 }
@@ -32,10 +32,8 @@ vector<vector<int>> subsets(vector<int>& nums) {
 
 
 
-
 int main()
-{
-    vector<int> nums{1,2,3};
+{   vector<int> nums{1,2,3};
     auto output = subsets(nums);
 
     for(auto x : output){
