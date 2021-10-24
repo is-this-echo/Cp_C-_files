@@ -4,7 +4,7 @@
 using namespace std;
 
 
-// Top down approach
+// Top down dp approach
 int minArrayJumps(vector<int> arr, vector<int> &dp, int n, int i=0){
     if(i==n-1)
         return 0;
@@ -25,6 +25,9 @@ int minArrayJumps(vector<int> arr, vector<int> &dp, int n, int i=0){
 }
 
 
+// using BFS approach
+int minJumpsBFS(){}
+
 
 int main()
 {
@@ -39,3 +42,4 @@ int main()
 
     return 0;
 }
+
