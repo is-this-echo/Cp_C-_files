@@ -62,8 +62,8 @@ s.pop(), s.push(), s.top(), s.empty()
 #include<climits>  -> for max min value initializations
 int a = INT_MAX;
 int b = INT_MIN;
-
-
+long int d = LONG_MAX;
+long c = LONG_MIN;
 
 
 #include<algorithm>  -> basic sorting and other functions - sort/reverse
@@ -137,6 +137,7 @@ auto btr = st.end();
 #include<map> -> to keep a hash table of elements sorted in ascending order by default based on unique keys
 map<char,int> ch;  by default keys sorted in ascending order
 ch.count('s')  //returns 0 or 1 if depending on the map contains that key or not
+ch.find(), ch.end()   -> similar to set, returns an iterator to that key in the map
 
 map<int,char, greater<int>>>mmp;  // keys sorted in descending order
 mmp.size()   -> provides number of elements inside map
@@ -160,6 +161,7 @@ m[node] = 5;
 
 
 #include<list> -> stores list of elements of specified data type
+list<string> str[12];
 list<int> *l = new list<int>[V];
  l[x].push_back(10);
  l[x].push_back(y);

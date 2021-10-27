@@ -1,7 +1,7 @@
 
 KMP pattern search
 https://www.youtube.com/watch?v=GTJr8OvyEVQ&ab_channel=TusharRoy-CodingMadeSimple
-
+------------------------------------------------------------------------------------------
 
 Kadane's Algorithm
 Used for max val subarray sum problem
@@ -17,5 +17,100 @@ for(int i=0;i<n;i++)
    currSum = max(currSum + a[i] , a[i]);
    maxSum = max( maxSum, currSum);
 } 
-
 """
+--------------------------------------------------------------------------------------------
+
+Difference arrays
+
+https://blogarithms.github.io/articles/2018-11/difference-arrays
+**************************************
+# Generate Difference Array
+for i in range(len(A)):
+    if i==0:
+        diff[i] = A[i]
+    else:
+        diff[i] = A[i]-A[i-1]
+
+# Iterate over queries
+for query in range(Q):
+    L, R, X = [int(i) for i in input().split()]
+
+    # Here's where the cool bit happens
+    diff[L] += X
+    diff[R+1] -= X
+
+# And updating the original array now
+for i in range(len(A)):
+    if i==0:
+        A[i] = diff[i]
+    else:
+        A[i] = diff[i] + A[i-1]
+
+*-------------------------------------------------------------------------------
+
+
+Graph algorithms
+1) BFS
+2) DFS
+3) Dijkstra's algorithm
+4) Bellman Ford algorithm
+5) Union
+6) Topological Sort
+7) Flyod Warshall
+
+-----------------------------------------------------------------------------------
+
+
+Using 2 stacks to implement a queue
+
+1) stack<int> s1;  // push stack
+2) stack<int> s2;  // pop stack
+
+
+For enqueue, or q.push(x), push in stack s1 always
+For dequeue, check s2 if it is empty take all elements feom s1 and put in s2, then pop from s2
+Now, dequeue only from s2 till its empty and enqueue to s1 only the entire time, whn both are empty
+The original queue is empty
+
+Time complexity -> O(1)
+Amortized TC -> O(n)
+
+
+----------------------------------------------------------------------------------------------
+
+Using 2 queues to implement a stack
+
+1) queue<int>q1;
+2) queue<int>q2;
+
+push(x) -> add x to q2, take all elements from q1 to q2 one at a time, swap q1 and q2
+pop() -> pop from q1
+
+
+Using 1 queue to implement a stack
+1) Push into q1
+2) take first size-1 elements and put in the queue again while popping from front
+3) Repeat 1-2 for every push
+
+Pop() -> q1.pop()
+
+
+----------------------------------------------------------------------------------------------------
+
+Number Theory
+---------------
+
+1) a x b = LCM(a,b) x HCF(a,b)
+
+
+2) LCM of two or more fractions is given by: LCM of numerators/GCF of denominators.
+
+So, LCM(a/b,c/d) = LCM(a,b)/HCF(c,d)
+
+
+3) HCF of two or more fractions is given by: HCF of numerators/LCM of denominators.
+So. HCF(a/b,c/d) = HCF(a,b) / LCM(c,d) 
+
+
+
+

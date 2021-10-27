@@ -22,6 +22,7 @@ int networkDelayTime(vector<vector<int>>& times, int n, int k) {
     set<pair<int,int>> s;
     s.insert({dist[k],k});
     
+    // BFS
     while(!s.empty()){
         auto itr = s.begin();
         int curr_dist = itr->first;

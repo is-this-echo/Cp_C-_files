@@ -48,9 +48,7 @@ void longestIncreasingPath(vector<vector<int>>& matrix) {
             cout<<y<<" ";
         cout<<"\n";
     }
-
     cout<<"Longest increasing path is "<<ans;
-   
 }
 
 
