@@ -2,15 +2,18 @@
 // All STL containers are passed by value in a function, arrays by default are passed by reference
 
 #include<iostream>  -> basic functions, I/O operations
+#include<bits/stdc++.h>  -> master header file
 
 #define ll long long
 using namespace std;
 cin>>
 cout<<
 max(x,y) , min(x,y)
+swap(int,int)  or swap(queue<int>q1, queue<int> q2)
 int prefixProd[n]={1}; // array initialization
 stoi("123") / atoi("123 makdd efef ")  gives 123, converts string to integer
 
+*************************************************************************************************************************************************************************************
 
 
 #include<string>  -> string containers
@@ -18,7 +21,14 @@ string s;
 s.length()
 s.erase()   // erases whole string, unlike vectors or sets in which clear function deletes all elements
 
+string str="We think in generalities, but we live in details.";
+str2 = str.substr (3,5);     // "think" , str.substr(pos,length) 
+//The substring is the portion of the object that starts at character position pos and spans len characters (or until the end of the string, whichever comes first).
 
+int idx = str2.find("live") -> returns starting index of the word live
+
+
+**************************************************************************************************************************************************************************************
 #include<vector>  -> vector containers
 vector<vector<int>> dp(m,vector<int>(n,INT_MIN));
 dp.push_back(1);
@@ -32,17 +42,33 @@ vector<int> v(gfg, gfg + 8); // 5 6 7 7 6 5 5 6
 vector<int>v1{2,432,1};
 vector<int> v2(v1)  or vector<int> v2 , v2=v1;  
 
+**************************************************************************************************************************************************************************************
+
 
 #include<cstream>  -> memset to initialize locations with 0 or 1.
 int dp[50][50][50];
 memset(dp,-1,sizeof(dp));
 
 
+**************************************************************************************************************************************************************************************
+
 
 #include<queue>  ->FIFO queue data structures
 queue<int> q1;
 queue<Node*> q2;
 q.push(), q.pop(), q.front(), q.empty(), q.back()
+
+
+#include<queue>
+priority_queue<int> qq;    		// stores element in non decreasing order, max-heap by default
+qq.push(4), qq.push(7), qq.push(23) ;   // [23,7,4]
+
+//  we can multiply the values with -1 and use max heap to get the effect of min heap.
+// to declare min heap, elements sorted in ascending order, both have all other normal queue functions
+
+priority_queue<int,vector<int>, greater<int>> mq;  
+qq.push(4), qq.push(7), qq.push(23) ;   // [4,7,23]
+
 
 
 #include<deque>      -> doubly ended queue
@@ -54,9 +80,16 @@ Q.push_back(y);
 Q.back()
 
 
+
+**************************************************************************************************************************************************************************************
+
+
 #include<stack>  -> LIFO stack data structure
 stack<int> s;
 s.pop(), s.push(), s.top(), s.empty()
+peek() -> top element
+
+**************************************************************************************************************************************************************************************
 
 
 #include<climits>  -> for max min value initializations
@@ -64,6 +97,8 @@ int a = INT_MAX;
 int b = INT_MIN;
 long int d = LONG_MAX;
 long c = LONG_MIN;
+
+**************************************************************************************************************************************************************************************
 
 
 #include<algorithm>  -> basic sorting and other functions - sort/reverse
@@ -78,17 +113,19 @@ sort(vec.begin(), vec.end(), compare);   // compare function of return type bool
 reverse(vec.begin(), vec.end());
 
 
+**************************************************************************************************************************************************************************************
 
 #include<numeric>  -> some imp functions
 __gcd(int a, int b) = to calculate the gcd of 2 no.s
 
 
+**************************************************************************************************************************************************************************************
 
 #include<utility>  -> some utility functions
 pair<int,int> p = {2,4);
 make_pair(45,10)
 
-
+**************************************************************************************************************************************************************************************
 
 #include<set>  -> for set data structure, to keep unique elements in sorted manner
 set<int>s ;
@@ -121,6 +158,7 @@ set<Node*,Compare> sa;
 sa.find(Node(5,12,4)) != sa.end();
 
 
+**************************************************************************************************************************************************************************************
 
 
 #include<unordered_set>  -> to use unordered-set where elements are not sorted but they are unique
@@ -131,6 +169,8 @@ st.clear();
 auto itr = st.begin();
 auto btr = st.end();
 
+
+**************************************************************************************************************************************************************************************
 
 
 
@@ -153,18 +193,42 @@ mapp.insert(pair<int,int>(2,6));
 mapp.insert(make_pair(9,10));
 
 
+**************************************************************************************************************************************************************************************
 
 #include<unordered_map> -> same as map except that elements are not key sorted, so more time efficient
 unordered_map<Node*,int> m;
 m[node] = 5;
 
 
+**************************************************************************************************************************************************************************************
 
 #include<list> -> stores list of elements of specified data type
 list<string> str[12];
 list<int> *l = new list<int>[V];
  l[x].push_back(10);
  l[x].push_back(y);
+
+
+**************************************************************************************************************************************************************************************
+
+
+#include<algortihm>
+
+vector<int> arr1 = { 1, 4, 6, 3, 2 };   
+vector<int> arr2 = { 1, 2, 4 };
+sort(arr1.begin(), arr1.end());
+sort(arr2.begin(), arr2.end());
+      
+if(includes(arr1.begin(), arr1.end(), arr2.begin(), arr2.end()))
+    cout << "All elements of 2nd container are in 1st container";
+else 
+    cout << "All elements of 2nd container are not in 1st container";
+      
+// containers should be sorted
+returns -> True if every element of 2nd container lies in 1st container.
+
+
+**************************************************************************************************************************************************************************************
 
 
 

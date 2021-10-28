@@ -26,7 +26,23 @@ int minArrayJumps(vector<int> arr, vector<int> &dp, int n, int i=0){
 
 
 // using BFS approach
-int minJumpsBFS(){}
+int minJumpsBFS(vector<int> &arr){
+    int l,r,ans;
+    ans=0;
+    l=r=0;
+    int n = arr.size();
+
+    while(r<n-1){
+        int farthest=0;
+        for(int i=l;i<=r;i++)
+            farthest = max(farthest,arr[i]+i);
+        
+        l=r+1;
+        r = farthest;
+        ans++;
+    }
+    return ans;
+}
 
 
 int main()
@@ -35,10 +51,11 @@ int main()
     int n=arr.size();
     vector<int> dp(n,0);
 
-    cout<<minArrayJumps(arr,dp,n)<<endl;
+    cout<<minArrayJumps(arr,dp,n)<<"\n";
+    cout<<minJumpsBFS(arr)<<"\n";
 
-    for(auto x : dp)
-        cout<<x<<" ";
+   // for(auto x : dp)
+  //      cout<<x<<" ";
 
     return 0;
 }
