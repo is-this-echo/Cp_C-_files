@@ -50,11 +50,11 @@ int count(int m, vector<int> &coins){
 // 2) solution approach using recursion
 int coinChange(vector<int>& coins, int n, int amount)
 {
-    if(n==0)
-        return 0;
-
     if(amount == 0)
         return 1;
+        
+    if(n==0)
+        return 0;
     
     if(coins[n-1] > amount)
         return coinChange(coins, n-1, amount);
@@ -79,11 +79,11 @@ int change(int amount, vector<int>& coins) {
 // 3) solution using dp memoization
 int coinChangeDP(vector<int>& coins, int n, int amount)
 {
-    if(n==0)
-        return 0;
-
     if(amount == 0)
         return 1;
+
+    if(n==0)
+        return 0;
     
     if(dp[n][amount] != -1)
         return dp[n][amount];
@@ -93,6 +93,7 @@ int coinChangeDP(vector<int>& coins, int n, int amount)
         dp[n][amount] = coinChangeDP(coins, n-1, amount);
         return dp[n][amount];
     }
+    // unbounded knapsack type
     dp[n][amount] = coinChangeDP(coins, n, amount-coins[n-1]) + coinChangeDP(coins, n-1, amount);
 
     return dp[n][amount];
@@ -101,11 +102,11 @@ int coinChangeDP(vector<int>& coins, int n, int amount)
 
 int changeDP(int amount, vector<int>& coins) {
     int n = coins.size();
-    if(amount == 0) 
-        return 1;
+    // if(amount == 0) 
+    //     return 1;
     
-    if(n==0)
-        return 0;
+    // if(n==0)
+    //     return 0;
     
     dp.resize(n+1,vector<int>(amount+1,-1));
     dp[n][amount] = coinChangeDP(coins, n, amount);

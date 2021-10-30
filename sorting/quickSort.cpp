@@ -2,6 +2,7 @@
 #include<vector>
 using namespace std;
 
+// T.C = O(n^2) when we take pivot as the last element;
 int Partition(vector<int> &a, int s, int e){
     int i=s-1;
     int pivot = a[e];
@@ -22,7 +23,8 @@ int Partition(vector<int> &a, int s, int e){
 void QuickSort(vector<int> &a, int s, int e){
     if(s>=e)
         return;
-
+    // swap(vec[s+rand()%(e-s+1)],vec[s]);
+    // randomized version to make time complexity O(nlogn)
     int p = Partition(a,s,e);
     QuickSort(a,s,p-1);
     QuickSort(a,p+1,e);

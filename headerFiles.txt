@@ -6,12 +6,22 @@
 
 #define ll long long
 using namespace std;
+
 cin>>
 cout<<
+
 max(x,y) , min(x,y)
 swap(int,int)  or swap(queue<int>q1, queue<int> q2)
+
 int prefixProd[n]={1}; // array initialization
+
 stoi("123") / atoi("123 makdd efef ")  gives 123, converts string to integer
+to_string(123) -> "123" for easy traversal across the string , for float numbers gives 8 bit representaion padded with zeroes if required
+
+rand() -> gives any random number
+srand(time(0)) -> seeds the random number generator
+
+rand()% (e-s+1) gives numbers from 0 to e-s 
 
 *************************************************************************************************************************************************************************************
 
