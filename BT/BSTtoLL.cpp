@@ -15,12 +15,12 @@ public:
     }
 };
 
+
 class LinkedList{
 public:
     Node* head;
     Node* tail;
 };
-
 
 
 LinkedList BSTtoLL(Node* root){
