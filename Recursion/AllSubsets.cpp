@@ -21,6 +21,8 @@ void helper(vector<int> &nums, vector<vector<int>> &ans,vector<int> &temp, int n
 }
 
 
+
+
 vector<vector<int>> subsets(vector<int>& nums) {
     vector<vector<int>> ans;
     vector<int> temp;
@@ -38,7 +40,7 @@ int main()
 
     for(auto x : output){
         for(int i : x)
-            cout<<i<<",";
+            cout<<i<<" ";
         cout<<endl;
     }
     
