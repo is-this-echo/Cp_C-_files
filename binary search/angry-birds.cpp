@@ -57,13 +57,12 @@ int main()
             ans = mid;
             s = mid+1;
         }
-
         else {
             e = mid-1;
         }
     }
 
-   cout<<ans;
+    cout<<ans;
 
     return 0;
 }

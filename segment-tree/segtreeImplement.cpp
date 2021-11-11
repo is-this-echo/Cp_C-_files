@@ -32,12 +32,14 @@ void build(int idx, int low, int high){
 
 int query(int idx, int low, int high, int l, int r){
     // if seg tree range lies complelely inside l and r
-    if(low>=l && r<=high)
+    if(low>=l && high<=r)
         return seg[idx];
 
+    // seg tree range lies outside l and r
     if (low>r || high<l)
         return INT_MIN;
 
+    // the 2 ranges overlaps
     int mid=(low+high)/2;
     int left = query(2*idx+1, low,mid,l,r);
     int right = query(2*idx+2,mid+1,high,l,r);

@@ -46,7 +46,6 @@ void BFSTraversal(Node* root) {
 }
 
 void PrintAtLevelK(Node* root, int k){
-
     if(root==NULL)
         return;
     
@@ -54,8 +53,7 @@ void PrintAtLevelK(Node* root, int k){
         cout<<root->data<<" ";
         return;
     }
-        
-
+    
     PrintAtLevelK(root->left,k-1);
     PrintAtLevelK(root->right,k-1);
 }

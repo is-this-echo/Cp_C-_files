@@ -7,7 +7,6 @@ using namespace std;
 
 
 void printSubseq(string input, string output){
-
     if(input.length()==0){
         cout<<output<<"\n";
         return ;
