@@ -2,6 +2,14 @@
 #include<unordered_map>
 #include<string>
 using namespace std;
+/*
+Trie() Initializes the trie object.
+void insert(String word) Inserts the string word into the trie.
+boolean search(String word) Returns true if the string word is in the trie 
+and false otherwise.
+boolean startsWith(String prefix) Returns true if there is a previously inserted
+string word that has the prefix prefix, and false otherwise.
+*/
 
 class Node{
 public:
@@ -14,6 +22,7 @@ public:
         isTerminal=false;
     }
 };
+
 
 class Trie{
 public:
@@ -36,6 +45,7 @@ public:
         temp->isTerminal  =true;
     }
 
+
     bool search(string word){
         Node* temp =root;
 
@@ -47,7 +57,21 @@ public:
         }
         return temp->isTerminal;
     }
+
+
+    bool startsWith(string prefix) {
+        Node* temp=root;
+        
+        for(char s : prefix){
+            if(temp->m.count(s)==0)
+                return false;
+            
+            temp=temp->m[s];
+        }
+        return true;
+    }
 };
+
 
 
 int main()
