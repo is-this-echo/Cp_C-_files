@@ -1,13 +1,7 @@
-/* Question : 
 
-Given an array, arr = [9,1,5,2,3,7,1,8,4,5] and Q queries of the form l,r
-We need to find the max element in the array with indices ranging from l to r(both inclusive).
+// 2 types of queries, 1) arr[idx]+=X , 2) [l,R] Range Sum query
+// point updates needed in segment tree
 
-l , r   output
-0 , 2   9
-6 , 9   8/
-3,  5   7
-*/
 
 #include<iostream>
 #include<climits>
@@ -29,6 +23,27 @@ void build(int idx, int low, int high){
     build(2*idx+2,mid+1,high);
     seg[idx] = max(seg[2*idx+1],seg[2*idx+2]);
 }
+
+// node is the index of element to be increased in the array by value
+// call from main as pointUpdate(0,0,n-1,node,val); TimeComplexity = O(logn)
+void pointUpdate(int idx, int low, int high, int node, int val){
+
+    if(low==high){
+        seg[low]+=val;
+    }
+    else{
+        int mid = (low+high)>>1;
+        if(node>=low && node<=mid)
+            pointUpdate(2*idx+1,low,mid,node,val);
+        else 
+            pointUpdate(2*idx+2,mid+1,high,node,val);
+        
+        seg[idx] = max(seg[2*idx+1],seg[2*idx+2]);
+    }
+
+}
+
+
 
 int query(int idx, int low, int high, int l, int r){
     // if seg tree range lies complelely inside l and r
