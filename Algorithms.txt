@@ -114,3 +114,11 @@ So. HCF(a/b,c/d) = HCF(a,b) / LCM(c,d)
 
 
 Number of subarrays possible for an array of size n = n(n+1)/2;
+
+
+
+
+QuickSort Time Complexity analysis (best and worst cases)
+https://www.youtube.com/watch?v=4nVbJV5pZa8&ab_channel=GATEAppliedCourse
+
+
