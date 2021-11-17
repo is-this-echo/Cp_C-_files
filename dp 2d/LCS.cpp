@@ -30,10 +30,10 @@ int lcsTD(string s1, string s2, int i, int j, vector<vector<int>> &dp){
         return dp[i][j];
 
     if(s1[i]==s2[j])
-        return dp[i][j] = 1 + lcs(s1,s2,i+1,j+1);
+        return dp[i][j] = 1 + lcsTD(s1,s2,i+1,j+1);
     
-    int case1 = lcs(s1,s2,i,j+1);
-    int case2 = lcs(s1,s2,i+1,j);
+    int case1 = lcsTD(s1,s2,i,j+1,dp);
+    int case2 = lcsTD(s1,s2,i+1,j,dp);
 
     return dp[i][j] = max(case1, case2);
 }
@@ -67,6 +67,7 @@ int lcsBU(string s1, string s2){
         cout<<endl;
     }
 
+    // printing the lcs string
     int i=n1,j=n2;
     string lcs;
     

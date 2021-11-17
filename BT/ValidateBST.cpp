@@ -55,6 +55,5 @@ int main()
     else
         cout<<"Invalid BST!!"<<endl;
 
-  
     return 0;
 }
