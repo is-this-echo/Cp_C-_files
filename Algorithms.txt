@@ -31,7 +31,7 @@ for i in range(len(A)):
     else:
         diff[i] = A[i]-A[i-1]
 
-# Iterate over queries
+# Iterate over queries, like l and r  are given and we have to increment by x
 for query in range(Q):
     L, R, X = [int(i) for i in input().split()]
 
@@ -111,14 +111,73 @@ So, LCM(a/b,c/d) = LCM(a,b)/HCF(c,d)
 3) HCF of two or more fractions is given by: HCF of numerators/LCM of denominators.
 So. HCF(a/b,c/d) = HCF(a,b) / LCM(c,d) 
 
-
-
 Number of subarrays possible for an array of size n = n(n+1)/2;
 
 
 
 
-QuickSort Time Complexity analysis (best and worst cases)
-https://www.youtube.com/watch?v=4nVbJV5pZa8&ab_channel=GATEAppliedCourse
+Bitwise operators
+-----------------------
+	xor operator , a^b compares their binary froms bit by bit, ex-> 1^1 = 0, 0^0=0, 1^0 =1, 0^1=1
+	~ operator, flips the bits from 0 to 1 or vice versa.
+	But, ~0 =-1 as most significant bit msb, decides the sign, if its 1 then the number is negative else positive.
+
+  right shift operator  ->    a>>b   = a/(2^b)  , drop 'b' no. of bits from the end.
+	Ex -> a= 10010, b= 2  , then a>>b = 100 , last 2 bits dropped.
+
+  left shift operator   ->    a<<b   = a * (2^b),  append 'b' no. of zeros at the end.
+	Ex -> a = 100, b = 3 , then a<<b = 100000  , binary form of a gets appended by 3 zeros.
 
 
+To find if a number N is a power of 2, then N & (N-1) == 0
+To find if a number x is odd, then (x & 1)==1 , as odd numbers in binary form has 1 as the last bit.
+
+
+
+
+Set bits-> count of 1's in the binary representation of a decimal number
+code to count set bits -> 
+// The idea is we find if the last bit is set or not, then right shift the number to drop the last bit.
+// timeC = O(log n)
+int cnt = 0;
+while(n>0){
+cnt+= (n&1);
+n=n>>1;
+}
+return cnt;
+
+
+
+
+// faster method, n&(n-1) removes the last set bit in binary rep of n, timeC = O(no. of set bits)
+
+int cnt=0;
+while(n>0){
+n = n & (n-1)
+cnt++;
+}
+return cnt;
+
+
+
+
+// calculate XOR from 1 to n
+Ex. 1^2^3^4^5^6^7^8^9
+*********************************
+int computeXOR(int n)
+{
+   // If n is a multiple of 4
+  if (n % 4 == 0)
+    return n;
+ 
+  // If n%4 gives remainder 1
+  if (n % 4 == 1)
+    return 1;
+ 
+  // If n%4 gives remainder 2
+  if (n % 4 == 2)
+    return n + 1;
+ 
+  // If n%4 gives remainder 3
+  return 0;
+}
