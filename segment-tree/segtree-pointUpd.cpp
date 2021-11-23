@@ -27,9 +27,9 @@ void build(int idx, int low, int high){
 // node is the index of element to be increased in the array by value
 // call from main as pointUpdate(0,0,n-1,node,val); TimeComplexity = O(logn)
 void pointUpdate(int idx, int low, int high, int node, int val){
-
     if(low==high){
         seg[low]+=val;
+        return;
     }
     else{
         int mid = (low+high)>>1;

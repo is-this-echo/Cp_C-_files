@@ -5,14 +5,11 @@ using namespace std;
 class Node{
 public:
     int val;
-    int inc;
-    int exc;
     Node* left;
     Node* right;
 
     Node(int val){
         this->val=val;
-        exc = inc =0;
         left=right=NULL;
     }
 };

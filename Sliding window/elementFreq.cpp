@@ -19,7 +19,6 @@ int maxFrequency(vector<int>& nums, int k) {
 
         // expand window, we want to make all elements
         // inside the window same as the last element in window
-
         if(nums[r]*window_len <= total + k){
             maxlen = max(maxlen,window_len);
             r++;

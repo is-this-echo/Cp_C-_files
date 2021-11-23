@@ -163,7 +163,7 @@ return cnt;
 
 // calculate XOR from 1 to n
 Ex. 1^2^3^4^5^6^7^8^9
-*********************************
+***********************************************
 int computeXOR(int n)
 {
    // If n is a multiple of 4
@@ -181,3 +181,18 @@ int computeXOR(int n)
   // If n%4 gives remainder 3
   return 0;
 }
+
+
+*************************************************
+
+
+matrix rotation -> 
+
+0/360 deg = (i,j) to (i,j)
+90 deg   =  (i,j) to (j,n-i-1)
+180 deg  =  (i,j) to (n-i-1, n-j-1)
+270 deg  =  (i,j) to (n-j-1, i)
+
+
+
+
