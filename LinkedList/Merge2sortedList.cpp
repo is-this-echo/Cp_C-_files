@@ -50,11 +50,13 @@ struct ListNode {
     }
     while(p1!=nullptr){
         temp->next=p1;
+        // below 2 lines are not necessary as all elements of linked list lies in p1
         temp=temp->next;
         p1=p1->next;
     }
     while(p2!=nullptr){
         temp->next=p2;
+    // below 2 lines are not necessary as all elements of linked list lies in p12
         temp=temp->next;
         p2=p2->next;
     }

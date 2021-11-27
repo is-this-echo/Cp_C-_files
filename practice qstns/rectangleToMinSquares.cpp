@@ -3,19 +3,16 @@ Given a paper of size A x B.
 Task is to cut the paper into squares of any size. 
 Find the minimum number of squares that can be cut from the paper.
 
-Input  : 13 x 29
-Output : 9
+Input  : 13 x 29,   Output : 9
 Explanation : 
 2 (squares of size 13x13) + 
 4 (squares of size 3x3) + 
 3 (squares of size 1x1)=9
 
-Input  : 4 x 5
-Output : 5
+Input  : 4 x 5,     Output : 5
 Explanation : 
 1 (squares of size 4x4) + 
 4 (squares of size 1x1)
-
 */
 
 #include<iostream>
@@ -40,7 +37,6 @@ int minimumSquare(int a, int b){
         a = b; 
         b = rem; 
     }
-  
     return result; 
 } 
   
@@ -48,7 +44,6 @@ int minimumSquare(int a, int b){
 
 int main() {
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
-
     int n = 13, m = 29; 
     cout << minimumSquare(n, m); 
     

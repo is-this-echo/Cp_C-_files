@@ -27,7 +27,6 @@ public:
 		left = NULL;
 		right = NULL;
 	// left=right=NULL;
-
 	}
 };
 

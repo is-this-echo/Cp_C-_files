@@ -55,9 +55,18 @@ vector<int> v2(v1)  or vector<int> v2 , v2=v1;
 **************************************************************************************************************************************************************************************
 
 
-#include<cstream>  -> memset to initialize locations with 0 or 1.
+#include<cstring>  -> memset to initialize locations with 0 or 1.
 int dp[50][50][50];
 memset(dp,-1,sizeof(dp));
+
+
+
+
+strcpy(dest, src);  -> copies string from src to dest variable;
+
+ex-> char name[100]; char*str="erere\0";
+strcpy(name,str);
+so name becomes erere.
 
 
 **************************************************************************************************************************************************************************************
