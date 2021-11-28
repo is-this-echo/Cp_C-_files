@@ -31,6 +31,7 @@ void QuickSort(vector<int> &a, int s, int e){
 }
 
 
+
 int main()
 {
     vector<int> arr {10,6,4,2,1,9,3,7};

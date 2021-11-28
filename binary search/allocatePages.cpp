@@ -31,7 +31,8 @@ bool allocationPossible(vector<int> &arr,int s, int pages){
 
         if(allocated+arr[i]>pages){
                 sn++;
-                allocated = arr[i];
+                allocated=arr[i];
+                //allocated=0;
         }
         else 
             allocated+=arr[i];

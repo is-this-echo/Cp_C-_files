@@ -40,7 +40,7 @@ bool canPlaceBirds(vector<int> &nests, int N, int B, int dist){
 
 int main()
 {
-    vector<int> nests{1,2,4,8,9};
+    vector<int> nests{9,4,8,2,1};
     int N = nests.size();
     int birds = 3;
 
@@ -50,7 +50,8 @@ int main()
     int ans=-1;
 
     while(s<=e){
-        int mid = (s+e)/2;
+        int mid = (s+e)/2; 
+        // s + (e-s)/2
         
         bool canPlace  = canPlaceBirds(nests, N, birds,mid);
         if(canPlace){

@@ -9,6 +9,7 @@ int search(vector<int>& a, int target) {
     
     while(s<=e){
         int mid = (s+e)/2;
+        
         if(a[mid]==target)
             return mid;
         
