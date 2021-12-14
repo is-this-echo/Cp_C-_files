@@ -196,5 +196,17 @@ matrix rotation ->
 270 deg  =  (i,j) to (n-j-1, i)
 
 
+***************************************************
+
+
+Sorting elements in a stack using another stack, TC = O(N^2), SC = o(N)
+
+
+We create a temporary stack tempStack. Now we run a loop while the input stack is not empty.
+At each iteration, we pop an element from the input stack and compare it with the element present on the top of the tempStack. Initially, tempStack is empty. So in the first iteration, we pop the element from the input stack and push it into the tempStack.
+If tempStack is not empty and the popped element is smaller than the top element of the tempStack, we pop the top element from the tempStack and push it into the input stack. Otherwise, if the element is greater, we push it into the tempStack.
+In other words, we continue the above process in an inner loop until the top of the tempStack is greater than the popped element from the input stack or tempStack is empty.
+The input stack will be empty by the end of the outer loop, and the sorted elements are present in the temporary stack. So we return the tempStack as an output.
+
 
 
