@@ -46,7 +46,7 @@ void printMatrix(vector<vector<int>>&grid){
 }
 
 
- // O(1) complexity
+ // O(1) space complexity
 void setZeroes(vector<vector<int>>& matrix) {
     int m = matrix.size();
     int n = matrix[0].size(); 

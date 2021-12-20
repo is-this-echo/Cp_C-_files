@@ -10,9 +10,47 @@ using namespace std;
 double eps = 1e-12;
     
 
-    
-void solve(){
 
+int partition(vector<int>&arr, int s, int e){
+    int i=s-1, pivot = arr[e];
+
+    for(int j=s;j<e;j++){
+        if(arr[j]<=pivot){
+            i++;
+            swap(arr[i],arr[j]);
+        }
+    }
+    i++;
+    swap(arr[i],arr[e]);
+    return i; 
+}
+
+
+
+void quicksort(vector<int>&arr,int s, int e){
+    if(s>=e)
+        return ;
+
+    int p = partition(arr,s,e);
+    quicksort(arr,s,p-1);
+    quicksort(arr,p+1,e);
+}
+
+
+
+void solve(){
+    int n;
+    cin>>n;
+    vector<int>arr(n);
+
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+
+    quicksort(arr,0,n-1);
+
+    for(int i=0;i<n;i++)
+        cout<<arr[i]<<" ";
 
 }
 

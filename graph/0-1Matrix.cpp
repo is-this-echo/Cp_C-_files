@@ -1,3 +1,7 @@
+
+// 542. 01 Matrix
+
+
 #pragma GCC optimize("Ofast")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
 #pragma GCC optimize("unroll-loops")
@@ -9,7 +13,8 @@ using namespace std;
 #define mod 998244353
 double eps = 1e-12;
     
- 
+    
+ // multi-source bfs
 vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
     queue<pair<int,int>>q;
         
