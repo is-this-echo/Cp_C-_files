@@ -4,36 +4,22 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-#define ll long long
+#define int long long
 #define INF 2e18
 #define mod 998244353
 double eps = 1e-12;
 
 
 
-/*    
-     A
-    ABA
-   ABCBA
-  ABCDCBA
- ABCDEDCBA
-
-*/
-
 
 void solve(){
-    for(int i=1;i<=5;i++){
-        for(int j=1;j<=2*i-1){
-            
-        }
-    }
+
 
 }
 
 
     
-int main() {
+signed main() {
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 
     solve();

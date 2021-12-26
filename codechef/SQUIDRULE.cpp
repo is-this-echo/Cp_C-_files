@@ -4,31 +4,29 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
 #define ll long long
 #define INF 2e18
 #define mod 998244353
 double eps = 1e-12;
-
-
-
-/*    
-     A
-    ABA
-   ABCBA
-  ABCDCBA
- ABCDEDCBA
-
-*/
-
+    
+ 
 
 void solve(){
-    for(int i=1;i<=5;i++){
-        for(int j=1;j<=2*i-1){
-            
-        }
+
+    int n;
+    cin>>n;
+
+    vector<int>arr(n);
+    int ans=0,minmoney=INT_MAX;
+
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+        ans+=arr[i];
+        minmoney = min(minmoney,arr[i]);
     }
 
+    cout<<ans-minmoney<<"\n";
+        
 }
 
 
@@ -36,7 +34,11 @@ void solve(){
 int main() {
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 
-    solve();
+    int t;
+    cin>>t;
+
+    while(t--)
+        solve();
     
     return 0;
 }

@@ -45,6 +45,19 @@ dp.push_back(1);
 dp.erase(itr);
 dp.clear();
 
+return type int, no dereferencing required
+++++++++++++++++++++++++++++++++++++++++++
+
+dp.front() -> fetches begin value of vector
+dp.back() ->  fetches back value of vector
+
+
+dereferencing required, as pointer to the address is given
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+dp.begin(), dp.end()
+
+
 int gfg[] = { 5, 6, 7, 7, 6, 5, 5, 6 };
 vector<int> v(gfg, gfg + 8); // 5 6 7 7 6 5 5 6
 
