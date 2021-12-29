@@ -37,6 +37,13 @@ str2 = str.substr (3,5);     // "think" , str.substr(pos,length)
 
 int idx = str2.find("live") -> returns starting index of the word live
 
+***********+++++++++++++++++++++++++
+
+string s;
+
+s+= "asd"; 	 O(1) time
+s = s + "asd";	 O(length(s)) time
+
 
 **************************************************************************************************************************************************************************************
 #include<vector>  -> vector containers
