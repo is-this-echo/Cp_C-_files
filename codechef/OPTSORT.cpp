@@ -12,16 +12,32 @@ double eps = 1e-12;
  
 
 void solve(){
-    int n;
+    int n,val,ans=0;
     cin>>n;
 
-    vector<int>arr(n);
+    vector<int>arr(n),ideal(n);
 
-    for(int i=0;i<n;i++)
-        cin>>arr[i];
-    
-    
+    for(int i=0;i<n;i++){
+        cin>>val;
 
+        arr[i]=val;
+        ideal[i]=val;
+    }
+        
+    sort(ideal.begin(),ideal.end());
+    multiset<int>p,q;
+
+    for(int i=0;i<n;i++){
+        p.insert(arr[i]);
+        q.insert(ideal[i]);
+
+        if(p==q){
+            ans += (*(p.rbegin()) - *p.begin());
+            p.clear();
+            q.clear();
+        }
+    }
+    cout<<ans<<"\n";
 
 }
     

@@ -15,17 +15,28 @@ void solve(){
     int n;
     cin>>n;
 
-    vector<int>arr(n);
-    ll sum=0;
+    string s;
+    cin>>s;
+
+    string str="";
+
     for(int i=0;i<n;i++){
-        cin>>arr[i];
-        sum+=arr[i];
+        if(s[i]=='c' && s[i+1]=='h' && s[i+2]=='e' && s[i+3]=='f'){
+            //if(str=="")
+                cout<<"WA\n";
+            //else if(str=="code")
+               // cout<<"AC";
+
+           ///cout<<"\n";
+            return;
+        }
+
+        if(s[i]=='c' && s[i+1]=='o' && s[i+2]=='d' && s[i+3]=='e'){
+            cout<<"AC"<<"\n";
+            return;
+        }
     }
-
-    ll q = sum/n, rem = sum%n, ans;
-
-    ans = rem==0? 0 : 1;
-    cout<<ans<<"\n";
+    return;
 }
 
 

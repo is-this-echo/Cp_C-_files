@@ -1,0 +1,44 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
+#pragma GCC optimize("unroll-loops")
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define INF 2e18
+#define mod 998244353
+double eps = 1e-12;
+    
+ 
+  int maxProfit(vector<int>& prices) {
+    // sliding window approach
+    int l=0,r=0,n=prices.size();
+    int profit=0,maxProfit=0;
+    
+    while(r<n-1){
+        r++;
+        
+        if(prices[r]<prices[l])
+            l=r;
+            //profit=0;
+        
+        else{
+            profit = prices[r]-prices[l];
+            maxProfit = max(maxProfit, profit);
+        }
+        
+    }
+    return maxProfit;
+}
+
+
+int main() {
+    ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+    vector<int>prices = {7,1,5,3,6,4};
+
+    cout<<maxProfit(prices);
+
+
+    return 0;
+}

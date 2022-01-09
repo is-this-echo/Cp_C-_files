@@ -4,7 +4,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
 #define ll long long
 #define INF 2e18
 #define mod 998244353
@@ -12,31 +11,23 @@ double eps = 1e-12;
 
 
 
-/*    
-     A
-    ABA
-   ABCBA
-  ABCDCBA
- ABCDEDCBA
-
-*/
-
-
 void solve(){
-    for(int i=1;i<=5;i++){
-        for(int j=1;j<=2*i-1){
-            
-        }
+    int n;
+    cin>>n;
+
+    if(n<=2){
+        cout<<0<<"\n";
+        return;
     }
+        
+    ll ans1 = 1;
+    ll ans2 = pow(3,n-3)*(n-2)*8;
+    ans1 = ans2+ans2/4;
+
+    cout<<ans1<<"\n";
+
 }
 
-
-void solve2(){
-    int n,x,y;
-    cin>>n>>x>>y;
-
-    cout<<((x+y)&1 ? 1 : 0)<<"\n";
-}
 
     
 int main() {
