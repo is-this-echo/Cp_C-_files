@@ -44,6 +44,7 @@ int main()
     int N = nests.size();
     int birds = 3;
 
+    // define search space
     sort(nests.begin(),nests.end());
     int s=0;
     int e = nests[N-1]-nests[0];

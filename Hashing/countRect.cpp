@@ -16,7 +16,7 @@ public:
 
 
 class Compare {
-    public:
+public:
     bool operator()(const Point p1, const Point p2){
         if(p1.x==p2.x)
             return p1.y<p2.y;

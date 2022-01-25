@@ -7,11 +7,12 @@ using namespace std;
 #define ll long long
 #define INF 2e18
 #define mod 998244353
-double eps = 1e-12;
+const double eps = 1e-12;
     
  
   int maxProfit(vector<int>& prices) {
     // sliding window approach
+
     int l=0,r=0,n=prices.size();
     int profit=0,maxProfit=0;
     

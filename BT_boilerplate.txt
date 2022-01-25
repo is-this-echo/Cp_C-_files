@@ -64,8 +64,10 @@ Node* buildTree() {
 
 
 // function for BFS traversal
+
 void BFSTraversal(Node* root) {
 	queue<Node*>q;
+
 	q.push(root);
 	q.push(NULL);
 
@@ -96,7 +98,9 @@ void BFSTraversal(Node* root) {
 
 
 // building tree by level order/BFS
+
 Node* buildLevelOrder() {
+
 	int d;
 	queue<Node*> q;
 
@@ -125,7 +129,7 @@ Node* buildLevelOrder() {
 
 
 // Given the root of a binary tree with unique values and the values of two different nodes of the tree x and y, 
-//return true if the nodes corresponding to the values x and y in the tree are cousins, or false otherwise.
+// return true if the nodes corresponding to the values x and y in the tree are cousins, or false otherwise.
 //Two nodes of a binary tree are cousins if they have the same depth with different parents.
 
 class Solution {
@@ -161,7 +165,7 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         if(left!=NULL && right!=NULL)
             return root;
         
-return left!=NULL?left:right;
+	return left!=NULL?left:right;
         
  }
 

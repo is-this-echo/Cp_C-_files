@@ -105,8 +105,38 @@ qq.push(4), qq.push(7), qq.push(23) ;   // [23,7,4]
 //  we can multiply the values with -1 and use max heap to get the effect of min heap.
 // to declare min heap, elements sorted in ascending order, both have all other normal queue functions
 
+// min-heap
 priority_queue<int,vector<int>, greater<int>> mq;  
 qq.push(4), qq.push(7), qq.push(23) ;   // [4,7,23]
+
+//
+class Car{
+public:
+    string id;
+    int x,y;
+
+    Car(int x, int y, string s){
+        this->x=x;
+        this->y = y;
+        id=s;
+    }
+
+// const function declaration
+    int dist() const{
+        return x*x + y*y;
+    }
+};
+
+
+class Compare {
+public:
+    bool operator()(const Car &a , const Car &b){
+        return a.dist()<b.dist();
+    }
+};
+priority_queue<Car, vector<Car>, Compare>pq(cars.begin(),cars.begin()+k);
+
+// priority_queues with custom data structure
 
 
 

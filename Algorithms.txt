@@ -69,7 +69,7 @@ Using 2 stacks to implement a queue
 
 For enqueue, or q.push(x), push in stack s1 always
 For dequeue, check s2 if it is empty take all elements feom s1 and put in s2, then pop from s2
-Now, dequeue only from s2 till its empty and enqueue to s1 only the entire time, whn both are empty
+Now, dequeue only from s2 till its empty and enqueue to s1 only the entire time, whrn both are empty
 The original queue is empty
 
 Time complexity -> O(1)
@@ -105,11 +105,11 @@ Number Theory
 
 2) LCM of two or more fractions is given by: LCM of numerators/GCF of denominators.
 
-So, LCM(a/b,c/d) = LCM(a,b)/HCF(c,d)
+So, LCM(a/b,c/d) = LCM(a,c)/HCF(b,d)
 
 
 3) HCF of two or more fractions is given by: HCF of numerators/LCM of denominators.
-So. HCF(a/b,c/d) = HCF(a,b) / LCM(c,d) 
+So. HCF(a/b,c/d) = HCF(a,c) / LCM(b,d) 
 
 
 
@@ -127,7 +127,7 @@ Bitwise operators
   right shift operator  ->    a>>b   = a/(2^b)  , drop 'b' no. of bits from the end.
 	Ex -> a= 10010, b= 2  , then a>>b = 100 , last 2 bits dropped.
 
-  left shift operator   ->    a<<b   = a * (2^b),  append 'b' no. of zeros at the end.
+  left shift operator   ->    a<<b   = a * (2^b),  append 'b' no. of zeros at the end. 
 	Ex -> a = 100, b = 3 , then a<<b = 100000  , binary form of a gets appended by 3 zeros.
 
 
@@ -199,7 +199,7 @@ matrix rotation ->
 ***************************************************
 
 
-Sorting elements in a stack using another stack, TC = O(N^2), SC = o(N)
+Sorting elements in a stack using another stack, TC = O(N^2), SC = O(N)
 
 
 We create a temporary stack tempStack. Now we run a loop while the input stack is not empty.
