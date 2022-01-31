@@ -22,7 +22,6 @@ void helper(vector<int> &nums, vector<vector<int>> &ans,vector<int> &temp, int n
 
 
 
-
 vector<vector<int>> subsets(vector<int>& nums) {
     vector<vector<int>> ans;
     vector<int> temp;
@@ -31,7 +30,6 @@ vector<vector<int>> subsets(vector<int>& nums) {
     helper(nums,ans,temp,n);
     return ans;
 }
-
 
 
 int main()

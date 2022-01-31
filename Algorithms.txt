@@ -112,9 +112,16 @@ So, LCM(a/b,c/d) = LCM(a,c)/HCF(b,d)
 So. HCF(a/b,c/d) = HCF(a,c) / LCM(b,d) 
 
 
-
 Number of subarrays possible for an array of size n = n(n+1)/2;
 
+
+// program to find gcd of 2no.s
+int gcd(int a, int b){
+ if(b==0)
+    return a;
+
+ return gcd(b, a%b);
+}
 
 
 
@@ -141,6 +148,7 @@ Set bits-> count of 1's in the binary representation of a decimal number
 code to count set bits -> 
 // The idea is we find if the last bit is set or not, then right shift the number to drop the last bit.
 // timeC = O(log n)
+
 int cnt = 0;
 while(n>0){
 cnt+= (n&1);
@@ -188,7 +196,7 @@ int computeXOR(int n)
 *************************************************
 
 
-matrix rotation -> 
+square matrix rotation -> 
 
 0/360 deg = (i,j) to (i,j)
 90 deg   =  (i,j) to (j,n-i-1)

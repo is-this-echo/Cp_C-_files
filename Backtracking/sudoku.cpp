@@ -10,9 +10,8 @@ using namespace std;
 #define ll long long
 #define INF 2e18
 #define mod 998244353
-double eps = 1e-12;
+const double eps = 1e-12;
     
-
 
 bool canFill(vector<vector<char>>&board, int row, int col, char ch){
     for(int i=0;i<9;i++){
@@ -50,7 +49,7 @@ bool sudokuSolver(vector<vector<char>>&board){
             }
         }
     }
-    
+
     return true;
 }
 
@@ -60,7 +59,6 @@ void solveSudoku(vector<vector<char>>& board) {
     sudokuSolver(board);
 }
     
-
 
 void printSudoku(vector<vector<char>>&board){
     for(auto x: board){
@@ -76,7 +74,6 @@ void printSudoku(vector<vector<char>>&board){
 int main() {
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 
-
     vector<vector<char>> sudoku =  {{'5','3','.','.','7','.','.','.','.'},
                                     {'6','.','.','1','9','5','.','.','.'},
                                     {'.','9','8','.','.','.','.','6','.'},
@@ -91,6 +88,5 @@ int main() {
     solveSudoku(sudoku);
     printSudoku(sudoku);
 
-    
     return 0;
 }

@@ -36,7 +36,6 @@ int main() {
     vector<vector<int>> arr = {{5,1,9,11},{2,4,8,10},{13,3,6,7},{15,14,12,16}};
 
     cout<<"Array before rotation: "<<"\n";
-
     for(auto x: arr){
         for(auto c: x)
             cout<<c<<" ";
@@ -44,8 +43,8 @@ int main() {
     }
 
     rotate(arr);
+
     cout<<"Array after rotating by 90 degrees :"<<'\n';
-    
     for(auto x: arr){
         for(auto c: x)
             cout<<c<<" ";

@@ -23,8 +23,7 @@ int countSub(string s1, string s2, int i , int j){
 
 // Bottom up approach, TC = O(mxn), SC = O(mxn)
 int countSubBU(string s1, string s2){
-    int m = s1.size();
-    int n = s2.size();
+    int m = s1.size(),n = s2.size();
     vector<vector<int>> dp(m+1,vector<int>(n+1,0));
 
     // if s2 is empty string then we can always find it in s1

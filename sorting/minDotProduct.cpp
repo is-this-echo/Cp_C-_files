@@ -1,7 +1,7 @@
 
 // Given 2  n dimensional vectors A & B, it is allowed to change the order of elements 
 // in A & B . Shuffle the elements in A and B such that their dot product is minimum.
-//Return the dot product
+// Return the dot product
 
 #include<iostream>
 #include<algorithm>

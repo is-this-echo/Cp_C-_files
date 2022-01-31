@@ -1,5 +1,9 @@
+
+
 #include<iostream>
 using namespace std;
+
+
 
 void generateBrackets(string s, int n, int nob, int ncb, int i){
     // base case
