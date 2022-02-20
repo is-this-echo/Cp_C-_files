@@ -28,7 +28,6 @@ bool canFill(vector<vector<char>>&board, int row, int col, char ch){
 }
 
 
-
 bool sudokuSolver(vector<vector<char>>&board){
     for(int i=0;i<9;i++){
         for(int j=0;j<9;j++){

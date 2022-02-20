@@ -18,9 +18,9 @@ int dfs(vector<vector<int>>&grid, vector<vector<bool>>&vis, int m, int n, int i,
     if(vis[i][j])
         return 0;
     
-    int perimeter = 0;
     vis[i][j]=1;
     
+    int perimeter = 0;
     int dx[] = {0,0,1,-1};
     int dy[] = {1,-1,0,0};
     
@@ -32,8 +32,7 @@ int dfs(vector<vector<int>>&grid, vector<vector<bool>>&vis, int m, int n, int i,
 
     
 int islandPerimeter(vector<vector<int>>& grid) {
-    int m = grid.size();
-    int n = grid[0].size();
+    int m = grid.size(), n = grid[0].size();
     int ans;
 
     vector<vector<bool>>vis(m,vector<bool>(n,false));

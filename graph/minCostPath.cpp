@@ -17,7 +17,7 @@ public:
 };
 
 class Compare{
-    public:
+public:
     bool operator()(const Node &a,  const Node &b){
     return a.s_dist<=b.s_dist;
     }

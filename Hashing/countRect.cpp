@@ -24,6 +24,7 @@ public:
     }
 };
 
+
 // time complexity : O(n^2logn)
 int countRect(vector<Point> p){
     set<Point, Compare> s;
@@ -35,6 +36,7 @@ int countRect(vector<Point> p){
 
     for(int i=0;i<n-1;i++){
         for(int j=i+1;j<n;j++){
+            
             Point p1 = p[i];
             Point p2=p[j];
 

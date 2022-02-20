@@ -25,7 +25,7 @@ void genSubarrays(vector<int> &nums, vector<vector<int>>&store){
 int main() {
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
     
-    vector<int> nums = {1,2,3};
+    vector<int> nums = {0,1,1,0,1};
     vector<vector<int>> store;
     vector<int> temp;
 

@@ -6,7 +6,7 @@ using namespace std;
 
 #define ll long long
 #define mod 998244353
-double eps = 1e-12;
+const double eps = 1e-12;
     
 
  void dfs(vector<vector<int>>&grid, int i, int j, int m, int n, int newCol, int                prevCol){    

@@ -8,7 +8,7 @@ void insert(String word) Inserts the string word into the trie.
 boolean search(String word) Returns true if the string word is in the trie 
 and false otherwise.
 boolean startsWith(String prefix) Returns true if there is a previously inserted
-string word that has the prefix prefix, and false otherwise.
+string word that has the given prefix, and false otherwise.
 */
 
 class Node{
@@ -42,7 +42,7 @@ public:
             }
             temp = temp->m[ch];
         }
-        temp->isTerminal  =true;
+        temp->isTerminal  = true;
     }
 
 

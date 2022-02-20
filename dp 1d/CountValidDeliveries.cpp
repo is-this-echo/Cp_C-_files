@@ -23,6 +23,7 @@ ll fact(int x){
 ll countOrders(int n){
     ll ans=1,i=0;
 
+ // will run n-1 times
     while((2*n-(2*i+1))>0){
         ans = ans * (2*n-(2*i+1)) % mod;
         i++;

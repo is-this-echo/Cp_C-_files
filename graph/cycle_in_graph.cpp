@@ -8,7 +8,7 @@ class Graph{
     int V;
     list<int> *l;
 
-    public:
+public:
     Graph(int V){
         this->V = V;
         l = new list<int>[V];
@@ -39,6 +39,7 @@ class Graph{
     
     //wrapper function
     bool containsCycle(){
+        // assuming graph consists of single component
         vector<bool> visited(V,false);
         return dfsHelper(0,visited,-1);
     }

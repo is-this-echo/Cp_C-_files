@@ -30,6 +30,7 @@ void build(int idx, int low, int high){
     seg[idx] = max(seg[2*idx+1],seg[2*idx+2]);
 }
 
+
 int query(int idx, int low, int high, int l, int r){
     // if seg tree range lies complelely inside l and r
     if(low>=l && high<=r)

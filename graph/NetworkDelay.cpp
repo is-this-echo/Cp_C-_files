@@ -49,7 +49,7 @@ int networkDelayTime(vector<vector<int>>& times, int n, int k) {
     for(int i=1;i<=n;i++){
         if(dist[i]==INT_MAX)
             return -1;
-        time_taken = max(time_taken,dist[i]);
+        time_taken = max(time_taken, dist[i]);
     }
     return time_taken;
 }

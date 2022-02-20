@@ -8,7 +8,7 @@ class Graph{
     int V;
     list<int> *l;
 
-    public:
+public:
     Graph(int v){
         V=v;
         l = new list<int> [v];

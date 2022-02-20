@@ -18,8 +18,8 @@ class Graph {
     }
 
     bool dfs(int node, vector<bool>&visited, vector<bool> &stack){
-        visited[node]=true;
-        stack[node]  =true;
+        visited[node] = true;
+        stack[node] = true;
 
         for(auto nbr:l[node]){
             // if nbr node not visited, visit it
@@ -38,9 +38,12 @@ class Graph {
         return false;
         
     }
+    
 
     // wrapper function
     bool detectCycle(){
+        // graph can have multiple components
+        
         vector<bool> visited(V,false);
         vector<bool> stack(V,false);
 

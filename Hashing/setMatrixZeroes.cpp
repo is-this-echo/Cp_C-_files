@@ -5,11 +5,11 @@ using namespace std;
 
 #define ll long long
 #define mod 998244353
-double eps = 1e-12;
+const double eps = 1e-12;
     
-    // O(m+n) space complexity
+// O(m+n) space complexity
 void setZeroes(vector<vector<int>>& matrix) {
-    int m=matrix.size();
+    int m = matrix.size();
     int n = matrix[0].size();
 
     unordered_set<int>rows;

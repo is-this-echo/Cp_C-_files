@@ -34,11 +34,11 @@ int largest_island(vector<vector<int>> &grid){
 
     for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){
-                if(!visited[i][j] && grid[i][j]==1){
-                    int size = dfs(grid,visited,m,n,i,j);
-                    if(size>largestSize)
-                        largestSize=size;
-                }
+            if(!visited[i][j] && grid[i][j]==1){
+                int size = dfs(grid,visited,m,n,i,j);
+                if(size>largestSize)
+                    largestSize=size;
+            }
         }
     }
     return largestSize;
