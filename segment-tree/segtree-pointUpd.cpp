@@ -21,14 +21,16 @@ void build(int idx, int low, int high){
     int mid = (low+high)/2;
     build(2*idx+1,low,mid);
     build(2*idx+2,mid+1,high);
-    seg[idx] = max(seg[2*idx+1],seg[2*idx+2]);
+    seg[idx] = seg[2*idx+1] + seg[2*idx+2];
 }
+
 
 // node is the index of element to be increased in the array by value
 // call from main as pointUpdate(0,0,n-1,node,val); TimeComplexity = O(logn)
 void pointUpdate(int idx, int low, int high, int node, int val){
     if(low==high){
-        seg[low]+=val;
+        // here, node = low = high
+        seg[idx]+=val;
         return;
     }
     else{
@@ -38,11 +40,9 @@ void pointUpdate(int idx, int low, int high, int node, int val){
         else 
             pointUpdate(2*idx+2,mid+1,high,node,val);
         
-        seg[idx] = max(seg[2*idx+1],seg[2*idx+2]);
+        seg[idx] = seg[2*idx+1] + seg[2*idx+2];
     }
-
 }
-
 
 
 int query(int idx, int low, int high, int l, int r){
@@ -52,14 +52,13 @@ int query(int idx, int low, int high, int l, int r){
 
     // seg tree range lies outside l and r
     if (low>r || high<l)
-        return INT_MIN;
+        return 0;
 
-    // the 2 ranges overlaps
+    // the 2 ranges overlap
     int mid=(low+high)/2;
     int left = query(2*idx+1, low,mid,l,r);
     int right = query(2*idx+2,mid+1,high,l,r);
-    return max(left,right);
-    
+    return left + right;
 }
 
 
@@ -70,15 +69,22 @@ int main() {
     for(int i=0;i<n;i++){
          cin>>arr[i];
     }
+
     build(0,0,n-1);
 
-    int q;
-    cin>>q;
-    while(q--){
-        int l,r;
-        cin>>l>>r;
-        cout<<query(0,0,n-1,l,r)<<" ";
-    }
+    cout<<query(0,0,n-1,1,3)<<"\n";
+
+    pointUpdate(0,0,n-1,2,1);
+   
+    cout<<query(0,0,n-1,1,3);
+
+    // int q;
+    // cin>>q;
+    // while(q--){
+    //     int l,r;
+    //     cin>>l>>r;
+    //     cout<<query(0,0,n-1,l,r)<<" ";
+    // }
        
     return 0;
 }
