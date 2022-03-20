@@ -34,6 +34,7 @@ vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc,
     int prevCol =image[sr][sc]; 
     
     // this check is necessary to prevent overflow, think about it
+    // else we need a visited array
     if(prevCol!=newCol)
         dfs(grid,sr,sc,m,n,newCol,prevCol);
     

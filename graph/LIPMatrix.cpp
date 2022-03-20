@@ -28,7 +28,7 @@ int dfs(vector<vector<int>>&grid, vector<vector<int>>&dp, int m, int n, int i, i
     
     
 void longestIncreasingPath(vector<vector<int>>& matrix) {    
-// dfs from each cell, taking it as start node
+//  dfs from each cell, taking it as start node
 //  dp[i][j], 2 states to denote longest increasing path from node at (i,j)
     
     int m = matrix.size();
@@ -48,7 +48,7 @@ void longestIncreasingPath(vector<vector<int>>& matrix) {
             cout<<y<<" ";
         cout<<"\n";
     }
-    cout<<"Longest increasing path is "<<ans;
+    cout<<"Longest increasing path is "<<ans;  
 }
 
 

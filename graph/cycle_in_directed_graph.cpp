@@ -18,6 +18,7 @@ class Graph {
     }
 
     bool dfs(int node, vector<bool>&visited, vector<bool> &stack){
+        // arriving at a particular node
         visited[node] = true;
         stack[node] = true;
 

@@ -11,7 +11,7 @@ class Graph{
 public:
     Graph(int v){
         V=v;
-        l = new list<int> [v];
+        l = new list<int> [V];
     }
 
     void addEdge(int x, int y, bool undir=true){

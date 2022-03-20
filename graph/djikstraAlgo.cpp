@@ -2,7 +2,7 @@
 #include<list>
 #include<vector>
 #include<climits>
-//#include<utility>
+// #include<utility>
 #include<set>
 using namespace std;
 
@@ -11,7 +11,7 @@ class Graph{
     int V;
     list<pair<int,int>> *l;
 
-    public:
+public:
     Graph(int V){
         this->V=V;
         l = new list<pair<int,int>>[V];
@@ -26,9 +26,9 @@ class Graph{
 
     int dijkstraShortestPath(int src, int dest){
         vector<int> dist(V,INT_MAX);
-        set<pair<int,int>> s;
+        set<pair<int,int>> s; 
 
-        //initialization
+        // initialization
         dist[src] = 0;
         s.insert({dist[src],src});
 
@@ -52,7 +52,7 @@ class Graph{
                     if(p!=s.end())
                         s.erase(p);
 
-                    //re-insert the node with updated values
+                    // re-insert the node with updated values
                     dist[nbr] = distTillNow+currentEdge;
                     s.insert({dist[nbr],nbr});
                 } 

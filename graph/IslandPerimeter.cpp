@@ -12,12 +12,15 @@ double eps = 1e-12;
  
 
 int dfs(vector<vector<int>>&grid, vector<vector<bool>>&vis, int m, int n, int i, int j){
+    // if dfs call goes out of bounds or to a cell with water
     if(i<0 || i>=m || j<0 || j>=n || grid[i][j]==0)
         return 1;
     
+    // if cell is visited
     if(vis[i][j])
         return 0;
     
+    // if cell is not visited
     vis[i][j]=1;
     
     int perimeter = 0;

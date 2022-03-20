@@ -37,7 +37,7 @@ public:
         return false;
     }
     
-    //wrapper function
+    // wrapper function
     bool containsCycle(){
         // assuming graph consists of single component
         vector<bool> visited(V,false);

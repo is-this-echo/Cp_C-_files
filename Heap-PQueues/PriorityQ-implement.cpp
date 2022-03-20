@@ -10,7 +10,7 @@ using namespace std;
 double eps = 1e-12;
     
 
-// min heap implementation
+// min-heap implementation
 class Heap {
     vector<int>v;
 
