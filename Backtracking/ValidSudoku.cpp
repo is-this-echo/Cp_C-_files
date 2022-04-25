@@ -39,7 +39,7 @@ bool canFill(vector<vector<char>>&board, int row, int col,char ch){
             cnt++;
         
         if(board[3*(row/3) + i/3][3*(col/3) + i%3]==ch)
-            cnt++;;
+            cnt++;
         
     }
     return cnt>3 ? false : true;

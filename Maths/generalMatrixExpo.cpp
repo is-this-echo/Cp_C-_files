@@ -22,7 +22,7 @@ vector<vector<int>> matrixMultiply(vector<vector<int>>&A, vector<vector<int>> &B
 }
 
 
-// A^x = A^x/2 * A^x/2 if x is even and A^x = A* (A^x/2 * A^x/2) of x is odd
+// A^x = A^x/2 * A^x/2 if x is even and A^x = A* (A^x/2 * A^x/2) if x is odd
 // Time complexity -> O(n^3 logx) , if done manually it would be O(n^3 x)
 vector<vector<int>> matrixExpo(vector<vector<int>>&A, int x){
     if(x==1)

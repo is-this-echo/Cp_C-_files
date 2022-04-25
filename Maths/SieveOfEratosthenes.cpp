@@ -1,35 +1,43 @@
+/* Debjyoti Ghosh*/
 #pragma GCC optimize("Ofast")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
 #pragma GCC optimize("unroll-loops")
 #include<bits/stdc++.h>
 using namespace std;
 
+#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define ll long long
 #define INF 2e18
+#define PI 3.1415926535897932384626
 #define mod 998244353
+#define f first
+#define s second 
+
 double eps = 1e-12;
+
+ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
+void google(int t) {cout << "Case #" << t << ": ";}
     
-// leetcode 204. Count Primes
-// To find prime numbers in range 1 to n, use the sieve of Eratosthenes technique
-// TC = O(nloglogn)
+ 
 
-
-int sieve(int n){
-    bool isPrime[n];
+int EratosthenesSieve(int n){
+    bool isPrime[1000001];
     int cnt=0;
     
     memset(isPrime,1,sizeof(isPrime));
+
     isPrime[0]=false;
     isPrime[1]=false;
     
-    for(int i=2;i*i<n;i++){
+    for(int i=2;i*i<=n;i++){
+
         if(isPrime[i]==true){
-            for(int j=i*i;j<n;j+=i)
+            for(ll j = 1LL*i*i; j<=n; j+=i)
                 isPrime[j]=false;     
         }
     }
     
-    for(int i=0;i<n;i++)
+    for(int i=2;i<=n;i++)
         if(isPrime[i])
             cnt++;
             
@@ -38,18 +46,10 @@ int sieve(int n){
 
     
     
-int countPrimes(int n) {
-    if(n==0 || n==1)
-        return 0;
-    
-    return sieve(n);
-}
-
-
-
-
 int main() {
-    ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+    fastio();
+
+    cout<<EratosthenesSieve(10);
     
     return 0;
 }

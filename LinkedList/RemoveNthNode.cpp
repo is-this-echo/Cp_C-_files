@@ -34,7 +34,7 @@ Node* removeNthFromEnd(Node* head, int n) {
 
     while(n--){
         last = stk.top();
-        stk.pop();
+        stk.pop(); 
     }
     
     if(stk.empty())

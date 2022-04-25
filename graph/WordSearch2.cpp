@@ -99,8 +99,8 @@ int main() {
                                   {'i','f','l','v'}};
 
     vector<string> words = {"oath","pea","eat","rain"};
-    int m = board.size(), n = board[0].size();
 
+    int m = board.size(), n = board[0].size();
     unordered_set<string> ans;
     vector<vector<bool>>vis(m,vector<bool>(n,false));    
     Trie t;

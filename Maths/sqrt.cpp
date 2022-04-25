@@ -15,7 +15,7 @@ void sqrtOfN(){
     cin>>n;
 
     // xi,  the starting value can be anything
-    double xi=150,xn;
+    double xi=150, xn;
     int itr=0;
 
     while(1){
