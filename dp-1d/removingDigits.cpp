@@ -1,7 +1,7 @@
 
 /* 
     Given a number n, we can subtract from it any one digit that appears in it
-    We need to find the number of steps required to make the number equal to 0.
+    We need to find the minimum number of steps required to make the number equal to 0.
 
     if n=27 , output =5 steps
     27 ->(-7), 20->(-2), 18-> (-8), 10->(-1), 9-> (-9), 0

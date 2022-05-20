@@ -10,6 +10,7 @@ using namespace std;
 double eps = 1e-12;
     
  
+ // sorting one stack using a temporary stack in decreasing order, TV = O(n^2)
 
 void printStack(stack<int> stk){
     while(!stk.empty()){

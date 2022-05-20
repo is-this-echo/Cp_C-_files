@@ -15,7 +15,7 @@ void permute(string s, int l, int r, vector<string> &v){
     }
     
     for(int i=l;i<=r;i++){
-        //  swap to get different patterns
+        // swap to get different patterns
         swap(s[l],s[i]);
         permute(s,l+1,r,v);
         // put back swapped elements in their place and branch out for next swap
@@ -28,6 +28,7 @@ int main() {
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
     vector<string> v;
     string s;
+    
     cin>>s;
 
     int l=0,r = s.length()-1;

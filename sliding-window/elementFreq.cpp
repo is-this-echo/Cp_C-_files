@@ -12,7 +12,7 @@ int maxFrequency(vector<int>& nums, int k) {
     sort(nums.begin(),nums.end());
     
     int n= nums.size();
-    ll l=0,r=0,maxlen=0,total=nums[0];
+    ll l=0,r=0,maxlen=1,total=nums[0];
     
     while(r<n && l<=r){
         ll window_len = r-l+1;
@@ -25,7 +25,7 @@ int maxFrequency(vector<int>& nums, int k) {
             
             if(r<n)
                 total+=nums[r];
-        }
+        } 
         // contract window
         else{
             total-=nums[l];

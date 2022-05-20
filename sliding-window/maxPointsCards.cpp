@@ -8,7 +8,7 @@ using namespace std;
 int maxScore(vector<int>& cardPoints, int k) {
 // O(k) time complexity
     int n = cardPoints.size();
-    int max_score=0,curr_sum=0;
+    int max_score,curr_sum=0;
 
 // start window, required sum will be the sum of elements outside the window
     int i=0, j = n-k-1;

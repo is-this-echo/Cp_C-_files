@@ -10,6 +10,11 @@ using namespace std;
 cin>>
 cout<<
 
+// when number of inputs not known beforehand, stop at EOL
+while(cin>>n){}
+
+
+
 max(x,y) , min(x,y)
 swap(int,int)  or swap(queue<int>q1, queue<int> q2)
 
@@ -27,6 +32,7 @@ rand()% (e-s+1) gives numbers from 0 to e-s
 
 
 #include<string>  -> string containers
+
 string s;
 s.length()
 s.erase()   // erases whole string, unlike vectors or sets in which clear function deletes all elements
@@ -37,12 +43,14 @@ str2 = str.substr (3,5);     // "think" , str.substr(pos,length)
 
 int idx = str2.find("live") -> returns starting index of the word live
 
+reverse(str.begin(), str.end());
+
 ***********+++++++++++++++++++++++++
 
 string s;
 
-s+= "asd"; 	 O(1) time
-s = s + "asd";	 O(length(s)) time
+s+= "asd"; 	 O(1) time, only appenda the new string.
+s = s + "asd";	 O(length(s)) time as a new string is created by copying the old string and appending the additional string, then assigned to s.
 
 
 **************************************************************************************************************************************************************************************
@@ -51,6 +59,8 @@ vector<vector<int>> dp(m,vector<int>(n,INT_MIN));
 dp.push_back(1);
 dp.erase(itr);
 dp.clear();
+
+reverse(v.begin(),v.end())
 
 return type int, no dereferencing required
 ++++++++++++++++++++++++++++++++++++++++++

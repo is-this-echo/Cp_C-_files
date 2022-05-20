@@ -11,6 +11,7 @@ double eps = 1e-12;
     
  
 int numberOfSubstrings(string str) {
+    
     int cnt=0,l=0,r;
     int n=str.size();
     unordered_map<char,int>mp;

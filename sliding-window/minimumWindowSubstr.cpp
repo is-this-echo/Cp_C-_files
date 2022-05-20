@@ -23,11 +23,12 @@ string minWindow(string s, string p) {
         char ch = s[i];
         ms[ch]++;
         
+        // to check if the character exists in the pattern and its frequency doesnt exceed
         if(mp[ch]!=0 && ms[ch]<=mp[ch]){
             cnt+=1;
         }
         
-        // contracting window
+        // contracting window and update minimum window length
         if(cnt==p.length()){
             while(mp[s[start]]==0 || ms[s[start]]>mp[s[start]]){
                 ms[s[start]]--;

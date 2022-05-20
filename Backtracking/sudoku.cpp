@@ -33,10 +33,12 @@ bool sudokuSolver(vector<vector<char>>&board){
         for(int j=0;j<9;j++){
             
             if(board[i][j]=='.'){
+                
                 for(char ch='1';ch<='9';ch++){
+
                     if(canFill(board,i,j,ch)){
                         board[i][j] = ch;
-                        
+                
                         if(sudokuSolver(board)==true)
                             return true;
                         
