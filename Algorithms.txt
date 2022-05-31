@@ -54,7 +54,7 @@ Graph algorithms
 2) DFS
 3) Dijkstra's algorithm
 4) Bellman Ford algorithm
-5) Union
+5) Union Find
 6) Topological Sort
 7) Flyod Warshall
 
@@ -68,9 +68,8 @@ Using 2 stacks to implement a queue
 
 
 For enqueue, or q.push(x), push in stack s1 always
-For dequeue, check s2 if it is empty take all elements feom s1 and put in s2, then pop from s2
-Now, dequeue only from s2 till its empty and enqueue to s1 only the entire time, when both are empty
-The original queue is empty
+For dequeue, check s2 if it is empty take all elements from s1 and put in s2, then pop from s2
+Now, dequeue only from s2 till its empty and enqueue to s1 only the entire time, when both are empty the original queue is empty
 
 Time complexity -> O(1)
 Amortized TC -> O(n)
@@ -133,10 +132,11 @@ Bitwise operators
 
   right shift operator  ->    a>>b   = a/(2^b)  , drop 'b' no. of bits from the end.
 	Ex -> a= 10010, b= 2  , then a>>b = 100 , last 2 bits dropped.
+	Here, a is shown in binary form.
 
   left shift operator   ->    a<<b   = a * (2^b),  append 'b' no. of zeros at the end. 
 	Ex -> a = 100, b = 3 , then a<<b = 100000  , binary form of a gets appended by 3 zeros.
-
+	Here, a is shown in binary form.
 
 To find if a number N is a power of 2, then N & (N-1) == 0
 To find if a number x is odd, then (x & 1)==1 , as odd numbers in binary form has 1 as the last bit.
@@ -208,10 +208,10 @@ square matrix rotation ->
 
 
 
-
-
-Sorting elements in a stack using another stack, TC = O(N^2), SC = O(N) // descending order
+Sorting elements in a stack using another stack, 
 ===============================================
+
+TC = O(N^2), SC = O(N) // descending order
 
 We create a temporary stack tempStack. Now we run a loop while the input stack is not empty.
 At each iteration, we pop an element from the input stack and compare it with the element present on the top of the tempStack. Initially, tempStack is empty. So in the first iteration, we pop the element from the input stack and push it into the tempStack.
@@ -221,11 +221,15 @@ In other words, we continue the above process in an inner loop until the top of 
 The input stack will be empty by the end of the outer loop, and the sorted elements are present in the temporary stack. So we return the tempStack as an output.
 
 
-
-
-
 **************************************************
 
+BEYOND ARRAYS: THE DISCRETE BINARY SEARCH
+
+This is where we start to abstract binary search. A sequence (array) is really just a function which associates integers (indices) with the corresponding values. However, there is no reason to restrict our usage of binary search to tangible sequences. In fact, we can use the same algorithm described above on any monotonic function f whose domain is the set of integers. The only difference is that we replace an array lookup with a function evaluation: we are now looking for some x such that f(x) is equal to the target value. The search space is now more formally a subinterval of the domain of the function, while the target value is an element of the codomain. The power of binary search begins to show now: not only do we need at most O(log N) comparisons to find the target value, but we also do not need to evaluate the function more than that many times. Additionally, in this case we aren’t restricted by practical quantities such as available memory, as was the case with arrays.
+
+
+
+https://www.topcoder.com/thrive/articles/Binary%20Search
 
 
 

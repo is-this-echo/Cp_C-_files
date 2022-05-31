@@ -8,23 +8,23 @@ using namespace std;
 
 void rotate(vector<vector<int>>& matrix) {
     int n = matrix.size();        
-    int l,r,top,bottom;
-    l = 0;
-    r= n-1;
+    int left,right,top,bottom;
+    left = 0;
+    right= n-1;
 
-    while(l<r){
-        top=l, bottom = r;     
+    while(left<right){
+        top=left, bottom = right;     
 
-        for(int i=0;i<(r-l);i++){
-            int temp = matrix[top][l+i];
+        for(int i=0;i<(right-left);i++){
+            int temp = matrix[top][left+i];
             
-            matrix[top][l+i] = matrix[bottom-i][l];
-            matrix[bottom-i][l] = matrix[bottom][r-i];
-            matrix[bottom][r-i] = matrix[top+i][r];
-            matrix[top+i][r] = temp;
+            matrix[top][left+i] = matrix[bottom-i][left];
+            matrix[bottom-i][left] = matrix[bottom][right-i];
+            matrix[bottom][right-i] = matrix[top+i][right];
+            matrix[top+i][right] = temp;
         }  
-        l+=1;
-        r-=1;
+        left+=1;
+        right-=1;
     }
 }
 

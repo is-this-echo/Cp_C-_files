@@ -20,31 +20,31 @@ public:
     }
     
     void push(int x) {
-        q1.push(x);
+        q2.push(x);
         
-        while(!q2.empty()){
-            int front = q2.front();
-            q2.pop();
-            q1.push(front);
+        while(!q1.empty()){
+            int front = q1.front();
+            q1.pop();
+            q2.push(front);
         }
         swap(q1,q2);
     }
     
     
     int pop() {
-        int val=q2.front();
-        q2.pop();
+        int val=q1.front();
+        q1.pop();
         return val;
     }
     
     
     int top() {
-        return q2.front();
+        return q1.front();
     }
     
     
     bool empty() {
-        return q2.empty();
+        return q1.empty();
     }
 };
 

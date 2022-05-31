@@ -21,10 +21,17 @@ void google(int t) {cout << "Case #" << t << ": ";}
  
 
 void solve(){
+    vector<int>arr{2,5,6};
+
+    cout<<upper_bound(arr.begin(),arr.end(),6)-arr.begin();
+
+
 }
     
 int main() {
     fastio();
+
+    solve();
     
     return 0;
 }

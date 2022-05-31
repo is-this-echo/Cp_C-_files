@@ -8,29 +8,35 @@ double eps = 1e-12;
     
 
 void merge(vector<int> &arr, int s, int mid, int e){
-    int i=s,j=mid+1,k=s;
+    int i=s,j=mid+1;
     //int *temp = new int[e-s+1];
-    int temp[e-s+1];
+    
+    vector<int>temp;
 
     while(i<=mid && j<=e){
-        if(arr[i]<=arr[j]){
-            temp[k]=arr[i];
-            i++,k++;
+        if(arr[i]<arr[j]){
+            temp.push_back(arr[i]);
+            i++;
         }
         else{
-            temp[k]=arr[j];
-            j++,k++;
+            temp.push_back(arr[j]);
+            j++;
         }
     }
+
     while(i<=mid){
-        temp[k++]=arr[i++];
+        temp.push_back(arr[i]);
+        i++;
     }
     while(j<=e){
-        temp[k++]=arr[j++];
+        temp.push_back(arr[j]);
+        j++;
     }
-
+    
+    int k=0;
     for(i=s;i<=e;i++){
-        arr[i]=temp[i];
+        arr[i]=temp[k];
+        k++;
     }
 }
 
@@ -47,7 +53,7 @@ void mergeSort(vector<int> &arr, int s, int e){
 
 int main() {
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
-    vector<int> arr=  {5,4,1,0,10,23,7,6};
+    vector<int> arr=  {5,4,1,0,10,3,7,6};
     int n = arr.size();
 
     mergeSort(arr,0,n-1);

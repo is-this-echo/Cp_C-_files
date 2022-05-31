@@ -14,7 +14,7 @@ double eps = 1e-12;
 
 vector<int> findClosestElements(vector<int>& arr, int k, int x) {
     // using max-heap and pushing elements in a vector after sorting
-    // T.C = O(nlogn) + O(nlogk), S.C = O(k)+O(k)
+    // T.C =O(nlogk), S.C = O(k)+O(k)
     int n = arr.size();
     vector<int>ans;
     priority_queue<pair<int,int>>pq;

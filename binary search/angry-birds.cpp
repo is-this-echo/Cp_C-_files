@@ -19,6 +19,8 @@ using namespace std;
 
 
 bool canPlaceBirds(vector<int> &nests, int N, int B, int dist){
+    // one can ask that why do we need to start from the first nest, reason being
+    // that putting one bird in the first nest always increases separation from the next bird 
     int birds = 1;
     int prev_loc = nests[0];
 
@@ -44,7 +46,7 @@ int main()
     int N = nests.size();
     int birds = 3;
 
-    // define search space
+    // define search space, here it is the distance between nests,so we find out the max and min distance
     sort(nests.begin(),nests.end());
     int s=0;
     int e = nests[N-1]-nests[0];

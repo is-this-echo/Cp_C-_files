@@ -41,7 +41,7 @@ void Z_algo_trivial(string s){
 
 void Z_algo(string s){
     int n = (int) s.length();
-    vector<int> z(n);
+    vector<int> z(n,0);
     int l=0,r=0;
 
     for (int i = 1; i < n; ++i) {

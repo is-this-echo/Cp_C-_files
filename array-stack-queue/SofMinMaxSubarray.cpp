@@ -3,7 +3,7 @@ Q2 : Sum of (max element - min element) of every contiguous subarray O(N)
 Ex: ( 2,5,2) => [ [2], [2,5], [2,5,2], [5], [5,2], [2] ] 
       => Ans =  ( 0 + 3 + 3 + 0 + 3 + 0)  = 9
 */
-//907. Sum of Subarray Minimums -> The above problem is a variation of the above
+//907. Sum of Subarray Minimums -> The above problem is a variation of this one
 
 #include<iostream>
 #include<stack>

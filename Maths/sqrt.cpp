@@ -9,7 +9,10 @@ using namespace std;
 #define mod 998244353
 const double eps = 1e-10;
     
- 
+
+// using Newtons square root formula, x(i+1) = x(i) - f(x(i))/f'(x(i))
+// f(x) = x*x -n
+
 void sqrtOfN(){
     double n;
     cin>>n;

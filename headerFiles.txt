@@ -57,6 +57,7 @@ s = s + "asd";	 O(length(s)) time as a new string is created by copying the old 
 #include<vector>  -> vector containers
 vector<vector<int>> dp(m,vector<int>(n,INT_MIN));
 dp.push_back(1);
+dp.pop_back();
 dp.erase(itr);
 dp.clear();
 

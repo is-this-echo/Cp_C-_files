@@ -24,6 +24,8 @@ void google(int t) {cout << "Case #" << t << ": ";}
 int  kmp(string s, int len){
     int n = s.length();
 
+    // 1-indexed array
+    
     vector<int>lps(n+1);
     int i=0,j=-1;
     lps[0]=-1;
@@ -40,7 +42,7 @@ int  kmp(string s, int len){
     //     cout<<lps[i]<<" ";
     // }
 
-    for(int i=0;i<=n;i++){
+    for(int i=1;i<=n;i++){
         if(lps[i]==len){
             return 1;
         }

@@ -21,27 +21,29 @@ using namespace std;
 double eps = 1e-12;
 
 
-bool allocationPossible(vector<int> &arr,int s, int pages){
+bool allocationPossible(vector<int> &arr,int s, int max_pages){
     int sn=1, n = arr.size();
     int allocated = 0;
 
     for(int i=0;i<n;i++){
-        if(pages<arr[i])
+
+        // since the pages required must contain one whole book, partial allocation not possible
+        if(max_pages<arr[i])
             return false;
 
-        if(allocated+arr[i]>pages){
+        // count how many students are required to distribute curr_min pages
+        if(allocated+arr[i]>max_pages){
                 sn++;
                 allocated=arr[i];
                 //allocated=0;
+            if(sn>s)
+                return false;
         }
         else 
             allocated+=arr[i];
     }
 
-    if(sn!=s)
-        return false;
-    else 
-        return true;
+    return true;
 }
 
 
@@ -49,12 +51,14 @@ int allocateBooks(vector<int> &arr, int s){
     sort(arr.begin(),arr.end());
     int n =arr.size();
 
-    // defining search space
+    // defining search space, ideally low = * max(arr.begin(), arr,end())
     int low =arr[0], high=0;
     int ans=-1;
     for(int i=0;i<n;i++){
         high+=arr[i];
     }
+
+    // high = accumulate(arr.begin(), arr.end(), 0);
 
     while(low<=high){
         int mid=(low+high)/2;

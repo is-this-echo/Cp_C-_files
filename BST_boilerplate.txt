@@ -42,7 +42,8 @@ void printInOrder(Node* root) {
 
 
 
-//minimum height BST 
+//minimum height BST , requires sorted array
+
 Node* minHeightBST(int arr[], int start, int end) {
 
 	if (start > end){

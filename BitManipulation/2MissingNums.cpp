@@ -10,7 +10,9 @@ using namespace std;
 const double eps = 1e-12;
     
  
-// Given an array of numbers from 1 to n with 2 numbers misssing. Find the 2 missing numbers.
+// Given an array of numbers from 1 to n with 2 numbers misssing. 
+// Find the 2 missing number in O(1) space.
+
 // Input-> [1,2,5,6]
 // Output-> [3,4]
 // ----1,2,3,4,5,6----
