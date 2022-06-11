@@ -20,43 +20,39 @@ void google(int t) {cout << "Case #" << t << ": ";}
     
  
 
-void solve(){
+void partition(vector<int>&ans, int n, int sum){
+    assert(n>=0 && sum>=0);
+
+    if(n==0 || sum==0)
+        return;
     
+    if(n>sum)
+        partition(ans,n-1,sum);
+
+    else{
+        ans.push_back(n);
+        partition(ans, n-1, sum-n);
+    }
+}
+
+
+void solve(){
     int n,x,y;
     cin>>n>>x>>y;
 
     ll sum = (n*n + n)/2;
-    float req = x*sum/(float)(x+y);
+    // ll req = x*sum/(x+y);
 
-    if(ceil(req)!=req){
+    if(sum%(x+y)!=0){
         cout<<"IMPOSSIBLE"<<"\n";
         return;
     }
 
+
     vector<int>ans;
-    int l=1,r=1;
-    sum=0;
+    ll req = x*sum/(x+y);
 
-    vector<int>arr(n+1);
-    for(int i=1;i<=n;i++)
-        arr[i]=i;
-
-    while(r<=n){
-        sum+= arr[l];
-        r++;
-
-        while(sum>req && l<r){
-            sum-=arr[l];
-            l++;
-        }
-
-        if(sum==req){
-            for(int i=l;i<r;i++)
-                ans.push_back(i);
-            break;
-        }
-    }
-    
+    partition(ans,n,req);
 
     int si = ans.size();
     cout<<"POSSIBLE"<<"\n";

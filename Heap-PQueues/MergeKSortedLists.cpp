@@ -64,7 +64,8 @@ Node* mergeKLists(vector<Node*>& lists) {
 
 
 void solve(vector<vector<int>>lists){
-    priority_queue<int,vector<int>,greater<int>>pq; // min-heap
+    priority_queue<int,vector<int>,greater<int>>pq; 
+    // min-heap
 
     for(auto list : lists){
         for(auto i : list){

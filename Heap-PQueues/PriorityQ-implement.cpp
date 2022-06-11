@@ -46,7 +46,7 @@ public:
         while(index>1 && v[index]<v[parent]){
             swap(v[index],v[parent]);
             index = parent;
-            parent = index/2;
+            parent = parent/2;
         }
      }
 
@@ -72,6 +72,5 @@ int main() {
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 
 
-    
     return 0;
 }

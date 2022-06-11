@@ -20,6 +20,13 @@ void google(int t) {cout << "Case #" << t << ": ";}
     
  
 
+/*
+stoi(), stoll()  converts strings to integers or long long
+to_string()   converts valid numbers to string form
+toupper(), tolower(), isalpha(), isdigit()  returns true/false according to the string passed
+
+*/
+
 vector<string>split(string str, char ch){
     int n = str.length();
     vector<string>ans;

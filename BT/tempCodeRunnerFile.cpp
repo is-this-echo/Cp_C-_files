@@ -1,13 +1,1 @@
-
-// int sOLL(Node* root){
-//     if(root==NULL)
-//         return 0;
-
-//     if(root->left==NULL && root->right==NULL)
-//         return root->data;
-
-//     int lsum = sOLL(root->left);
-//     int rsum = sOLL(root->right);
-
-//     return 
-// }
+1 2 4 -1 -1 5 3 -1 6 -1 7 -1 -1

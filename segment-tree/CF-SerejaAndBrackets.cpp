@@ -34,12 +34,13 @@ public:
 
 Node merge(Node left, Node right){
     Node n(0,0,0);
-
+    // 'new' keyword is used when we use pointers, for ex- Node *n = new Node();
     // from left node we can take open brackets and close brackets can be taken from the right node
-    n.full = left.full + right.full + min(left.open,right.close);
-    n.open = left.open + right.open - min(left.open,right.close);
-    n.close = left.close + right.close - min(left.open,right.close);
 
+    int k = min(left.open,right.close);
+    n.full = left.full + right.full + k;
+    n.open = left.open + right.open - k;
+    n.close = left.close + right.close - k;
     return n;
 }
 
@@ -49,14 +50,12 @@ void build(int idx, int low, int high, string &s, vector<Node>&seg){
         seg[idx].open = (s[low]=='(');
         seg[idx].close = (s[low]==')');
         seg[idx].full = 0;
-
         return;
     }
 
     int mid = (low+high)>>1;
     build(2*idx+1, low, mid, s, seg);
     build(2*idx+2, mid+1, high, s, seg);
-
     seg[idx] = merge(seg[2*idx+1],seg[2*idx+2]);
 }
 
@@ -73,9 +72,7 @@ Node solve(int idx, int low, int high, int l, int r, vector<Node>&seg){
     int mid = (low+high)>>1;
     Node left = solve(2*idx+1, low, mid, l, r, seg);
     Node right = solve(2*idx+2, mid+1, high, l, r, seg);
-
     return merge(left,right);
-
 }
     
 

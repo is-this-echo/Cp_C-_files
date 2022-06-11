@@ -18,44 +18,38 @@ double eps = 1e-12;
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
     
-   
-class Node{
-public:
-    int val;
-    Node *next;
+ 
 
-    Node(int d){
-        val = d;
-        next = nullptr;
-    }
- };
+void solve(){
+    int n;
+    cin>>n;
 
+    vector<int>arr(n);
+    for(int i=0;i<n;i++)
+        cin>>arr[i];
 
-Node* revl(Node *head, Node *node){
-    if(node->next==NULL){
-        head = node;
-        return node;
-    }
     
-    Node*n = revl(head, head->next);
-    n->next = node;
-    node->next = NULL;
-    
-    return n;
+    int nod=0,noe=0;
+
+    for(int i=0;i<n;i++){
+        if(arr[i]%2==0)
+            noe++;
+        else
+            nod++;
+    }
+
+    cout<<min(nod,noe)<<"\n";
 }
-    
 
+    
 int main() {
     fastio();
 
-    Node *li = new Node(1);
-    
-    li->next = new Node(2);
-    li->next->next = new Node(3);
-    li->next->next->next = new Node(4);
+    int t;
+    cin>>t;
 
-    auto x = revl(li,li);
-
+    while(t--)
+        solve();
     
     return 0;
 }

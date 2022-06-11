@@ -24,7 +24,7 @@ void google(int t) {cout << "Case #" << t << ": ";}
 class Solution {
 public:
     string longestPalindrome(string s) {
-        
+
         int n = (int)s.length();
         int ans_l = 0, ans_r = 0, max_len=0;
         
@@ -37,7 +37,6 @@ public:
                     ans_l = l; ans_r = r;
                     max_len = r-l+1;
                 }
-                
                 l--; r++;
             }
             
@@ -61,7 +60,6 @@ int main() {
     fastio();
 
     Solution s;
-
     string str = "abadabkl";
 
     cout<<s.longestPalindrome(str);

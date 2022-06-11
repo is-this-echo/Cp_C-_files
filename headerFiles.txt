@@ -11,8 +11,10 @@ cin>>
 cout<<
 
 // when number of inputs not known beforehand, stop at EOL
-while(cin>>n){}
 
+while(cin>>n){
+  ....do some work
+}
 
 
 max(x,y) , min(x,y)
@@ -30,7 +32,6 @@ rand()% (e-s+1) gives numbers from 0 to e-s
 
 *************************************************************************************************************************************************************************************
 
-
 #include<string>  -> string containers
 
 string s;
@@ -45,6 +46,10 @@ int idx = str2.find("live") -> returns starting index of the word live
 
 reverse(str.begin(), str.end());
 
+stoi(), stoll()  converts strings to integers or long long
+to_string()   converts valid numbers to string form
+toupper(), tolower(), isalpha(), isdigit()  returns true/false according to the string passed
+
 ***********+++++++++++++++++++++++++
 
 string s;
@@ -56,8 +61,11 @@ s = s + "asd";	 O(length(s)) time as a new string is created by copying the old 
 **************************************************************************************************************************************************************************************
 #include<vector>  -> vector containers
 vector<vector<int>> dp(m,vector<int>(n,INT_MIN));
-dp.push_back(1);
+
+dp.push_back({1,34,2});
 dp.pop_back();
+
+dp.emplace_back({23,234}); // faster than push_back()
 dp.erase(itr);
 dp.clear();
 
@@ -89,8 +97,6 @@ vector<int> v2(v1)  or vector<int> v2 , v2=v1;
 #include<cstring>  -> memset to initialize locations with 0 or 1.
 int dp[50][50][50];
 memset(dp,-1,sizeof(dp));
-
-
 
 
 strcpy(dest, src);  -> copies string from src to dest variable;
@@ -198,6 +204,11 @@ reverse(vec.begin(), vec.end());
 #include<numeric>  -> some imp functions
 __gcd(int a, int b) = to calculate the gcd of 2 no.s
 
+int a = 133;
+__builtin_popcount(a)  -> returns # of set bits in the binary representation of 'a'.
+__builtin_clz(a) -> returns the leading zeroes in 32-bit representation of 'a'.
+__builtin_ctz(a) -> returns the trailing zeroes in 32-bit representation of 'a'.
+
 
 **************************************************************************************************************************************************************************************
 
@@ -205,9 +216,13 @@ __gcd(int a, int b) = to calculate the gcd of 2 no.s
 pair<int,int> p = {2,4);
 make_pair(45,10)
 
+vector<pair<int,int>>vec;
+pair<int,pair<int,int>>pp;
+
 **************************************************************************************************************************************************************************************
 
 #include<set>  -> for set data structure, to keep unique elements in sorted manner
+
 set<int>s ;
 set<char> sch;
 sch.insert('d');
@@ -240,7 +255,6 @@ sa.find(Node(5,12,4)) != sa.end();
 
 **************************************************************************************************************************************************************************************
 
-
 #include<unordered_set>  -> to use unordered-set where elements are not sorted but they are unique
 unordered_set<int> st;
 st.insert(2);
@@ -249,20 +263,18 @@ st.clear();
 auto itr = st.begin();
 auto btr = st.end();
 
-
 **************************************************************************************************************************************************************************************
 
-
-
 #include<map> -> to keep a hash table of elements sorted in ascending order by default based on unique keys
+
 map<char,int> ch;  by default keys sorted in ascending order
 ch.count('s')  //returns 0 or 1 if depending on the map contains that key or not
 ch.find(), ch.end()   -> similar to set, returns an iterator to that key in the map
 
 map<int,char, greater<int>>>mmp;  // keys sorted in descending order
 mmp.size()   -> provides number of elements inside map
-// elements also can be accessed as itr.first and itr.second
 
+// elements also can be accessed as itr.first and itr.second
 
 #include<map>    //same header file as map, multimap is the same as map but it can store elements having same key values, both key and element pair can be duplicated
 multimap<int,int> m;
@@ -272,6 +284,7 @@ mapp.insert({9,10});
 mapp.insert(pair<int,int>(2,6));
 mapp.insert(make_pair(9,10));
 
+mapp.count(3)  -> returns the frequency of occurrence of 3 in the multimap
 
 **************************************************************************************************************************************************************************************
 
@@ -288,24 +301,46 @@ list<int> *l = new list<int>[V];
  l[x].push_back(10);
  l[x].push_back(y);
 
-
 **************************************************************************************************************************************************************************************
-
 
 #include<algortihm>
 
 vector<int> arr1 = { 1, 4, 6, 3, 2 };   
 vector<int> arr2 = { 1, 2, 4 };
+
+// sort and reverse functions
 sort(arr1.begin(), arr1.end());
-sort(arr2.begin(), arr2.end());
+
+// sorting with custom comparator inline
+sort(arr2.begin(), arr2.end(), [&](const int x, const int y){
+	return x-a <y-a;
+});
+
+reverse(arr.begin(), arr.end())
       
 if(includes(arr1.begin(), arr1.end(), arr2.begin(), arr2.end()))
     cout << "All elements of 2nd container are in 1st container";
 else 
     cout << "All elements of 2nd container are not in 1st container";
-      
+
 // containers should be sorted
 returns -> True if every element of 2nd container lies in 1st container.
+
+
+// max_element()  returns a pointer to the max element in the container or array
+int x = *max_element(arr1); 
+
+int vis = [1,34,1,5,7,0,29];
+int x = * max_element(vis, vis+n)
+
+
+// print the next  and previous permutations of a string
+
+string s="234569";
+
+do{
+    cout<<s<<"\n";
+   } while(next_permutation(s.begin(), s.end());
 
 
 **************************************************************************************************************************************************************************************

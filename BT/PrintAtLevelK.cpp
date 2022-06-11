@@ -4,7 +4,7 @@ using namespace std;
 
 
 class Node {
-    public:
+public:
     int data;
     Node* left;
     Node* right;
@@ -44,6 +44,7 @@ void BFSTraversal(Node* root) {
 	}
 	return;
 }
+
 
 void PrintAtLevelK(Node* root, int k){
     if(root==NULL)

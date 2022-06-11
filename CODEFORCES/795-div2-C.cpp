@@ -19,40 +19,54 @@ ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} retur
 void google(int t) {cout << "Case #" << t << ": ";}
     
  
-
 void solve(){
     int n,k;
-    vector<pair<int,int>>arr;
-
     cin>>n>>k;
 
-    int s,e;
-    for(int i=0;i<n;i++){
-        cin>>s>>e;
-        arr.push_back({s,e});
+    string s;
+    cin>>s;
+
+    int fpos=-1, lpos=-1, ones=0, flagl=n-1, flagf=1;
+    ll sum=0; 
+
+    for(int i=n-1;i>=0;i--){
+        if(s[i]=='1'){
+            lpos=n-1-i;
+            break;
+        }
+    }
+ 
+    if(k>=lpos){
+        k-=lpos;
+        sum += 1;
+        flagl=n-2;
+        swap(s[n-1-lpos],s[n-1]);
     }
 
-    sort(arr.begin(),arr.end());
-
-    int time=0,ans=0;
-
     for(int i=0;i<n;i++){
-        s = arr[i].f;
-        e = arr[i].s;
-
-        time = max(time,s);
-
-        while(time<e){
-            time+=k;
-            ans++;
+        if(s[i]=='1'){
+            fpos=i;
+            break;
         }
-    } 
+    }
 
-    cout<<ans<<"\n";
-    
+    if(k>=fpos && fpos!=n-1-lpos){
+        sum += 10;
+        flagf=n-1;
+        swap(s[fpos],s[0]);
+    }
+
+
+    for(int i=1;i<n-1;i++){
+        if(s[i]=='1')
+            ones++;
+    }
+
+    sum += 11*ones;
+    cout<<sum<<" "<<s<<"\n";
+
 }
     
-
 
 int main() {
     fastio();
@@ -60,10 +74,8 @@ int main() {
     int t;
     cin>>t;
 
-    for(int i=1;i<=t;i++){
-        google(i);
+    while(t--)
         solve();
-    }   
     
     return 0;
 }

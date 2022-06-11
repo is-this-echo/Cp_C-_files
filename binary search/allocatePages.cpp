@@ -59,7 +59,6 @@ int allocateBooks(vector<int> &arr, int s){
     }
 
     // high = accumulate(arr.begin(), arr.end(), 0);
-
     while(low<=high){
         int mid=(low+high)/2;
 

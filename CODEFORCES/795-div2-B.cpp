@@ -18,44 +18,51 @@ double eps = 1e-12;
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
     
-   
-class Node{
-public:
-    int val;
-    Node *next;
+ 
 
-    Node(int d){
-        val = d;
-        next = nullptr;
+void solve(){
+    int n;
+    cin>>n;
+
+    vector<int>s(n+1);
+    map<int,int>mp;
+    for(int i=1;i<=n;i++){
+        cin>>s[i];
+        mp[s[i]]++;
     }
- };
 
 
-Node* revl(Node *head, Node *node){
-    if(node->next==NULL){
-        head = node;
-        return node;
+    for(auto x : mp){
+        if(x.second<2){
+            cout<<-1<<"\n";
+            return;
+        }
     }
-    
-    Node*n = revl(head, head->next);
-    n->next = node;
-    node->next = NULL;
-    
-    return n;
+
+
+    int k = 0;
+    for(auto xpair : mp){
+        int lim = xpair.second;
+        k += lim;
+
+        cout<<k<<" ";
+
+        for(int i=1;i<lim;i++)
+            cout<<k-lim+i<<" ";
+    }
+    cout<<"\n";
+
 }
-    
 
+    
 int main() {
     fastio();
 
-    Node *li = new Node(1);
-    
-    li->next = new Node(2);
-    li->next->next = new Node(3);
-    li->next->next->next = new Node(4);
+    int t;
+    cin>>t;
 
-    auto x = revl(li,li);
-
+    while(t--)
+        solve();
     
     return 0;
 }
