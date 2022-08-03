@@ -198,6 +198,42 @@ vector<pair<int,int>> vec;
 sort(vec.begin(), vec.end(), compare);   // compare function of return type bool to set sorting criterion;
 reverse(vec.begin(), vec.end());
 
+vector<int> arr1 = { 1, 4, 6, 3, 2 };   
+vector<int> arr2 = { 1, 2, 4 };
+
+// sort and reverse functions
+sort(arr1.begin(), arr1.end());
+
+// sorting with custom comparator inline
+sort(arr2.begin(), arr2.end(), [&](const int x, const int y){
+	return x-a <y-a;
+});
+
+reverse(arr.begin(), arr.end())
+      
+if(includes(arr1.begin(), arr1.end(), arr2.begin(), arr2.end()))
+    cout << "All elements of 2nd container are in 1st container";
+else 
+    cout << "All elements of 2nd container are not in 1st container";
+
+// containers should be sorted
+returns -> True if every element of 2nd container lies in 1st container.
+
+
+// max_element()  returns a pointer to the max element in the container or array
+int x = *max_element(arr1); 
+
+int vis = [1,34,1,5,7,0,29];
+int x = * max_element(vis, vis+n)
+
+
+// print the next  and previous permutations of a string
+
+string s="234569";
+do{
+    cout<<s<<"\n";
+   } while(next_permutation(s.begin(), s.end());
+
 
 **************************************************************************************************************************************************************************************
 
@@ -289,6 +325,7 @@ mapp.count(3)  -> returns the frequency of occurrence of 3 in the multimap
 **************************************************************************************************************************************************************************************
 
 #include<unordered_map> -> same as map except that elements are not key sorted, so more time efficient
+
 unordered_map<Node*,int> m;
 m[node] = 5;
 
@@ -296,54 +333,12 @@ m[node] = 5;
 **************************************************************************************************************************************************************************************
 
 #include<list> -> stores list of elements of specified data type
+
 list<string> str[12];
 list<int> *l = new list<int>[V];
  l[x].push_back(10);
  l[x].push_back(y);
 
 **************************************************************************************************************************************************************************************
-
-#include<algortihm>
-
-vector<int> arr1 = { 1, 4, 6, 3, 2 };   
-vector<int> arr2 = { 1, 2, 4 };
-
-// sort and reverse functions
-sort(arr1.begin(), arr1.end());
-
-// sorting with custom comparator inline
-sort(arr2.begin(), arr2.end(), [&](const int x, const int y){
-	return x-a <y-a;
-});
-
-reverse(arr.begin(), arr.end())
-      
-if(includes(arr1.begin(), arr1.end(), arr2.begin(), arr2.end()))
-    cout << "All elements of 2nd container are in 1st container";
-else 
-    cout << "All elements of 2nd container are not in 1st container";
-
-// containers should be sorted
-returns -> True if every element of 2nd container lies in 1st container.
-
-
-// max_element()  returns a pointer to the max element in the container or array
-int x = *max_element(arr1); 
-
-int vis = [1,34,1,5,7,0,29];
-int x = * max_element(vis, vis+n)
-
-
-// print the next  and previous permutations of a string
-
-string s="234569";
-
-do{
-    cout<<s<<"\n";
-   } while(next_permutation(s.begin(), s.end());
-
-
-**************************************************************************************************************************************************************************************
-
 
 

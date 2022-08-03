@@ -21,7 +21,7 @@ bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target) {
             
             if(mat[i][j]!=target[i][j]) r[0] = false;
             
-            if(mat[i][j]!=target[j][n-i-1]) r[1] = false;
+            if(mat[i][j]!=target[j][n-i-1]) r[1] = false; 
             
             if(mat[i][j]!=target[n-i-1][n-j-1]) r[2] = false;
             

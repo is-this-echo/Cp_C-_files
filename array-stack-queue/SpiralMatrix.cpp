@@ -30,7 +30,6 @@ vector<int> solve(vector<vector<int>>&matrix){
     
     vector<int>ans;
     
-
     while(top<=bottom && left<=right){
         
         for(int i=left;i<=right;i++){

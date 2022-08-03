@@ -33,7 +33,6 @@ string simplifyPath(string path){
     }
 
     vector<string>stack;
-
     if(path[0]=='/')
         stack.push_back("");
 
@@ -52,7 +51,7 @@ string simplifyPath(string path){
         }
     }
         
-    if(stack.size()==1 && stack[0]="")
+    if(stack.size()==1 && stack[0]=="")
         return "/";
 
     ostringstream oss;
@@ -72,7 +71,6 @@ int main() {
     fastio();
 
     string cmd = "/../x/y///././c/./d/../../m/..///z/";
-
     cout<<simplifyPath(cmd);
     
     return 0;

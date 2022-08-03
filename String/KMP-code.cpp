@@ -25,7 +25,6 @@ int  kmp(string s, int len){
     int n = s.length();
 
     // 1-indexed array
-    
     vector<int>lps(n+1);
     int i=0,j=-1;
     lps[0]=-1;

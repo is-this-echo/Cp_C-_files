@@ -26,7 +26,7 @@ void solve(){
     string s;
     cin>>s;
 
-    int fpos=-1, lpos=-1, ones=0, flagl=n-1, flagf=1;
+    int fpos=INT_MAX, lpos=INT_MAX, ones=0, flagl=0, flagf=0;
     ll sum=0; 
 
     for(int i=n-1;i>=0;i--){
@@ -39,7 +39,7 @@ void solve(){
     if(k>=lpos){
         k-=lpos;
         sum += 1;
-        flagl=n-2;
+        flagl=1;
         swap(s[n-1-lpos],s[n-1]);
     }
 
@@ -52,7 +52,7 @@ void solve(){
 
     if(k>=fpos && fpos!=n-1-lpos){
         sum += 10;
-        flagf=n-1;
+        flagf=1;
         swap(s[fpos],s[0]);
     }
 
@@ -63,7 +63,14 @@ void solve(){
     }
 
     sum += 11*ones;
-    cout<<sum<<" "<<s<<"\n";
+
+    if(!flagl)
+        sum += (s[n-1]=='1' ? 1 : 0);
+
+     if(!flagf)
+        sum += (s[0]=='1' ? 10 : 0);
+    
+    cout<<sum<<"\n";
 
 }
     

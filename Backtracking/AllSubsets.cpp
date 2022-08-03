@@ -6,7 +6,9 @@ The solution set must not contain duplicate subsets. Return the solution in any 
 using namespace std;
 
 
-void helper(vector<int> &nums, vector<vector<int>> &ans,vector<int> &temp, int n){ 
+void helper(vector<int> &nums, vector<vector<int>> &ans, 
+                                    vector<int> &temp, int n){ 
+                                            
     if(n==0){
         ans.push_back(temp);
         return;
@@ -21,8 +23,8 @@ void helper(vector<int> &nums, vector<vector<int>> &ans,vector<int> &temp, int n
 }
 
 
-
 vector<vector<int>> subsets(vector<int>& nums) {
+
     vector<vector<int>> ans;
     vector<int> temp;
     int n = nums.size();

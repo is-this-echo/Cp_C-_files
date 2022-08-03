@@ -4,17 +4,16 @@
 using namespace std;
 /*
 Trie() Initializes the trie object.
-void insert(String word) Inserts the string word into the trie.
-boolean search(String word) Returns true if the string word is in the trie 
-and false otherwise.
-boolean startsWith(String prefix) Returns true if there is a previously inserted
-string word that has the given prefix, and false otherwise.
+void insert(String word) : Inserts the string 'word' into the trie.
+boolean search(String word) : Returns true if the string 'word' is in  trie ,false otherwise.
+boolean startsWith(String prefix): Returns true if there is a previously inserted
+string 'word' that has the given 'prefix', and false otherwise.
 */
 
 class Node{
 public:
     char ch;
-    unordered_map<char,Node*> m;
+    unordered_map<char,Node*> m;    
     bool isTerminal;
 
     Node(char ch){

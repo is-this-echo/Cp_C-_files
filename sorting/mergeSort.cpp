@@ -12,7 +12,6 @@ void merge(vector<int> &arr, int s, int mid, int e){
     //int *temp = new int[e-s+1];
     
     vector<int>temp;
-
     while(i<=mid && j<=e){
         if(arr[i]<arr[j]){
             temp.push_back(arr[i]);
@@ -43,7 +42,7 @@ void merge(vector<int> &arr, int s, int mid, int e){
 
 void mergeSort(vector<int> &arr, int s, int e){
     if(s<e){
-        int mid= (s+e)/2;
+        int mid = (s+e)/2;
         mergeSort(arr,s,mid);
         mergeSort(arr,mid+1,e);
         merge(arr,s,mid,e);

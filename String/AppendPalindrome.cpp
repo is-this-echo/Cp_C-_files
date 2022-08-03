@@ -35,12 +35,10 @@ void solve(string str, int len){
         
         i++; j++;
         lps[i]=j;
-
     }
 
     cout<<"Number of characters to be added = "<<len-lps[n];
     cout<<endl;
-
 }
 
     
