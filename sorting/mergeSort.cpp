@@ -10,9 +10,10 @@ double eps = 1e-12;
 void merge(vector<int> &arr, int s, int mid, int e){
     int i=s,j=mid+1;
     //int *temp = new int[e-s+1];
-    
     vector<int>temp;
+
     while(i<=mid && j<=e){
+        
         if(arr[i]<arr[j]){
             temp.push_back(arr[i]);
             i++;

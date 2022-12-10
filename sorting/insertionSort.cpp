@@ -18,24 +18,36 @@ double eps = 1e-12;
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
     
+ 
 
+void InsertionSort(int arr[], int n){
 
-void solve(){
-    string s = "bcg";
-    do{
-        cout<<s<<"\n";
+    for(int i=1;i<n;i++){
+        
+        int val = arr[i];
+        int j = i;
+
+        while(j>0 && arr[j-1]>val){
+            arr[j] = arr[j-1];
+            j--;
+        }
+        arr[j] = val;
     }
-    while(next_permutation(s.begin(),s.end()));
 }
-
-
-
+    
 
 int main() {
     fastio();
+    
+    int sample[] = {2,9,3,6,8,1,5};
+    int n = sizeof(sample)/sizeof(int);
 
-    solve();
+    InsertionSort(sample,n);
 
+    for(int x : sample){
+        cout<<x<<" ";
+    }
+    cout<<endl;
 
     return 0;
 }

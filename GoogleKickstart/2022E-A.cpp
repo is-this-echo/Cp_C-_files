@@ -18,24 +18,30 @@ double eps = 1e-12;
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
     
-
+ 
 
 void solve(){
-    string s = "bcg";
-    do{
-        cout<<s<<"\n";
-    }
-    while(next_permutation(s.begin(),s.end()));
+    int n;
+    cin>>n;
+
+    int ans= (n%5==0 ? n/5 : n/5 + 1);
+
+    cout<<ans<<"\n";
+
 }
 
 
-
-
+    
 int main() {
     fastio();
 
-    solve();
+    int t;
+    cin>>t;
 
-
+    for(int i=1;i<=t;i++){
+        google(i);
+        solve();
+    }
+    
     return 0;
 }

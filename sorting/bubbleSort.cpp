@@ -19,23 +19,41 @@ ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} retur
 void google(int t) {cout << "Case #" << t << ": ";}
     
 
+// TimeComplexity : O(n^2), best-case : O(n)
+// SapceComplexity : O(1)
 
-void solve(){
-    string s = "bcg";
-    do{
-        cout<<s<<"\n";
+void BubbleSort(vector<int> &arr){
+    int n = arr.size();
+
+    for(int i=0;i<n-1;i++){
+        bool swapped  = false;
+
+        for(int j=0;j<n-i-1;j++){
+            if(arr[j]>arr[j+1]){
+
+                swapped = true;
+                swap(arr[j],arr[j+1]);
+            }
+        }
+
+        if(!swapped){
+            break;
+        }
     }
-    while(next_permutation(s.begin(),s.end()));
 }
-
-
-
+    
 
 int main() {
     fastio();
+      
+    vector<int>sample = {2,9,3,6,8,1,5};
 
-    solve();
+    BubbleSort(sample);
 
-
+    for(int x : sample){
+        cout<<x<<" ";
+    }
+    cout<<endl;
+    
     return 0;
 }

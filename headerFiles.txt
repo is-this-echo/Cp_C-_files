@@ -1,5 +1,5 @@
-
-// All STL containers are passed by value in a function, arrays by default are passed by reference
+ 
+// All STL containers are passed by value in a function, arrays by default are passed by reference.
 
 #include<iostream>  -> basic functions, I/O operations
 #include<bits/stdc++.h>  -> master header file
@@ -20,10 +20,10 @@ while(cin>>n){
 max(x,y) , min(x,y)
 swap(int,int)  or swap(queue<int>q1, queue<int> q2)
 
-int prefixProd[n]={1}; // array initialization
+int prefixProd[n]={1}; 	// array initialization
 
 stoi("123") / atoi("123 makdd efef ")  gives 123, converts string to integer
-to_string(123) -> "123" for easy traversal across the string , for float numbers gives 8 bit representaion padded with zeroes if required
+to_string(123) -> "123" for easy traversal across the string , for float numbers gives 8 bit representation padded with zeroes if required
 
 rand() -> gives any random number
 srand(time(0)) -> seeds the random number generator
@@ -48,13 +48,14 @@ reverse(str.begin(), str.end());
 
 stoi(), stoll()  converts strings to integers or long long
 to_string()   converts valid numbers to string form
-toupper(), tolower(), isalpha(), isdigit()  returns true/false according to the string passed
+toupper(), tolower()  converts string to upper or lower cases respectively
+isalpha(), isdigit()  returns true/false according to the string passed
 
 ***********+++++++++++++++++++++++++
 
 string s;
 
-s+= "asd"; 	 O(1) time, only appenda the new string.
+s+= "asd"; 	 O(1) time, only appends the new string.
 s = s + "asd";	 O(length(s)) time as a new string is created by copying the old string and appending the additional string, then assigned to s.
 
 
@@ -87,7 +88,7 @@ dp.begin(), dp.end()
 int gfg[] = { 5, 6, 7, 7, 6, 5, 5, 6 };
 vector<int> v(gfg, gfg + 8); // 5 6 7 7 6 5 5 6
 
-//ways to create deep copy of vectors, shallow-copy -> same memory location on heap, deep-copy -> newly allocated memory
+//ways to create deep copy of vectors, shallow-copy -> same memory location on heap, deep-copy -> newly allocated memory  on heap
 vector<int>v1{2,432,1};
 vector<int> v2(v1)  or vector<int> v2 , v2=v1;  
 

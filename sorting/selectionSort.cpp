@@ -18,24 +18,40 @@ double eps = 1e-12;
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
     
+ 
+// Time Complexity : O(n^2)
+// Sapce Complexity : O(1) -> In-place sorting
 
+void SelectionSort(vector<int> &arr){
+    int n = arr.size();
 
-void solve(){
-    string s = "bcg";
-    do{
-        cout<<s<<"\n";
+    for(int i=0;i<n-1;i++){
+
+        int minIdx  = i;
+
+        for(int j=i+1;j<n;j++){
+
+            if(arr[j]<arr[minIdx]){
+                minIdx = j;
+            }
+        }
+        swap(arr[i],arr[minIdx]);
     }
-    while(next_permutation(s.begin(),s.end()));
+
 }
 
-
-
-
+    
 int main() {
     fastio();
+    
+    vector<int>sample = {2,9,3,6,8,1,5};
 
-    solve();
+    SelectionSort(sample);
 
+    for(int x : sample){
+        cout<<x<<" ";
+    }
+    cout<<endl;
 
     return 0;
 }

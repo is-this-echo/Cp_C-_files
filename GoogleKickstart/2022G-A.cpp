@@ -18,24 +18,49 @@ double eps = 1e-12;
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
     
-
+ 
 
 void solve(){
-    string s = "bcg";
-    do{
-        cout<<s<<"\n";
+    int nop,days,id;
+    cin>>nop>>days>>id;
+
+    // nop - > rows, days -> cols
+
+    vector<int>maxSteps(days,0);
+    vector<int>idSteps(days,0);
+    int steps=0;
+
+    for(int i=1;i<=nop;i++){
+        for(int j=1;j<=days;j++){
+            cin>>steps;
+            maxSteps[j-1] = max(maxSteps[j-1],steps);
+
+            if(i==id)
+                idSteps[j-1]=steps;
+        }
     }
-    while(next_permutation(s.begin(),s.end()));
+
+    ll ans=0;
+
+    for(int i=0;i<days;i++){
+        ans += abs(idSteps[i]-maxSteps[i]);
+    }
+
+    cout<<ans<<"\n";
+    
 }
 
-
-
-
+    
 int main() {
     fastio();
 
-    solve();
+    int t;
+    cin>>t;
 
-
+    for(int i=1;i<=t;i++){
+        google(i);
+        solve();
+    }
+    
     return 0;
 }
