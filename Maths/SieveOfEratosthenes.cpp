@@ -19,6 +19,7 @@ ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} retur
 void google(int t) {cout << "Case #" << t << ": ";}
     
  
+// Time Complexity : O(nloglogn)
 
 int EratosthenesSieve(int n){
     bool isPrime[1000001];
@@ -30,7 +31,6 @@ int EratosthenesSieve(int n){
     isPrime[1]=false;
     
     for(int i=2;i*i<=n;i++){
-
         if(isPrime[i]==true){
             for(ll j = 1LL*i*i; j<=n; j+=i)
                 isPrime[j]=false;     
@@ -44,7 +44,6 @@ int EratosthenesSieve(int n){
     return cnt;
 }
 
-    
     
 int main() {
     fastio();

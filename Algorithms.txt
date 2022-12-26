@@ -1,4 +1,5 @@
 
+
 KMP pattern search
 https://www.youtube.com/watch?v=GTJr8OvyEVQ&ab_channel=TusharRoy-CodingMadeSimple
 ------------------------------------------------------------------------------------------
@@ -18,7 +19,7 @@ for(int i=0;i<n;i++)
    maxSum = max( maxSum, currSum);
 } 
 """
---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
 
 Difference arrays
 
@@ -48,7 +49,6 @@ for i in range(len(A)):
 
 *-------------------------------------------------------------------------------
 
-
 Graph algorithms
 1) BFS
 2) DFS
@@ -75,7 +75,7 @@ Time complexity -> O(1)
 Amortized TC -> O(n)
 
 
-----------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
 
 Using 2 queues to implement a stack
 
@@ -94,10 +94,10 @@ Using 1 queue to implement a stack
 Pop() -> q1.pop()
 
 
-----------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
 
 Number Theory
----------------
+-------------------
 
 1) a x b = LCM(a,b) x HCF(a,b)
 
@@ -123,9 +123,8 @@ int gcd(int a, int b){
 }
 
 
-
 Bitwise operators
------------------------
+-------------------------
 	xor operator , a^b compares their binary forms bit by bit, ex-> 1^1 = 0, 0^0=0, 1^0 =1, 0^1=1
 	~ operator, flips the bits from 0 to 1 or vice versa.
 	But, ~0 =-1 as most significant bit msb, decides the sign, if its 1 then the number is negative else positive.
@@ -155,8 +154,6 @@ cnt+= (n&1);
 n=n>>1;
 }
 return cnt;
-
-
 
 
 // faster method, n&(n-1) removes the last set bit in binary rep of n, timeC = O(no. of set bits)
@@ -195,8 +192,8 @@ int computeXOR(int n)
 
 *************************************************
 
-
 square matrix rotation -> 
+--------------------------
 
 0/360 deg = (i,j) to (i,j)
 90 deg   =  (i,j) to (j,n-i-1)
@@ -223,6 +220,9 @@ The input stack will be empty by the end of the outer loop, and the sorted eleme
 
 **************************************************
 
+
+
+
 BEYOND ARRAYS: THE DISCRETE BINARY SEARCH
 
 This is where we start to abstract binary search. A sequence (array) is really just a function which associates integers (indices) with the corresponding values. However, there is no reason to restrict our usage of binary search to tangible sequences. In fact, we can use the same algorithm described above on any monotonic function f whose domain is the set of integers. The only difference is that we replace an array lookup with a function evaluation: we are now looking for some x such that f(x) is equal to the target value. The search space is now more formally a subinterval of the domain of the function, while the target value is an element of the codomain. The power of binary search begins to show now: not only do we need at most O(log N) comparisons to find the target value, but we also do not need to evaluate the function more than that many times. Additionally, in this case we aren’t restricted by practical quantities such as available memory, as was the case with arrays.
@@ -230,8 +230,6 @@ This is where we start to abstract binary search. A sequence (array) is really j
 
 
 https://www.topcoder.com/thrive/articles/Binary%20Search
-
-
 
 
 

@@ -17,43 +17,23 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
+
+
+void solve(){
     
- 
-
-bool redundantParenthesis(string s){
-    stack<char>stk;
-
-    for(char ch : s){
-        if(ch!=')'){
-            stk.push(ch);
-        }
-        else{
-            bool isOperator = false;
-            while(!stk.empty() && stk.top()!='('){
-                char c = stk.top();
-                if(c=='+' || c=='-' || c=='*' || c=='/'){
-                    isOperator = true;
-                }
-                stk.pop();
-            }
-            if(isOperator==false)
-                return true;
-        }
-    }
-    return false;
 }
 
 
 int main() {
     fastio();
 
-    string s = "((a+b+c))";
+    int t;
+    cin>>t;
 
-    if(redundantParenthesis(s))
-        cout<<"This expression has redundant parenthesis";
-    
-    else
-        cout<<"Expresssion doesnt have redundant parenthesis";
-    
+    for(int i=1;i<=t;i++){
+        google(i);
+        solve();
+    }
+
     return 0;
 }

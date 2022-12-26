@@ -35,7 +35,6 @@ bool sudokuSolver(vector<vector<char>>&board){
             if(board[i][j]=='.'){
 
                 for(char ch='1';ch<='9';ch++){
-                    
                     if(canFill(board,i,j,ch)){
                         board[i][j] = ch;
                 
