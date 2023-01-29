@@ -22,7 +22,7 @@ for(int i=0;i<n;i++)
 ---------------------------------------------------------------------------------------
 
 Difference arrays
-
+====================
 https://blogarithms.github.io/articles/2018-11/difference-arrays
 **************************************
 # Generate Difference Array

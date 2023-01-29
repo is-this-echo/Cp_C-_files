@@ -19,7 +19,7 @@ ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} retur
 void google(int t) {cout << "Case #" << t << ": ";}
     
  
-
+ 
 using ii = pair<ll,ll>;
 
 vector<ii>Factors(ll n){

@@ -20,7 +20,7 @@ void google(int t) {cout << "Case #" << t << ": ";}
     
  
 int merge(vector<int>&arr, int st, int m, int e){
-
+    
     int i=st,  j=m+1;
     vector<int>temp;
     int cnt=0;

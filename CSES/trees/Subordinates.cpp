@@ -19,41 +19,51 @@ ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} retur
 void google(int t) {cout << "Case #" << t << ": ";}
 
 
-void solve(){
-    int n,se,r;
-    cin>>n>>se>>r;
+class Node{
+public:
+    int val;
+    vector<Node*>child;
 
-    int last = se-r;
-    int avg = r/(n-1);
-    int rem = r%(n-1);
-    
-    if(n==2){
-        cout<<r<<" "<<se-r<<"\n";
-        return;
+    Node(int d){
+        val = d;
+    }
+};
+
+int dfs(int node, unordered_map<int,Node*>&mp, vector<int>&ans){
+
+    if(mp[node]->child.size()==0){
+        return 1;
     }
 
-    cout<<last<<" ";
-    for(int i=0;i<n-1;i++){
-        if(rem>0)
-            cout<<avg+1<<" ";
-        else
-        {
-            cout<<avg<<" ";
-        }
-        rem--;
+    for(auto ch : mp[node]->child){
+        ans[node] += dfs(ch->val, mp, ans);
     }
-    cout<<"\n";
+
+    return ans[node] + 1;
 }
-
 
 int main() {
     fastio();
 
-    int t;
-    cin>>t;
+    int n,x;
+    cin>>n;
 
-    while(t--)
-        solve();
- 
+    unordered_map<int,Node*>mp;
+    for(int i=1;i<=n;i++){
+        mp[i] = new Node(i);
+    }
+
+    for(int i=2;i<=n;i++){
+        cin>>x;
+        mp[x]->child.push_back(mp[i]);
+    }
+
+    vector<int>ans(n+1,0);
+    dfs(1,mp,ans);
+
+    for(int i=1;i<=n;i++){
+        cout<<ans[i]<<" ";
+    }
+
     return 0;
 }

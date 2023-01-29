@@ -37,7 +37,6 @@ class Graph {
         // while going back to original caller, pop it from stack
         stack[node] = false;
         return false;
-        
     }
     
 

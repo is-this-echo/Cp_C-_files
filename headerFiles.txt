@@ -1,4 +1,5 @@
  
+
 // All STL containers are passed by value in a function, arrays by default are passed by reference.
 
 #include<iostream>  -> basic functions, I/O operations
@@ -20,9 +21,15 @@ while(cin>>n){
 max(x,y) , min(x,y)
 swap(int,int)  or swap(queue<int>q1, queue<int> q2)
 
-int prefixProd[n]={1}; 	// array initialization
+int prefixProd[n]={1}; 	// array initialization, only first element
 
 stoi("123") / atoi("123 makdd efef ")  gives 123, converts string to integer
+atol, atoll -> converts to long and long long respectively
+
+string pp = "1232323";
+ll k = 39029302032;
+for comaring with numbers, use  -> if(atol( pp.c_str() ) > k) { ...}
+
 to_string(123) -> "123" for easy traversal across the string , for float numbers gives 8 bit representation padded with zeroes if required
 
 rand() -> gives any random number
@@ -51,11 +58,11 @@ to_string()   converts valid numbers to string form
 toupper(), tolower()  converts string to upper or lower cases respectively
 isalpha(), isdigit()  returns true/false according to the string passed
 
-***********+++++++++++++++++++++++++
+***********++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 string s;
-
-s+= "asd"; 	 O(1) time, only appends the new string.
+----------
+s += "asd"; 	 O(1) time, only appends the new string.
 s = s + "asd";	 O(length(s)) time as a new string is created by copying the old string and appending the additional string, then assigned to s.
 
 
@@ -72,8 +79,9 @@ dp.clear();
 
 reverse(v.begin(),v.end())
 
-return type int, no dereferencing required
-++++++++++++++++++++++++++++++++++++++++++
+
+return type int, no dereferencing required for commands below
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 dp.front() -> fetches begin value of vector
 dp.back() ->  fetches back value of vector
@@ -82,7 +90,7 @@ dp.back() ->  fetches back value of vector
 dereferencing required, as pointer to the address is given
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-dp.begin(), dp.end()
+dp.begin(),  dp.end()  -> iterators to the corresponding elements 
 
 
 int gfg[] = { 5, 6, 7, 7, 6, 5, 5, 6 };
@@ -96,19 +104,19 @@ vector<int> v2(v1)  or vector<int> v2 , v2=v1;
 
 
 #include<cstring>  -> memset to initialize locations with 0 or 1.
+
 int dp[50][50][50];
 memset(dp,-1,sizeof(dp));
-
 
 strcpy(dest, src);  -> copies string from src to dest variable;
 
 ex-> char name[100]; char*str="erere\0";
 strcpy(name,str);
-so name becomes erere.
+
+so 'name' becomes erere.
 
 
 **************************************************************************************************************************************************************************************
-
 
 #include<queue>  ->FIFO queue data structures
 queue<int> q1;
@@ -117,7 +125,7 @@ q.push(), q.pop(), q.front(), q.empty(), q.back()
 
 
 #include<queue>
-priority_queue<int> qq;    		// stores element in non decreasing order, max-heap by default
+priority_queue<int> qq;    		// stores element in decreasing order, max-heap by default
 qq.push(4), qq.push(7), qq.push(23) ;   // [23,7,4]
 
 //  we can multiply the values with -1 and use max heap to get the effect of min heap.
@@ -157,9 +165,9 @@ priority_queue<Car, vector<Car>, Compare>pq(cars.begin(),cars.begin()+k);
 // priority_queues with custom data structure
 
 
-
 #include<deque>      -> doubly ended queue
 deque<int> Q(k);  // deque of size k
+
 Q.pop_back();
 Q.pop_front();
 Q.push_front(x);
@@ -167,9 +175,7 @@ Q.push_back(y);
 Q.back()
 
 
-
 **************************************************************************************************************************************************************************************
-
 
 #include<stack>  -> LIFO stack data structure
 stack<int> s;
@@ -178,8 +184,7 @@ peek() -> top element
 
 **************************************************************************************************************************************************************************************
 
-
-#include<climits>  -> for max min value initializations
+#include<climits>  -> for max-min value initializations
 int a = INT_MAX;
 int b = INT_MIN;
 long int d = LONG_MAX;
@@ -280,7 +285,7 @@ class Node{
 };
 
 class Compare{
-    public:
+public:
     bool operator()(const Node &a,  const Node &b){
     return a.s_dist<=b.s_dist;
     }
@@ -308,7 +313,7 @@ map<char,int> ch;  by default keys sorted in ascending order
 ch.count('s')  //returns 0 or 1 if depending on the map contains that key or not
 ch.find(), ch.end()   -> similar to set, returns an iterator to that key in the map
 
-map<int,char, greater<int>>>mmp;  // keys sorted in descending order
+map<int,char, greater<int>>mmp;  // keys sorted in descending order
 mmp.size()   -> provides number of elements inside map
 
 // elements also can be accessed as itr.first and itr.second

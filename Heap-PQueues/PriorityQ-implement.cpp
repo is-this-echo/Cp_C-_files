@@ -30,7 +30,6 @@ class Heap {
         }
     }
 
-
 public: 
     Heap(int default_size=10){
         v.reserve(default_size+1);

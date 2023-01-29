@@ -23,8 +23,10 @@ void sqrtOfN(){
 
     while(1){
         xn = (xi + n/xi)/2;
+
         if(abs(xi-xn)<eps)
             break;
+            
         xi=xn;
         itr++;
     }

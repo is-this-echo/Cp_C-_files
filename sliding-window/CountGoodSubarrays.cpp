@@ -17,43 +17,19 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-
-
-void solve(){
-    int n,se,r;
-    cin>>n>>se>>r;
-
-    int last = se-r;
-    int avg = r/(n-1);
-    int rem = r%(n-1);
     
-    if(n==2){
-        cout<<r<<" "<<se-r<<"\n";
-        return;
+ 
+class Solution {
+public:
+    long long countGood(vector<int>& nums, int k) {
+        
     }
-
-    cout<<last<<" ";
-    for(int i=0;i<n-1;i++){
-        if(rem>0)
-            cout<<avg+1<<" ";
-        else
-        {
-            cout<<avg<<" ";
-        }
-        rem--;
-    }
-    cout<<"\n";
-}
-
-
+};
+    
 int main() {
     fastio();
 
-    int t;
-    cin>>t;
 
-    while(t--)
-        solve();
- 
+
     return 0;
 }

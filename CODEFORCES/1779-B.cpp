@@ -17,34 +17,45 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-
+    
+ 
 
 void solve(){
-    int n,se,r;
-    cin>>n>>se>>r;
+    int n;
+    cin>>n;
 
-    int last = se-r;
-    int avg = r/(n-1);
-    int rem = r%(n-1);
-    
-    if(n==2){
-        cout<<r<<" "<<se-r<<"\n";
+    if(n%2==0){
+        cout<<"YES \n";
+        int x=3;
+        for(int i=1;i<=n;i++){
+            cout<<x* (-1)<<" ";
+            x *= -1;
+        }
+        cout<<"\n";
         return;
     }
-
-    cout<<last<<" ";
-    for(int i=0;i<n-1;i++){
-        if(rem>0)
-            cout<<avg+1<<" ";
-        else
-        {
-            cout<<avg<<" ";
-        }
-        rem--;
+    else if(n==3){
+        cout<<"NO \n";
+        return;
     }
-    cout<<"\n";
-}
+    else{
+        cout<<"YES \n";
+        int t = n/2;
+        int x = -1*t, y = t-1;
 
+        for(int i=1;i<=n;i++){
+            if(i%2==0){
+                cout<<x<<" ";
+            }
+            else{
+                cout<<y<<" ";
+            }
+        }
+        cout<<"\n";
+        return;
+    }
+}
+    
 
 int main() {
     fastio();
@@ -54,6 +65,6 @@ int main() {
 
     while(t--)
         solve();
- 
+
     return 0;
 }
