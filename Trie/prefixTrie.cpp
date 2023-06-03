@@ -72,7 +72,6 @@ public:
 };
 
 
-
 int main()
 {
     string words[] = {"apple","ape","app","orange","little","news","new","n"};

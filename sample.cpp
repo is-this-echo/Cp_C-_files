@@ -17,43 +17,64 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-
-
-void solve(){
-    int n,se,r;
-    cin>>n>>se>>r;
-
-    int last = se-r;
-    int avg = r/(n-1);
-    int rem = r%(n-1);
     
-    if(n==2){
-        cout<<r<<" "<<se-r<<"\n";
-        return;
+    
+class Node
+{
+public:
+    int val;
+    Node *left, *right;
+
+    Node(int x)
+    {
+        val = x;
+        left = right = nullptr;
+    }
+};
+
+class Solution { 
+public:
+    string tree2str(Node* root) {
+        string res="";
+        tree2str(root, res);
+        return res;
     }
 
-    cout<<last<<" ";
-    for(int i=0;i<n-1;i++){
-        if(rem>0)
-            cout<<avg+1<<" ";
-        else
-        {
-            cout<<avg<<" ";
+    void tree2str(Node* root, string &res){
+        if(root==nullptr)
+            return;
+
+        res += to_string(root->val);
+
+        if(root->left){
+            res += '(';
+            tree2str(root->left, res);
+            res += ')';
         }
-        rem--;
+
+        if(root->right){
+            if(!root->left){
+                res += "()";
+            }
+            res += '(';
+            tree2str(root->right, res);
+            res += ')';
+        }
     }
-    cout<<"\n";
-}
+};
 
-
-int main() {
+int main()
+{
     fastio();
 
-    int t;
-    cin>>t;
+    Node *root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->right = new Node(4);
 
-    while(t--)
-        solve();
- 
+    Solution st;
+    cout << st.tree2str(root);
+
     return 0;
 }
+

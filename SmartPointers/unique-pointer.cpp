@@ -68,14 +68,7 @@ public:
 int main() {
     fastio();
 
-    auto begin = std::chrono::high_resolution_clock::now();
     
-    // your code goes here
-
-    auto end = std::chrono::high_resolution_clock::now();
-    auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-
-    cout<<"Time Elapsed: "<<elapsed.count()*1e-9<<" seconds";
 
     return 0;
 }

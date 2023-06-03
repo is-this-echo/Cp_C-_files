@@ -9,8 +9,8 @@ using namespace std;
 
 double eps = 1e-12;
 
-// TC = O(nxm)
-// SpaceC = O(nxm)
+// TC = O(mxn)
+// SpaceC = O(mxn)
 void dfs(vector<vector<int>>&grid, vector<vector<int>>&visited, int i,int j, int m, int n, int height){
     if(i>=0 && i<m && j>=0 && j<n && !visited[i][j] && grid[i][j]>=height){
         visited[i][j]=1;

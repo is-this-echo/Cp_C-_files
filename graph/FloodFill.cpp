@@ -9,7 +9,7 @@ using namespace std;
 const double eps = 1e-12;
     
 
- void dfs(vector<vector<int>>&grid, int i, int j, int m, int n, int newCol, int                prevCol){    
+ void dfs(vector<vector<int>>&grid, int i, int j, int m, int n, int newCol, int prevCol){    
     if(i>=0 && i<m && j>=0 && j<n && grid[i][j]==prevCol){
         grid[i][j] = newCol;
         
@@ -26,8 +26,7 @@ const double eps = 1e-12;
 }
         
     
-vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc,
-                                int newCol) {
+vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newCol) {
     vector<vector<int>> grid = image;
     int m = grid.size();
     int n = grid[0].size();

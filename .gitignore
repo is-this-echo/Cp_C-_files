@@ -1,1 +1,10 @@
+
+
+# executables
 *.exe
+
+
+# specific files
+sample.cpp
+
+
