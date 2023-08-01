@@ -11,7 +11,7 @@ using namespace std;
 #define INF 2e18
 #define mod 998244353
 const double eps = 1e-12;
-    
+
 
 bool canFill(vector<vector<char>>&board, int row, int col, char ch){
     for(int i=0;i<9;i++){
@@ -33,7 +33,6 @@ bool sudokuSolver(vector<vector<char>>&board){
         for(int j=0;j<9;j++){
             
             if(board[i][j]=='.'){
-
                 for(char ch='1';ch<='9';ch++){
                     if(canFill(board,i,j,ch)){
                         board[i][j] = ch;
@@ -52,7 +51,6 @@ bool sudokuSolver(vector<vector<char>>&board){
 
     return true;
 }
-
 
 
 void solveSudoku(vector<vector<char>>& board) {

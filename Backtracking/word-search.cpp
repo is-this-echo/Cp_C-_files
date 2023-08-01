@@ -34,7 +34,7 @@ bool dfs(vector<vector<char>>&board, string word, int row, int col, int i,
     return ans;
 }
 
-    
+
 bool exist(vector<vector<char>> &board, string word) {
     int m=board.size(),n=board[0].size();
     vector<vector<bool>>vis(m,vector<bool>(n,false));

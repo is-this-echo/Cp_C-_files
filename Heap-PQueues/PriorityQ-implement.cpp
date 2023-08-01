@@ -52,7 +52,7 @@ public:
      int top(){
          return v[1];
      }
-
+ 
      void pop(){
          int idx = v.size()-1;
 

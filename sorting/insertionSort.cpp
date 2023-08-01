@@ -17,13 +17,11 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-    
- 
+
+
 
 void InsertionSort(int arr[], int n){
-
     for(int i=1;i<n;i++){
-        
         int val = arr[i];
         int j = i;
 

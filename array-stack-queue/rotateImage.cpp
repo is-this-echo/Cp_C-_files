@@ -7,14 +7,13 @@ using namespace std;
 
 
 void rotate(vector<vector<int>>& matrix) {
-    
-    int n = matrix.size();        
+    int n = matrix.size();
     int left,right,top,bottom;
     left = 0;
     right= n-1;
 
     while(left<right){
-        top=left, bottom = right;     
+        top=left, bottom = right;
 
         for(int i=0;i<(right-left);i++){
             int temp = matrix[top][left+i];

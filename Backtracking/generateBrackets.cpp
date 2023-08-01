@@ -3,7 +3,6 @@
 using namespace std;
 
 
-
 void generateBrackets(string s, int n, int nob, int ncb, int i){
     // base case
     if(i==2*n){
@@ -18,7 +17,6 @@ void generateBrackets(string s, int n, int nob, int ncb, int i){
         generateBrackets(s+')',n,nob,ncb+1,i+1);
         
 }
-
 
 
 int main()

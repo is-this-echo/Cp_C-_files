@@ -22,9 +22,8 @@ void google(int t) {cout << "Case #" << t << ": ";}
  // use binary search to find out the square root of a number
 
 void solve(ll n, ll p){
-
 // integer part using binary search
-    ll s=0,e=n;
+    ll s = 0, e = n;
     double ans;
 
     while(s<=e){
@@ -42,9 +41,7 @@ void solve(ll n, ll p){
             e=mid-1;
         }
     }
-
     cout<<"Integer part: "<<ans<<"\n";
-
 
 // decimal part using linear search, p denotes number of decimal places
     double f=0.1;

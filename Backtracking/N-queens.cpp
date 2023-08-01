@@ -16,11 +16,10 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-    
+
 
 
 // Leetcode 51. N-Queens
- 
 void rec(int row, int n, vector<int>&placed, vector<vector<string>>&board){
     if(row==n){
         vector<string>temp;
@@ -62,7 +61,6 @@ void rec(int row, int n, vector<int>&placed, vector<vector<string>>&board){
 }
 
 
-    
 void solveNQueens(int n, vector<int>&placed, vector<vector<string>>&board) {
     rec(0, n, placed, board);
     

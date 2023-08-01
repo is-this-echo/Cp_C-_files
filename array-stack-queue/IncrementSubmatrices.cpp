@@ -39,7 +39,7 @@ public:
         
         for(int i=0; i<n; i++){
             for(int j=1; j<n; j++){
-                matrix[i][j] += matrix[i][j-1];       
+                matrix[i][j] += matrix[i][j-1];
             }     
         }
         return matrix;
