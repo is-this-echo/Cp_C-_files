@@ -3,7 +3,6 @@
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
 #pragma GCC optimize("unroll-loops")
 #include<bits/stdc++.h>
-
 using namespace std;
 
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
@@ -12,43 +11,35 @@ using namespace std;
 #define PI 3.1415926535897932384626
 #define mod 998244353
 #define f first
-#define s second 
+#define s second  
 
 double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
+    
+int cnt = 0 ;
 
-
-int getDigits(int num){
-    set<int>st;
-
-    for(int i = 4; i>=0; i--){
-        st.insert(num>>i & 1);
-    }
-    return st.size();
-}
-
-int findNums(){
-    int ans = 0;
-
-    for(int n = 0; n<=70; n++){
-        for(int fghij = 1234; fghij <= (98765/n); fghij++){
-
-            int abcde = fghij*n;
-            if(getDigits(abcde) + getDigits(fghij) == 10){
-                ans++;
-            }
-        }
+void permute(string str, int l, int r){
+    if(l==r){
+        cnt++;
+        cout<<str<<endl;
+        return;
     }
 
-    return ans;
+    for(int i=l; i<=r; i++){
+        swap(str[i], str[l]);
+        permute(str,l+1,r);
+    }
 }
-
-
+    
 int main() {
+    fastio();
 
-   cout<< findNums();
+    string str = "abcfkj";
+    permute(str, 0, str.length()-1);
 
+    cout << cnt;
+    
     return 0;
 }

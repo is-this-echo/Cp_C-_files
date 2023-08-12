@@ -20,35 +20,36 @@ ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} retur
 void google(int t) {cout << "Case #" << t << ": ";}
 
 
-int getDigits(int num){
-    set<int>st;
-
-    for(int i = 4; i>=0; i--){
-        st.insert(num>>i & 1);
-    }
-    return st.size();
-}
-
-int findNums(){
-    int ans = 0;
-
-    for(int n = 0; n<=70; n++){
-        for(int fghij = 1234; fghij <= (98765/n); fghij++){
-
-            int abcde = fghij*n;
-            if(getDigits(abcde) + getDigits(fghij) == 10){
-                ans++;
-            }
+int partition(vector<int> &arr, int start, int end){
+    int i = start-1, pivot = arr[end];
+    for(int j = start; j < end; j++){
+        if(arr[j] < pivot){
+            i++;
+            swap(arr[i], arr[j]);
         }
     }
+    swap(arr[i+1], arr[end]);
+    return i+1;
+}
 
-    return ans;
+void quicksort(vector<int> &arr, int start, int end) {
+    if(start < end){
+        int p = partition(arr,start,end);
+        quicksort(arr, start, p);
+        quicksort(arr, p+1, end);
+    }
 }
 
 
-int main() {
+int main(){
+    vector<int>arr = {1,9,5,67,2,3,44,57};
+    int n = arr.size();
 
-   cout<< findNums();
+    quicksort(arr,0,n-1);
+
+    for(int i=0; i < n; i++){
+        cout<< arr[i] <<" ";
+    }
 
     return 0;
 }

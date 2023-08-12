@@ -38,7 +38,7 @@ bool allocationPossible(vector<int> &arr,int s, int max_pages){
                 //allocated=0;
             if(sn>s)
                 return false;
-        }
+        } 
         else 
             allocated+=arr[i];
     }
