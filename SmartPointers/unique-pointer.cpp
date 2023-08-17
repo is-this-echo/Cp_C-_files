@@ -1,74 +1,104 @@
-/* Debjyoti Ghosh*/
-#pragma GCC optimize("Ofast")
-#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
-#pragma GCC optimize("unroll-loops")
 #include<bits/stdc++.h>
+#include<memory>
 using namespace std;
 
-#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-#define ll long long
-#define INF 2e18
-#define PI 3.1415926535897932384626
-#define mod 998244353
-#define f first
-#define s second 
 
-double eps = 1e-12;
-
-ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
-void google(int t) {cout << "Case #" << t << ": ";}
-    
-
-class Rectangle{ 
-    int length;
-    int breadth;
-
-public: 
-    Rectangle(int length, int breadth){
-        this->length = length;
-        this->breadth = breadth;
-    }
-
-    int calculateArea(){
-        return length * breadth;
-    }
- };
-
-// generic smart pointer class
-template <class T>
-class SmartPtr{
-    // actual pointer being used
-    T* ptr;
-
+// unique ptr : one resource -> 1 object
+template <typename T>
+class uniqueptr {
 public:
-    //constructor
-    explicit SmartPtr(T* p = NULL)
+    uniqueptr(T* a = nullptr) : res(a) 
     {
-        ptr = p;
+        cout << "ctor";
     }
-    
-    //destructor
-    ~SmartPtr()
+
+    uniqueptr(const uniqueptr<T>& ptr) = delete;
+    uniqueptr& operator= (const uniqueptr<T>& ptr) = delete;
+
+// move copy constructor
+    uniqueptr(uniqueptr<T>&& ptr)
     {
-        delete (ptr);
+        res = ptr.res;
+        ptr.res = nullptr;
+    }
+
+// move assignment operator
+    uniqueptr& operator= (uniqueptr<T>&& ptr)
+    {
+        if(this != &ptr)
+        {
+            if(res)
+            {
+                delete res;
+            }
+
+            res = ptr.res;
+            ptr.res = nullptr;
+        }
+        return *this;
+    }
+
+    T* operator->() 
+    {
+        return res;
     }
 
     T& operator*()
     {
-        return *ptr;
+        return *res;
     }
 
-    T* operator->()
+    T* get()
     {
-        return ptr;
+        return res;
     }
+
+    // not thread safe
+    void reset(T* new_res = nullptr)
+    {
+        if(res)
+        {
+            delete res;
+        }
+        res = new_res;
+    }
+
+    /* 
+    can improve to provide an allocator using which we can run custom code in 
+    destructor such as logging something before memory is freed
+    */ 
+    ~uniqueptr()
+    {
+        if(res)
+        {
+            delete res;
+            res = nullptr;
+        }
+    }
+
+private:
+    T* res;
 };
 
+// shared ptr : one resource -> multiple objects
 
-int main() {
-    fastio();
+int main(){
 
-    
+    // solve();
+    uniqueptr<int> ptr1(new int(2));
+
+    // uniqueptr<int> ptr2(ptr1);  // will throw compilation error as ptr can't be shared
+    // uniqueptr<int> ptr3 = ptr1;  //throw compilation error, copy constructor
+    uniqueptr<int> ptr3 = std::move(ptr1); // possible as it moves ownership to ptr3
+
+    uniqueptr<int> ptr4(new int(300));
+    // ptr4 = ptr3; // throw compilation error, copy assignment operation
+    ptr4 = std::move(ptr3); // correct code
+
+    //  ptr1->func();
+    //  cout << *(ptr1);  -> runtime-error, as  ptr1 is moved to ptr3
+     ptr1.get();
+     ptr1.reset(new int(230));
 
     return 0;
 }

@@ -20,35 +20,12 @@ ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} retur
 void google(int t) {cout << "Case #" << t << ": ";}
 
 
-int getDigits(int num){
-    set<int>st;
 
-    for(int i = 4; i>=0; i--){
-        st.insert(num>>i & 1);
-    }
-    return st.size();
-}
-
-int findNums(){
-    int ans = 0;
-
-    for(int n = 0; n<=70; n++){
-        for(int fghij = 1234; fghij <= (98765/n); fghij++){
-
-            int abcde = fghij*n;
-            if(getDigits(abcde) + getDigits(fghij) == 10){
-                ans++;
-            }
-        }
-    }
-
-    return ans;
-}
 
 
 int main() {
 
-   cout<< findNums();
+
 
     return 0;
 }
