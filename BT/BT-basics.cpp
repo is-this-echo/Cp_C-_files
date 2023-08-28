@@ -73,6 +73,13 @@ void postOrderTraversal(Node* root) {
     cout << root->val << " ";
 }
 
+/*
+Height of a node : The number of edges on the longest path from the node to a leaf node.
+so, height of tree = height of root node, the number of edges on the longest path from the root node to a leaf node.
+ 
+Depth of a node: The number of edges from the root node to that node.
+so, depth of tree = max height of tree
+*/
 
 int treeHeight(Node *root) {
     if(root == NULL)
@@ -159,6 +166,20 @@ Node* levelOrderBuild() {
     return root;
 }
 
+Node* minHeightBST(int arr2[], int st, int end) {
+    if(st>end)
+        return NULL;
+
+    int mid = (st+end)>>1;
+    Node* root = new Node(arr2[mid]);
+
+    root->left = minHeightBST(arr2, st, mid-1);
+    root->right = minHeightBST(arr2, mid+1, end);
+    
+    return root;
+}
+
+
 int main() {
 
    // input : 1 2 4 -1 -1 5 7 -1 -1 -1 3 -1 6 -1 -1
@@ -171,6 +192,10 @@ int main() {
     // cout << treeDiameter(root);
 
     bfs(root);
+
+    int arr2[] = {1,2,3,4,5,6,7};
+    Node* root2 = minHeightBST(arr2,0,sizeof(arr2)/sizeof(arr2[0]) - 1);
+    inOrderTraversal(root2);
 
     return 0;
 }

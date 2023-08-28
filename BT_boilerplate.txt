@@ -1,3 +1,10 @@
+Height of a node : The number of edges on the longest path from the node to a leaf node.
+so, height of tree = height of root node, the number of edges on the longest path from the root node to a leaf node.
+ 
+Depth of a node: The number of edges from the root node to that node.
+so, depth of tree = max height of tree
+
+-------------------
 
 #include <iostream>
 #include<queue>

@@ -27,14 +27,14 @@ pair<int,bool> HeightBalanced(Node* root){
     pair<int,bool> p, leftTree, rightTree;
 
     // base case
-    if(root=nullptr){
+    if(root == nullptr){
         p.first = 0;   // height
         p.second = true;   //isBalanced
         return p;
     }
 
     leftTree = HeightBalanced(root->left);
-    rightTree  = HeightBalanced(root->right);
+    rightTree  = HeightBalanced(root->right); 
 
     int heightDiff = abs(leftTree.first-rightTree.first);
     int currHeight = max(leftTree.first, rightTree.first)+1;

@@ -21,10 +21,18 @@ void google(int t) {cout << "Case #" << t << ": ";}
 
 
 
+class Node {
+public:
+    int key;
+    Node *left, *right;
+
+    Node(int key) : key(key), left(NULL), right(NULL) {} 
+};
+
 
 
 int main() {
-
+    Node* root = NULL;
 
 
     return 0;
