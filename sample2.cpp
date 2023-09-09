@@ -20,20 +20,24 @@ ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} retur
 void google(int t) {cout << "Case #" << t << ": ";}
 
 
-
-class Node {
+class node{
 public:
-    int key;
-    Node *left, *right;
+    int val;
+    node *left;
+    node *right;
 
-    Node(int key) : key(key), left(NULL), right(NULL) {} 
+    node(int val) : val(val), left(NULL), right(NULL) {}
 };
 
 
 
-int main() {
-    Node* root = NULL;
 
+
+
+
+int main() {
+    srand(time(0));
+    cout << rand();
 
     return 0;
 }

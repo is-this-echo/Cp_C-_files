@@ -91,7 +91,7 @@ int treeHeight(Node *root) {
     return 1 + max(leftH, rightH);
 }
 
-
+// unoptimized version
 int treeDiameter(Node *root) {
     if(root == NULL)
         return 0;

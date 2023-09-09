@@ -46,8 +46,7 @@ int query(int idx, int low, int high, int l, int r){
     int left = query(2*idx+1, low,mid,l,r);
     int right = query(2*idx+2,mid+1,high,l,r);
     
-    return max(left,right);
-    
+    return max(left,right);   
 }
 
 

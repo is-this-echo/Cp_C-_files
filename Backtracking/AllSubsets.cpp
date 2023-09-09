@@ -22,7 +22,6 @@ void helper(vector<int> &nums, vector<vector<int>> &ans, vector<int> &temp, int 
 
 
 vector<vector<int>> subsets(vector<int>& nums) {
-
     vector<vector<int>> ans;
     vector<int> temp;
     int n = nums.size();

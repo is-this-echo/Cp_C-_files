@@ -268,6 +268,7 @@ pair<int,pair<int,int>>pp;
 set<int>s ;
 set<char> sch;
 sch.insert('d');
+s.find(12);   //returns s.end() if not found.
 s.insert(1);
 s,erase(iterator);
 s.clear();

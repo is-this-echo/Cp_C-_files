@@ -37,8 +37,8 @@ void rec(int row, int n, vector<int>&placed, vector<vector<string>>&board){
             s.erase();
 
         }
-            board.push_back(temp);
-            return;
+        board.push_back(temp);
+        return;
     }
 
     for(int col=0; col<n; col++){

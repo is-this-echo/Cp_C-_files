@@ -26,7 +26,6 @@ bool allocationPossible(vector<int> &arr,int s, int max_pages){
     int allocated = 0;
 
     for(int i=0;i<n;i++){
-
         // since the pages required must contain one whole book, partial allocation not possible
         if(max_pages<arr[i])
             return false;
@@ -51,7 +50,7 @@ int allocateBooks(vector<int> &arr, int s){
     sort(arr.begin(),arr.end());
     int n =arr.size();
 
-    // defining search space, ideally low = * max(arr.begin(), arr,end())
+    // defining search space, ideally low = * max(arr.begin(), arr.end())
     int low =arr[0], high=0;
     int ans=-1;
     for(int i=0;i<n;i++){

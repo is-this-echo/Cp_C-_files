@@ -5,7 +5,7 @@ using namespace std;
 /*
 Trie() Initializes the trie object.
 void insert(String word) : Inserts the string 'word' into the trie.
-boolean search(String word) : Returns true if the string 'word' is in  trie ,false otherwise.
+boolean search(String word) : Returns true if the string 'word' is in  trie, false otherwise.
 boolean startsWith(String prefix): Returns true if there is a previously inserted
 string 'word' that has the given 'prefix', and false otherwise.
 */
