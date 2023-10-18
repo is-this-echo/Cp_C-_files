@@ -31,7 +31,7 @@ public:
 
 
 int main() {
-    fastio();
+    fastio(); 
 
     Solution st;
     vector<string> aa = st.restoreIpAddresses("101023");
@@ -40,4 +40,4 @@ int main() {
         cout<<c<<"  ";
 
     return 0;
-}
+} 

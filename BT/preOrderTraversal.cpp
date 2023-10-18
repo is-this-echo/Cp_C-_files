@@ -55,7 +55,7 @@ void iterativePreOrder(Node* root){
 
     while(!s.empty()){
         Node* curr = s.top();
-        cout<<curr->val<<" ";
+        cout<<curr->val<<" "; 
         s.pop();
 
         if(curr->right)

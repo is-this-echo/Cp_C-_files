@@ -26,7 +26,7 @@ int maxFrequency(vector<int>& nums, int k) {
             if(r<n)
                 total+=nums[r];
         } 
-        // contract window
+        // contract window 
         else{
             total-=nums[l];
             l++;

@@ -3,7 +3,6 @@
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
 #pragma GCC optimize("unroll-loops")
 #include<bits/stdc++.h>
-
 using namespace std;
 
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
@@ -18,67 +17,8 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-
-
-using ii = pair<int,int>;
-
-class Graph{
-    int V;
+    
  
-public:
-    Graph(int v) : V(v), l(new list<ii>[V]);
-
-    void addEdge(int u, int wt, int v, bool undir = true){
-        l[u].push_back({wt,v});
-
-        if(undir){
-            l[v].push_back({wt,u}); 
-        }
-    }
-
-    int dijkstra(int src, int des){
-        vector<int>dist(V,INT_MAX);
-        set<ii>st; //<dist,node>
-
-        dist[src] = 0;
-        st.insert({dist[src],src});
-
-        while(!st.empty()){
-            auto itr = st.begin();
-            int distTillNow = itr->f;
-            int node = itr->s;
-
-            st.erase(itr);
-
-            for(auto mPair : l[node]){
-                int currDist = mPair.f;
-                int nbr = mPair.s;
-
-                if(distTillNow + currDist < dist[nbr]){
-                    auto elem = st.find({dist[nbr], nbr});
-                    if(elem != st.end()){
-                        st.erase(elem);
-                    }
-                    dist[nbr] = distTillNow + currDist;
-                    st.insert({dist[nbr], nbr});
-                }
-            }
-
-        }
-        return dist[des];
-
-    }
-};
-
-
-
-class Compare{
-    bool operator()(const pair<double,int>&x, const pair<double,int>&y){
-        return x.first - y.first > 0;
-    }
-};
-
-
 class Solution {
 public:
  double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
@@ -90,8 +30,12 @@ public:
             l[edges[i][1]].push_back({succProb[i],edges[i][0]});
         }
 
+        auto compare = [](const pair<double,int>&x, const pair<double,int>&y) {
+                                return x.first - y.first > 1e-12; };
+
         vector<double>dist(n,-1.0);
-        set<pair<double,int>>st;
+        vector<bool>vis(n,false);
+        set<pair<double,int>,decltype(compare)> st;
 
         dist[start] = 1.0;
         st.insert({dist[start],start});
@@ -102,19 +46,21 @@ public:
             int node = itr->second;
 
             st.erase(itr);
+            vis[node] = true;
 
             for(auto nbrPair : l[node]){
                 double currEdge = nbrPair.first;
                 int nbr = nbrPair.second;
-                cout << nbr <<" \n";
-                if(probTillNow * currEdge > dist[nbr]){
-                    cout<<nbr <<"\n";
+
+                if(!vis[nbr] && (probTillNow * currEdge > dist[nbr])){
+                    cout<< probTillNow * currEdge<< endl;
                     auto elem = st.find({dist[nbr],nbr});
 
                     if(elem!=st.end())
                         st.erase(elem);
 
-                    dist[nbr] = probTillNow * currEdge; 
+                    dist[nbr] = 1.0 * probTillNow * currEdge; 
+                    cout<< dist[nbr] <<endl;
                     st.insert({dist[nbr],nbr});
                 }
             }
@@ -128,24 +74,8 @@ public:
 };
 
 
-
-void solve() {
-    int n;
-    cin >> n;
-
-    vector<int>size;
-    for(int i=0; i<n; i++){
-        cin>>size[i];
-    }
-    // use STL lower_bound function to find the number just greater than x
-
-
-}
-
-
-
 int main() {
-
-    solve();
+    fastio();
+    
     return 0;
 }

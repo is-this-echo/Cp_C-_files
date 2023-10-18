@@ -58,7 +58,7 @@ void parentMap(Node* root, unordered_map<int, Node*> &m, Node* parent){
 }
 
 
-// funcion uses BT as an undirected graph and using bfs we traverse till level k
+// function uses BT as an undirected graph and using bfs we traverse till level k
 void NodesAtDistanceK(Node* root, Node* target, int k, unordered_map<int,Node*> &m){
     unordered_map<int,bool> visited;
     queue<Node*>q;

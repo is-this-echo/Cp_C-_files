@@ -51,7 +51,6 @@ public:
 
 
 int main(){
-
     vector<string> cities = {"LasVegas", "NewYork","Kolkata","Tokyo"};
 
     Graph g(cities);

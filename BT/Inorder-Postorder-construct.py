@@ -13,8 +13,8 @@ class TreeNode:
 class Solution:
     def buildTree(self, inorder: list[int], postorder: list[int]) -> TreeNode:
         
-        if not inorder or not postorder:
-            return None
+        if not inorder or not postorder: 
+            return None 
         
         
         root = TreeNode(postorder[-1])
@@ -24,5 +24,6 @@ class Solution:
         
         root.left = self.buildTree(inorder[:idx], postorder[:idx])
         root.right = self.buildTree(inorder[idx+1:], postorder[idx:tree_size-1])
+        # root.right = self.buildTree(inorder[idx+1:], postorder[-1])
         
         return root

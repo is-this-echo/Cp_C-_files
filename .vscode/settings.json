@@ -18,7 +18,9 @@
     "forward_list": "cpp",
     "initializer_list": "cpp",
     "regex": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "chrono": "cpp",
+    "limits": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

@@ -12,23 +12,18 @@ const double eps = 1e-12;
  
   int maxProfit(vector<int>& prices) {
     // sliding window approach
+        int l=0, r=1;
+        int maxProfit = 0;
 
-    int l=0,r=0,n=prices.size();
-    int profit=0,maxProfit=0;
-    
-    while(r<n-1){
-        r++;
-        
-        if(prices[r]<prices[l])
-            l=r;
-            //profit=0;
-        
-        else{
-            profit = prices[r]-prices[l];
-            maxProfit = max(maxProfit, profit);
+        while(r < prices.size()){
+            if(prices[l] < prices[r])
+                maxProfit = max(maxProfit, prices[r]-prices[l]);
+            
+            else 
+                l = r;
+            
+            r++;
         }
-        
-    }
     return maxProfit;
 }
 
