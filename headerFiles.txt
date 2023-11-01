@@ -270,7 +270,7 @@ set<char> sch;
 sch.insert('d');
 s.find(12);   //returns s.end() if not found.
 s.insert(1);
-s,erase(iterator);
+s.erase(iterator);   or	  s.erase(arr[l])   or   s.erase(2)  also works  
 s.clear();
 
 // example of storing custom data structure elements in a set, we need to overload operator function to provide sorting condition

@@ -20,7 +20,8 @@
     "regex": "cpp",
     "valarray": "cpp",
     "chrono": "cpp",
-    "limits": "cpp"
+    "limits": "cpp",
+    "ratio": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

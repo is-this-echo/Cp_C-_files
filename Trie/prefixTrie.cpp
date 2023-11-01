@@ -28,7 +28,7 @@ public:
     Node* root;
 
     Trie(){
-        root = new Node('\0'); 
+        root = new Node("\0"); 
     }
 
     void insert(string word){

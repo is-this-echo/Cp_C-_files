@@ -22,7 +22,6 @@ void google(int t) {cout << "Case #" << t << ": ";}
 class Solution {
 public:
  double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
-        double ans=0;
         list<pair<double,int>>l[n+1];
 
         for(int i=0; i<edges.size(); i++){
@@ -30,12 +29,13 @@ public:
             l[edges[i][1]].push_back({succProb[i],edges[i][0]});
         }
 
-        auto compare = [](const pair<double,int>&x, const pair<double,int>&y) {
-                                return x.first - y.first > 1e-12; };
+        // auto compare = [](const pair<double,int>&x, const pair<double,int>&y) {
+        //                         return x.first - y.first > 1e-12; };
 
         vector<double>dist(n,-1.0);
-        vector<bool>vis(n,false);
-        set<pair<double,int>,decltype(compare)> st;
+        // vector<bool>vis(n,false);
+        set<pair<double,int>,greater<pair<double,int>>>st;
+        // set<pair<double,int>,decltype(compare)> st;
 
         dist[start] = 1.0;
         st.insert({dist[start],start});
@@ -46,21 +46,18 @@ public:
             int node = itr->second;
 
             st.erase(itr);
-            vis[node] = true;
 
             for(auto nbrPair : l[node]){
                 double currEdge = nbrPair.first;
                 int nbr = nbrPair.second;
 
-                if(!vis[nbr] && (probTillNow * currEdge > dist[nbr])){
-                    cout<< probTillNow * currEdge<< endl;
+                if(probTillNow * currEdge > dist[nbr]){
                     auto elem = st.find({dist[nbr],nbr});
 
                     if(elem!=st.end())
                         st.erase(elem);
 
                     dist[nbr] = 1.0 * probTillNow * currEdge; 
-                    cout<< dist[nbr] <<endl;
                     st.insert({dist[nbr],nbr});
                 }
             }
