@@ -35,7 +35,7 @@ int minimumSquare(int a, int b){
         result += a/b; 
         rem = a % b; 
         a = b; 
-        b = rem; 
+        b = rem;  
     }
     return result; 
 } 

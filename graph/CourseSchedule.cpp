@@ -19,7 +19,7 @@ bool dfs(int crs,vector<bool>& visited, unordered_map<int,vector<int>> &m){
         bool canComp = dfs(nbr,visited,m);
         if(canComp==false)
             return false;
-    }
+    } 
     // if course can be completed, take out crs from dfs stack, 
     // set prerequisite to 0 for saving time as we know it can be completed
     visited[crs]=false;

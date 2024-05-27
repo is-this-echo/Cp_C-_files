@@ -8,7 +8,8 @@ int Partition(vector<int> &a, int s, int e){
     int pivot = a[e];
 
     for(int j=s;j<e;j++){
-        if(a[j]<pivot){
+    // ascending order
+        if(a[j] < pivot){
             i++;
             swap(a[j],a[i]);
         }

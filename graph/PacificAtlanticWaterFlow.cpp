@@ -24,8 +24,6 @@ void dfs(vector<vector<int>>&grid, vector<vector<int>>&visited, int i,int j, int
             dfs(grid,visited,cx,cy,m,n,grid[i][j]);
         }
     }
-    else 
-        return;
 }
 
 

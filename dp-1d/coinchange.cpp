@@ -29,17 +29,17 @@ int minCoinsTD(int m, vector<int> &denoms, vector<int> &dp){
     if(dp[m]!=0)
         return dp[m];
 
-        dp[m]=INT_MAX;
+    dp[m]=INT_MAX;
 
-        for(auto coin : denoms){
-            if(m-coin>=0 && dp[m-coin]!=INT_MAX){
-                int subProb = minCoinsTD(m-coin,denoms,dp)+1;
-                 if(subProb!=INT_MAX)
-                    dp[m] = min(dp[m],subProb);
-            }
-               
+    for(auto coin : denoms){
+        if(m-coin>=0 && dp[m-coin]!=INT_MAX){
+            int subProb = minCoinsTD(m-coin,denoms,dp);
+                if(subProb!=INT_MAX)
+                dp[m] = min(dp[m],subProb+1);
         }
-        return dp[m]==INT_MAX?-1:dp[m];
+            
+    }
+    return dp[m]==INT_MAX ? -1 : dp[m];
 }
 
 

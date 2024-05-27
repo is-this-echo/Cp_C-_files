@@ -8,10 +8,9 @@ using namespace std;
 #define INF 2e18
 #define mod 998244353
 double eps = 1e-12;
-    
- 
- // sorting one stack using a temporary stack in decreasing order, TV = O(n^2)
 
+
+ // sorting one stack using a temporary stack in decreasing order, TC = O(n^2)
 void printStack(stack<int> stk){
     while(!stk.empty()){
         cout<<stk.top()<<" ";
@@ -21,9 +20,9 @@ void printStack(stack<int> stk){
 }
 
 
+// sort in descending order
 void solve(){
-    stack<int> s1;
-    stack<int> temp;
+    stack<int> s1, temp;
 
     s1.push(3);s1.push(5);s1.push(1);s1.push(4);s1.push(2);
     printStack(s1);
@@ -39,13 +38,12 @@ void solve(){
             s1.push(val2);
         }
         temp.push(val);
-
     }
     printStack(temp);
 }
 
 
-    
+
 int main() {
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
     solve();

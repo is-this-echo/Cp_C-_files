@@ -16,12 +16,10 @@ void google(int t) {cout << "Case #" << t << ": ";}
     
  
 class Solution {
-    
     int dx[4] = {0,0,1,-1};
     int dy[4] = {1,-1,0,0};
     
 public:
-    
     bool isValid(int n, int i, int j){
         // return true if cell is within grid bounds
         return (i>=0 && i<n && j>=0 && j<n);
@@ -40,7 +38,6 @@ public:
         q.push({i,j});
             
         for(int k=0;k<4;k++){
-            
             int cx = i + dx[k];
             int cy = j + dy[k];
             
@@ -52,16 +49,14 @@ public:
     int bfs(vector<vector<int>>&grid, vector<vector<bool>>&vis,
             queue<pair<int,int>>&q){
         
-        int ans = 0, n = grid.size();
-        
+        int ans=0, n=grid.size();
+
         while(!q.empty()){
             // for loop ends after each layer is completed
             // even if queue size changes, the size in for loop remains same
             int len = q.size();
-            
             for(int i=0;i<len;i++){
                 pair<int,int>p = q.front();
-
                 q.pop();
                 
                 for(int k=0;k<4;k++){
@@ -86,7 +81,6 @@ public:
     
     
     int shortestBridge(vector<vector<int>>& grid) {
-
         int n = grid.size();
         queue<pair<int,int>>q;
         vector<vector<bool>>vis(n,vector<bool>(n,false));

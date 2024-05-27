@@ -20,7 +20,7 @@ void google(int t) {cout << "Case #" << t << ": ";}
     
 
 // TimeComplexity : O(n^2), best-case : O(n)
-// SapceComplexity : O(1)
+// SpaceComplexity : O(1)
 
 void BubbleSort(vector<int> &arr){
     int n = arr.size();
@@ -42,7 +42,7 @@ void BubbleSort(vector<int> &arr){
     }
 }
     
-
+ 
 int main() {
     fastio();
       

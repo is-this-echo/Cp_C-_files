@@ -7,12 +7,12 @@ conditions -> 1) Each student should get atleast 1 book
               2) Every book should be allocated to only one student, no sharing
               3) Books allocation can be done only in contiguous order like st1 -> 12,34
                 not 12,67 as they are not contiguous elements. 
-
 */
 
 #include<iostream>
 #include<algorithm>
 #include<vector>
+#include<numeric>
 using namespace std;
 
 #define ll long long
@@ -47,17 +47,13 @@ bool allocationPossible(vector<int> &arr,int s, int max_pages){
 
 
 int allocateBooks(vector<int> &arr, int s){
-    sort(arr.begin(),arr.end());
     int n =arr.size();
 
     // defining search space, ideally low = * max(arr.begin(), arr.end())
     int low =arr[0], high=0;
     int ans=-1;
-    for(int i=0;i<n;i++){
-        high+=arr[i];
-    }
+    high = accumulate(arr.begin(), arr.end(), 0);
 
-    // high = accumulate(arr.begin(), arr.end(), 0);
     while(low<=high){
         int mid=(low+high)/2;
 
@@ -65,9 +61,8 @@ int allocateBooks(vector<int> &arr, int s){
             ans = mid;
             high=mid-1;
         }
-        else{
+        else
             low = mid+1;
-        }
     }
     return ans;
 }

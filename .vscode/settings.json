@@ -21,7 +21,9 @@
     "valarray": "cpp",
     "chrono": "cpp",
     "limits": "cpp",
-    "ratio": "cpp"
+    "ratio": "cpp",
+    "numeric": "cpp",
+    "new": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

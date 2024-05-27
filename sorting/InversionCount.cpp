@@ -51,7 +51,6 @@ int merge(vector<int>&arr, int st, int m, int e){
         arr[idx]=temp[k];
         k++;
     }
-
     return cnt;
 }
  
@@ -79,4 +78,4 @@ int main() {
     cout<<"Number of inversion pairs are: "<<InversionCount(arr,0,n-1);
 
     return 0;
-}
+}  

@@ -43,7 +43,6 @@ class Graph {
     // wrapper function
     bool detectCycle(){
         // graph can have multiple components
-        
         vector<bool> visited(V,false);
         vector<bool> stack(V,false);
 

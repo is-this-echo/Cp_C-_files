@@ -9,7 +9,15 @@ boolean search(String word) : Returns true if the string 'word' is in  trie, fal
 boolean startsWith(String prefix): Returns true if there is a previously inserted
 string 'word' that has the given 'prefix', and false otherwise.
 */
-
+//-----------------------
+/*
+ Trie data structure is an advanced data structure used for storing and searching strings efficiently.Dictionaries can be implemented efficiently using a Trie data structure and they are also used for the autocomplete features that we see in the search engines. It is faster than binary search trees and hash tables for storing and retrieving data.
+ Time complexity of insertion, deletion and searching for a string of length 'k' in the Trie data structure is:
+    Insert - O(k)
+    Delete - O(k)
+    Search - O(k)
+The time complexity for building a Trie data structure is O(N * avgL), where 'N' is the number of strings we want to insert in the Trie and 'avgL' is the average length of 'N' strings.
+ */
 class Node{
 public:
     char ch;
@@ -28,7 +36,7 @@ public:
     Node* root;
 
     Trie(){
-        root = new Node("\0"); 
+        root = new Node('\0'); 
     }
 
     void insert(string word){

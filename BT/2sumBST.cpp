@@ -32,7 +32,6 @@ bool findTarget(TreeNode* root, int k) {
     
     for(int i=0;i<n-1;i++){
         int x = k-arr[i];
-        
         int s=i+1;
         int e = n-1;
         

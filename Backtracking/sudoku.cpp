@@ -13,6 +13,7 @@ using namespace std;
 const double eps = 1e-12;
 
 
+// clever way
 bool canFill(vector<vector<char>>&board, int row, int col, char ch){
     for(int i=0;i<9;i++){
         if(board[row][i]==ch)
@@ -28,6 +29,7 @@ bool canFill(vector<vector<char>>&board, int row, int col, char ch){
 }
 
 
+// O(n^4) time complexity
 bool sudokuSolver(vector<vector<char>>&board){
     for(int i=0;i<9;i++){
         for(int j=0;j<9;j++){
@@ -48,7 +50,6 @@ bool sudokuSolver(vector<vector<char>>&board){
             }
         }
     }
-
     return true;
 }
 
@@ -56,7 +57,7 @@ bool sudokuSolver(vector<vector<char>>&board){
 void solveSudoku(vector<vector<char>>& board) {
     sudokuSolver(board);
 }
-    
+
 
 void printSudoku(vector<vector<char>>&board){
     for(auto x: board){
@@ -68,6 +69,66 @@ void printSudoku(vector<vector<char>>&board){
 }
 
 
+/*
+    more naive way, with a slightly better time complexity
+*/
+
+bool canFill2(int grid[][9], int row, int col, int num, int n) {
+    for(int i=0; i<n; i++){
+        if(grid[row][i] == num || grid[i][col] == num)
+            return false;
+    }
+
+    int stx = (row/3)*3, sty = (col/3)*3;
+    for(int i=stx; i<stx+3; i++){
+        for(int j=sty; j<sty+3; j++){
+            if(grid[i][j] == num)
+                return false;
+        }
+    }
+    return true;
+}
+
+
+bool solveSudoku2(int grid[][9], int i, int j, int n) {
+    // base case
+    if(i==n){
+        printSudoku2(grid);
+        return true;
+    }
+    
+    // recursive case
+    if(j==n)
+        return solveSudoku2(grid,i+1,0,n);
+    
+    // if the cell is already filled
+    if(grid[i][j] != 0)
+        return solveSudoku2(grid,i,j+1,n);
+    
+    // case when the cell is empty
+    for(int num=1; num<=n; num++){
+        if(canFill2(grid,i,j,num,n)){
+            grid[i][j] = num;
+
+            if(solveSudoku2(grid,i,j+1,n))
+                return true;
+        }
+    }
+
+    // cell can't be filled in current state
+    grid[i][j] = 0;
+    return false;
+}
+
+
+void printSudoku2(int arr[][9], int n){
+    for(int i=0; i<n; i++){
+        for(int j=0; j <n; j++){
+            cout << grid[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
     
 int main() {
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);

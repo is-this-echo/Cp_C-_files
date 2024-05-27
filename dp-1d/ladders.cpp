@@ -2,6 +2,7 @@
 #include<vector>
 using namespace std;
 
+
 // bottom up approach using DP
 int ladderBU(int n, int k){
     int dp[100]={0};
@@ -14,12 +15,15 @@ int ladderBU(int n, int k){
     return dp[n];
 }
 
+
 // top down approach using DP
 int ladderTD(int n, int k, int *dp){
     if(n==0)
         return 1;
+
     if(n<0)
         return 0;
+        
     if(dp[n]!=0)
         return dp[n];
 

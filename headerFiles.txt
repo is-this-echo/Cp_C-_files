@@ -42,6 +42,7 @@ rand()% (e-s+1) gives numbers from 0 to e-s
 #include<string>  -> string containers
 
 string s;
+string str(4,'3')  // str = "3333", initializes the string with '3' * 4 times
 s.length()
 s.erase()   // erases whole string, unlike vectors or sets in which clear function deletes all elements
 
@@ -102,8 +103,11 @@ vector<int> v2(v1)  or vector<int> v2 , v2=v1;
 
 **************************************************************************************************************************************************************************************
 
+array<int,3>    -> an array of type int with capacity of 3 elements
+vector<array<int,3>>v   ->  v[i] = {1,2,3}  
 
-#include<cstring>  -> memset to initialize locations with 0 or 1.
+***********************************
+#include<cstring>  -> memset to initialize locations with 0 or  -1 or any char, inserting any other integer results in some problems
 
 int dp[50][50][50];
 memset(dp,-1,sizeof(dp));

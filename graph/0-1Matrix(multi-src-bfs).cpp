@@ -17,7 +17,6 @@ double eps = 1e-12;
  // multi-source bfs
 vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
     queue<pair<int,int>>q;
-        
     int m = mat.size();
     int n = mat[0].size();
     
@@ -29,7 +28,7 @@ vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
                 mat[i][j]=-1;
         }
     }
-    
+
     while(!q.empty()){
         auto p = q.front();
         int i = p.first, j = p.second;

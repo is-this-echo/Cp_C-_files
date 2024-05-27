@@ -63,7 +63,6 @@ void rec(int row, int n, vector<int>&placed, vector<vector<string>>&board){
 
 void solveNQueens(int n, vector<int>&placed, vector<vector<string>>&board) {
     rec(0, n, placed, board);
-    
 }
 
 

@@ -43,12 +43,7 @@ public:
         string res="";
         pair<int,char>prev = {0,0};
         
-        while(!pq.empty() || prev.second!=0){
-
-            if(pq.size()==0 && prev.second!=0){
-                return "";
-            }
-
+        while(!pq.empty()){
             pair<int,char> x = pq.top(); 
             pq.pop();
 
@@ -64,6 +59,10 @@ public:
                 prev = {x.first, x.second};
             }
         }
+
+        if(prev.second != 0)
+            return "";
+        
         return res;
     }
 };

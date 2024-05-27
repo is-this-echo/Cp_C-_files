@@ -2,7 +2,7 @@
 #include<climits>
 #include<vector>
 using namespace std;
-
+ 
 
 // recursive solution
 int maxProfit(int n, int price[]){
@@ -13,14 +13,13 @@ int maxProfit(int n, int price[]){
     int ans=INT_MIN;
     for(int i=0;i<n;i++){
         ans = max(ans,maxProfit(n-i-1,price)+price[i]);
-    }
+    } 
     return ans;
 }
 
 
 // top down approach
 int maxProfitTD(int n, int *price, vector<int> &dp){
-
     if(n==0)
         return 0;
     
@@ -33,6 +32,7 @@ int maxProfitTD(int n, int *price, vector<int> &dp){
     }
     return dp[n] = ans;
 }
+
 
 // bottom up approach
 int maxProfitBU(int n, int price[]){
@@ -47,7 +47,6 @@ int maxProfitBU(int n, int price[]){
     }
     return dp[n];
 }
-
 
 
 int main()

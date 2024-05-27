@@ -88,11 +88,11 @@ void NodesAtDistanceK(Node* root, Node* target, int k, unordered_map<int,Node*> 
         }
 
     }
-        cout<<"Nodes at "<<k<<" distance from the target node -> "<<endl;
-        while(q.front()!=NULL && !q.empty()){
-            cout<<q.front()->val<<endl;
-            q.pop();
-        }
+    cout<<"Nodes at "<<k<<" distance from the target node -> "<<endl;
+    while(q.front()!=NULL && !q.empty()){
+        cout<<q.front()->val<<endl;
+        q.pop();
+    }
 }
 
 
@@ -101,7 +101,7 @@ int main()
 {
     Node* root = new Node(1);
     unordered_map<int,Node*> m;
-    
+
     root->left=new Node(2);
     root->right=new Node(3);
     root->left->left= new Node(4);

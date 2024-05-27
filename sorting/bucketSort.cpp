@@ -17,11 +17,11 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-    
- 
+
+
 
 // O(nlogn) using efficient sorting algos
-// O(klogn) using max-heap with pair<frequency,value> ,key = freq
+// O(klogn) using max-heap with pair<frequency,value> , key = freq
 // O(n) using vector<pair<int,vector<int>>> to store freq with elements
 
 vector<int> topKFrequent(vector<int>& nums, int k) {
