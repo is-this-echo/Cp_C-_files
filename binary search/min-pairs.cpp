@@ -41,7 +41,7 @@ void minPairs(vector<int>& arr, vector<int>& brr)
             a = arr[idx-1]; b = x;
         }
 
-        // right number: >= elem
+        // right number or lower_bound idx: >= elem
         if (idx != arr.size() && arr[idx]-x < diff)
         {   
             diff = arr[idx] - x; 

@@ -19,7 +19,6 @@ ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} retur
 void google(int t) {cout << "Case #" << t << ": ";}
 
 
-
 class Node{
 public:
     Node *left; // 0 bit
@@ -27,6 +26,7 @@ public:
 
     Node() : left(NULL), right(NULL){};
 };
+
 
 class Trie{
     Node * root;

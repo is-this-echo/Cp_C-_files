@@ -1,7 +1,7 @@
 
 /* 
 There is a long wire along a straight line, which contains N bird nests at positions x1,x2,..xN.
-There are B(B<=N) birds, which become angry towards each other once put into a nest. To put the birds from hurting each other you want to assign birds to nests such that minimum distance between any two birds is as large as possible.
+There are B(B<=N) birds, which become angry towards each other once put into a nest. To stop the birds from hurting each other you want to assign birds to nests such that minimum distance between any two birds is as large as possible.
 What is the largest minimum distance possible b/w 2 birds.
 
 Input

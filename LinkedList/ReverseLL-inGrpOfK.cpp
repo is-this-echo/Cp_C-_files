@@ -12,7 +12,7 @@ using namespace std;
 #define ll long long
 #define mod 998244353
 double eps = 1e-12;
-    
+
 
 class Node{
 public:
@@ -31,12 +31,12 @@ Node* reverseK(Node* head, int k){
         
         prev = curr;
         curr=fwd;
-        count++;
+        count++; 
     }
 
 	if(curr!=NULL)
         head-> next  =reverseK(curr, k);
-	
+
 	return prev;
 }
 
@@ -49,7 +49,7 @@ void push(Node** head_ref, int new_data){
 
     (*head_ref) = new_node;
 }
- 
+
 
 void printList(Node* node){
     while (node != NULL) {
@@ -57,12 +57,11 @@ void printList(Node* node){
         node = node->next;
     }
 }
- 
 
 
 int main() {
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
-    
+
     Node* head = NULL;
     //push(&head, 9);
     push(&head, 8);
@@ -73,13 +72,13 @@ int main() {
     push(&head, 3);
     push(&head, 2);
     push(&head, 1);
- 
+
     cout << "Given linked list \n";
     printList(head);
     head = reverseK(head, 3);
- 
+
     cout << "\nReversed Linked list \n";
     printList(head);
- 
+
     return 0;
 }

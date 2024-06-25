@@ -27,21 +27,21 @@ Return the minimum number of days you need to wait to be able to make m bouquets
 */
 class Solution {
     bool makeBuoquet(vector<int>&arr, int bouquet, int k, int days){
-        int currBuoquets = 0, currFlowers = 0;
+        int currBouquets = 0, currFlowers = 0;
 
         for (int i=0; i<arr.size(); i++){
-            // flower not yet bloomed, break streak
+            // flower not yet bloomed, break the streak
             if (arr[i] > days) {
                 currFlowers = 0;
                 continue;
             }
             currFlowers++;
 
-            // buoquet condition met, increment count & reset streak
+            // bouquet condition met, increment count & reset streak
             if (currFlowers == k){
-                currBuoquets++;
+                currBouquets++;
                 currFlowers = 0;
-                if (currBuoquets == bouquet)
+                if (currBouquets == bouquet)
                     return true;
             }
         }
@@ -64,11 +64,10 @@ public:
         }
 
         int ans = high;
-
         while (low <= high){
             int mid = low + (high-low)/2;
 
-            if (makeBuoquet(bloomDay, m, k, mid)){
+            if (makeBouquet(bloomDay, m, k, mid)){
                 ans = mid; 
                 high = mid-1;
             }

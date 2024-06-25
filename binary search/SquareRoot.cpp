@@ -26,35 +26,36 @@ void solve(ll n, ll p){
     ll s = 0, e = n;
     double ans;
 
-    while(s<=e){
+    while (s <= e)
+    {
         ll mid = s + (e-s)/2;
-
-        if(mid*mid==n){
+        if (mid*mid == n)
+        {
             ans = mid;
             break;
         }
-        else if(mid*mid<n){
+        else if (mid*mid < n)
+        {
             ans = mid;
-            s=mid+1;
+            s = mid+1;
         }
-        else{
-            e=mid-1;
-        }
+        else
+            e = mid-1;
     }
-    cout<<"Integer part: "<<ans<<"\n";
+    cout<< "Integer part: " << ans<< "\n";
 
 // decimal part using linear search, p denotes number of decimal places
-    double f=0.1;
-
-    for(ll places=1;places<=p;places++){
-        while(ans*ans<=n){
+    double f = 0.1;
+    for (ll places = 1; places <= p; places++)
+    {
+        while(ans*ans <= n){
             ans+=f;
         }
 
-        ans-=f;
+        ans -= f;
         f = f/10.0;
     }
-    cout<<"Square root upto "<<p<<" places = "<<ans;
+    cout << "Square root upto " << p << " places = " << ans;
 }
 
     
@@ -62,7 +63,7 @@ int main() {
     fastio();
 
     ll n,p;
-    cin>>n>>p;
+    cin >> n >>p;
 
     solve(n,p);
     

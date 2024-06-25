@@ -11,17 +11,15 @@ using namespace std;
 #define INF 2e18
 #define mod 998244353
 double eps = 1e-12;
-    
 
 
 class Node{
 public:
-
     int val;
     Node* next;
 };
 
- 
+
 Node* removeNthFromEnd(Node* head, int n) {
     // a map can also be used, simple code than this one
     stack<Node*> stk;
@@ -48,8 +46,5 @@ Node* removeNthFromEnd(Node* head, int n) {
 int main() {
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 
-
-
-    
     return 0;
 }

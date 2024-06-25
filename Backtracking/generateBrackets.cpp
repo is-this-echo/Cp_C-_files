@@ -24,7 +24,7 @@ int main()
     int n;
     string s;
     cin>>n;
-   
+
     generateBrackets(s,n,0,0,0);
     return 0;
 }

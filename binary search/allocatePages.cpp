@@ -41,13 +41,14 @@ bool allocationPossible(vector<int> &arr,int s, int max_pages){
         else 
             allocated+=arr[i];
     }
-
     return true;
 }
 
 
 int allocateBooks(vector<int> &arr, int s){
     int n =arr.size();
+
+    sort(arr.begin(), arr.end());
 
     // defining search space, ideally low = * max(arr.begin(), arr.end())
     int low =arr[0], high=0;

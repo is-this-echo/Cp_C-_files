@@ -14,7 +14,7 @@ Time Complexity & O(1) Space Complexity.
 my logic : sort the array first, then iterate over the array & for each element x,
 find lower bounds of x-d & x+d, if element at lower bound of x+d  > x+d, then 
 spread = l2-l1-2 else if lower_bound(x+d)==arr[idx] then spread = l2-l21-1,
-keep track of the max and min spreads in a 2 variables
+keep track of the max and min spreads in  2 variables
 */
 
 #include<iostream>

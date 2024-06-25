@@ -17,10 +17,9 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-    
+
  // Given head of a linked list, you need to group odd and even indexed nodes, connect them 
  // and return the head of the resulting LL, pointer manipulations are to be done inplace.
- // Ex : 
 
 
 class Node{
@@ -35,26 +34,20 @@ public:
 };
 
 
-
 void solve(Node* head){
-
     Node *odd, *even, *temp;
     odd = head;
     even = head->next;
     temp = even;
 
-    while(even->next!= nullptr){
-
+    while(odd && odd->next && even && even->next){
         odd->next = even->next;
         odd = odd->next;
         even->next = odd->next;
         even = even->next;
     }
-
     odd->next = temp;
-
 }
-
 
 
 void printLL(Node* head){
@@ -66,20 +59,21 @@ void printLL(Node* head){
     cout<<"\n\n";
 }
 
-    
+
 int main() {
     fastio();
 
     Node *n = new Node(1);
     n->next = new Node(2);
-    n->next->next = new Node(3);
-    n->next->next->next = new Node(4);
-    n->next->next->next->next = new Node(5);
-    n->next->next->next->next->next = new Node(6);
+    // n->next->next = new Node(3);
+    // n->next->next->next = new Node(4);
+    // n->next->next->next->next = new Node(5);
+    // n->next->next->next->next->next = new Node(6);
+    // n->next->next->next->next->next->next = new Node(7);
 
     printLL(n);
     solve(n);
     printLL(n);
-    
+
     return 0;
 }

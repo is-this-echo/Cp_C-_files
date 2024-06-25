@@ -17,8 +17,8 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-    
- 
+
+
 
 struct ListNode {
     int val;
@@ -34,9 +34,9 @@ public:
     ListNode* rev(ListNode*head){
         if(head==nullptr)
             return head;
-        
+
         ListNode *prev =NULL,*curr=head, *fwd=head;
-        
+
         while(fwd){
             fwd = fwd->next;
             curr->next  = prev;
@@ -45,25 +45,25 @@ public:
         }
         return prev;
     }
-    
-    
+
+
     void reorderList(ListNode* head) {
         ListNode *slow, *fast;
         slow = head; fast = head->next;
-        
+
         while(fast && fast->next){
             slow = slow->next;
             fast=fast->next->next;
         }
-        
+
         ListNode *ll2 = rev(slow->next);
         slow->next=NULL;
         ListNode *p1=head, *p2=ll2, *tail=ll2;
-                
+
         while(tail){
             p1 = head->next;
             p2 = tail->next;
-            
+
             head->next = tail;
             tail->next = p1;
             head = p1; tail=p2;
@@ -71,11 +71,11 @@ public:
 
     }
 };
-    
+
 
 
 int main() {
     fastio();
-    
+
     return 0;
 }
