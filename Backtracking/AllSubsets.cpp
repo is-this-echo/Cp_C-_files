@@ -6,7 +6,6 @@ using namespace std;
 
 /*  Given an integer array nums of unique elements, return all possible subsets (the power set).
 The solution set must not contain duplicate subsets. Return the solution in any order. */
-
 void helper(vector<int> &nums, vector<vector<int>> &ans, vector<int> &temp, int n){ 
     if(n==0){
         ans.push_back(temp);

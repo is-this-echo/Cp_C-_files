@@ -18,12 +18,24 @@ double eps = 1e-12;
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
 
+// 3210. Find the Encrypted String
+string getEncryptedString(string s, int k) {
+    string ans = "";
+    int n = s.length();
 
+    for (int i = 0; i < n; ++i)
+        ans.push_back(s[(i+k)%n]);
 
-int main()
-{
+    return ans;
+}
+
+ 
+int main() {
     fastio();
+
+    string str = "dart";
+    int k = 3;
+    cout << getEncryptedString(str, 3);
 
     return 0;
 }
-

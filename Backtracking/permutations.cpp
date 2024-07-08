@@ -17,7 +17,7 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-    
+
 int cnt = 0 ;
 
 void permute(string str, int l, int r){
@@ -32,7 +32,7 @@ void permute(string str, int l, int r){
         permute(str,l+1,r);
     }
 }
-    
+
 int main() {
     fastio();
 
@@ -40,6 +40,6 @@ int main() {
     permute(str, 0, str.length()-1);
 
     cout << cnt;
-    
+
     return 0;
 }
