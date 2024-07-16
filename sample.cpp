@@ -20,9 +20,18 @@ void google(int t) {cout << "Case #" << t << ": ";}
 
 
 
+void solve()
+{
+
+}
+
+
+
 int main()
 {
     fastio();
+
+    solve();
 
     return 0;
 }

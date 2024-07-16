@@ -30,13 +30,14 @@ void permute(string str, int l, int r){
     for(int i=l; i<=r; i++){
         swap(str[i], str[l]);
         permute(str,l+1,r);
+        swap(str[i], str[l]);
     }
 }
 
 int main() {
     fastio();
 
-    string str = "abcfkj";
+    string str = "abc";
     permute(str, 0, str.length()-1);
 
     cout << cnt;
