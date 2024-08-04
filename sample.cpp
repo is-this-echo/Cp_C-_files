@@ -20,18 +20,45 @@ void google(int t) {cout << "Case #" << t << ": ";}
 
 
 
-void solve()
+void makeIp(vector<string>& ans, int dots, int i, string& str,
+            int len, string ip)
 {
+    if (dots > 4)
+        return;
 
+    if (dots == 4 && i == len)
+    {   ip.pop_back();
+        ans.emplace_back(ip);
+        ip.push_back('.');
+        cout << ip << "\n";
+        return;
+    }
+
+    for (int j = i; j < min(i+3, len); ++j)
+    {
+        string num = str.substr(i, j-i+1);
+        // cout << num << endl;
+        if (stoll(num) < 256 and (i == j or num[0] != '0'))
+            makeIp(ans, dots+1, j+1, str, len, ip + num + '.');
+    }
 }
 
+vector<string> restoreIpAddresses(string s) {
+    if (s.length() > 12)
+        return {};
+
+    vector<string> ans;
+    makeIp(ans, 0, 0, s, s.length(), "");
+
+    return ans;
+}
 
 
 int main()
 {
     fastio();
 
-    solve();
+    restoreIpAddresses("25525511135");
 
     return 0;
 }

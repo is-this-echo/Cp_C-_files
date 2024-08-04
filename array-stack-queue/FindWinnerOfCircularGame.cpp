@@ -20,7 +20,7 @@ void google(int t) {cout << "Case #" << t << ": ";}
 
 
 // 1823. Find the Winner of the Circular Game
-
+//-------------------------------------------
 /* Using deque
  * TimeComplexity = O(n*k), SpaceComplexity = O(n)
  */
@@ -45,7 +45,29 @@ int findTheWinner(int n, int k) {
     }
     return dq.front();
 }
+
+
+/* Recursive solution
+ * Time Complexity = O(n), Space Complexity = O(n) for call stack storage
+ * Check out https://www.youtube.com/watch?v=PBBQgW_75e0 for indepth explanation
+ * When n=1 i.e. only one element is present in the array at the end of simulation
+ * that is our answer. After each simulation while backtracking, add k to the index
+ * and mod it with array size to get the index of the answer in the simulation array.
+*/ 
+int helper(int n, int k)
+{
+    if (n == 1)
+        return 0;
     
+    return (helper(n-1, k) + k) % n;
+}
+
+int findTheWinner(int n, int k)
+{
+    return helper(n, k) + 1;
+}
+
+
 int main() {
     fastio();
     
