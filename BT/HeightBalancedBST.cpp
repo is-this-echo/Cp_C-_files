@@ -1,4 +1,4 @@
- #pragma GCC optimize("Ofast")
+#pragma GCC optimize("Ofast")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
 #pragma GCC optimize("unroll-loops")
 #include<bits/stdc++.h>
@@ -31,7 +31,7 @@ public:
 // O(n) time complexity
 pair<int,bool> HeightBalanced(Node* root){
     pair<int,bool> p, leftTree, rightTree;
- 
+
     // base case
     if(root == nullptr){
         p.first = 0;   // height

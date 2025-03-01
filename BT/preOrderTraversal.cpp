@@ -13,8 +13,7 @@ public:
     Node(int val){
         this->val = val;
         left=right=NULL;
-    }
-    
+    } 
 };
 
 Node* levelOrderBuild(){
@@ -31,9 +30,9 @@ Node* levelOrderBuild(){
     while(!q.empty()){
         Node* curr = q.front();
         q.pop();
-        
+
         cin>>c1>>c2;
-        
+
         if(c1!=-1){
             curr->left = new Node(c1);
             q.push(curr->left);
@@ -60,7 +59,7 @@ void iterativePreOrder(Node* root){
 
         if(curr->right)
             s.push(curr->right);
-        
+
         if(curr->left)
             s.push(curr->left);
     }

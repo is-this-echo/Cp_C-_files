@@ -17,7 +17,7 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-    
+
 
 // TimeComplexity : O(n^2), best-case : O(n)
 // SpaceComplexity : O(1)
@@ -41,11 +41,11 @@ void BubbleSort(vector<int> &arr){
         }
     }
 }
-    
- 
+
+
 int main() {
     fastio();
-      
+
     vector<int>sample = {2,9,3,6,8,1,5};
 
     BubbleSort(sample);
@@ -54,6 +54,6 @@ int main() {
         cout<<x<<" ";
     }
     cout<<endl;
-    
+
     return 0;
 }

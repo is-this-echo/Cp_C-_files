@@ -90,7 +90,7 @@ void iterativePreOrder(Node* root){
 
         if(curr->right)
             s.push(curr->right);
-        
+
         if(curr->left)
             s.push(curr->left);
     }
@@ -100,10 +100,10 @@ void iterativePreOrder(Node* root){
 int descendantSum(Node *root){
     if(root==NULL)
         return 0;
-        
+
     if(!root->left && !root->right)
         return root->val;
-    
+
     int temp = root->val;
     root->val = descendantSum(root->left)+descendantSum(root->right);
 
@@ -118,9 +118,9 @@ int main()
     // 10 11 -20 15 12 0 9 -1 -1 -1 -1 16 18 -1 -1 -1 -1 -1 -1
     // 1 2 3 4 5 -1 6 -1 -1 7 -1 -1 -1 -1 -1
     BFSTraversal(root);
-    cout<<endl;
+    cout << endl;
     int a = descendantSum(root);
-    cout<<endl;
+    cout << endl;
     BFSTraversal(root);
 
     return 0;

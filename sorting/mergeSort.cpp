@@ -32,7 +32,9 @@ void merge(vector<int> &arr, int s, int mid, int e){
         temp.push_back(arr[j]);
         j++;
     }
-    
+
+    // std::copy(temp.begin(), temp.end(), arr.begin() + start);
+
     int k=0;
     for(i=s;i<=e;i++){
         arr[i]=temp[k];

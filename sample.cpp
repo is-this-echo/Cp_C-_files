@@ -16,50 +16,44 @@ using namespace std;
 double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
-void google(int t) {cout << "Case #" << t << ": ";}
+void meta(int t) {cout << "Case #" << t << ": ";}
 
 
-
-void makeIp(vector<string>& ans, int dots, int i, string& str,
-            int len, string ip)
+struct Node
 {
-    if (dots > 4)
-        return;
+    int val;
+    Node *left, *right;
 
-    if (dots == 4 && i == len)
-    {   ip.pop_back();
-        ans.emplace_back(ip);
-        ip.push_back('.');
-        cout << ip << "\n";
-        return;
-    }
+    Node(int d) : val(d), left(NULL), right(NULL) {}
+};
 
-    for (int j = i; j < min(i+3, len); ++j)
-    {
-        string num = str.substr(i, j-i+1);
-        // cout << num << endl;
-        if (stoll(num) < 256 and (i == j or num[0] != '0'))
-            makeIp(ans, dots+1, j+1, str, len, ip + num + '.');
-    }
-}
 
-vector<string> restoreIpAddresses(string s) {
-    if (s.length() > 12)
-        return {};
+int ways(int n, int k)
+{
+    if (n < 0) return 0;
 
-    vector<string> ans;
-    makeIp(ans, 0, 0, s, s.length(), "");
-
-    return ans;
+    if ()
 }
 
 
-int main()
+void print(vector<int>& arr)
+{
+    for (int i : arr)
+        std::cout << i << " ";
+
+    std::cout << std::endl;
+}
+
+
+int main()  
 {
     fastio();
 
-    restoreIpAddresses("25525511135");
+    std::vector<int> arr{2, 9, 0, 4, 6, 1, 23, 15};
+    // print(arr);
+
+    vector<int> 
 
     return 0;
-}
+}  
 

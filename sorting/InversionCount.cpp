@@ -17,13 +17,13 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-    
- 
+
+
 int merge(vector<int>&arr, int st, int m, int e){
     int i=st,  j=m+1;
     vector<int>temp;
     int cnt=0;
-    
+
     while(i<=m && j<=e){
         if(arr[i]<arr[j]){
             temp.push_back(arr[i]);
@@ -40,7 +40,7 @@ int merge(vector<int>&arr, int st, int m, int e){
         temp.push_back(arr[i]);
         i++;
     }
-    
+
     while(j<=e){
         temp.push_back(arr[j]);
         j++;
@@ -58,7 +58,7 @@ int merge(vector<int>&arr, int st, int m, int e){
 int InversionCount(vector<int> &arr, int start, int end){
     if(start>=end)
         return 0;
-    
+
     int mid = start + (end-start)/2;
 
     int c1 = InversionCount(arr,start,mid);
@@ -68,10 +68,10 @@ int InversionCount(vector<int> &arr, int start, int end){
     return c1+c2+ci;
 }
 
-    
+
 int main() {
     fastio();
-    
+
     vector<int>arr = {2,5,1,0,3,9,7};
     int n = arr.size();
 

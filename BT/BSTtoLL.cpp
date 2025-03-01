@@ -32,7 +32,8 @@ LinkedList BSTtoLL(Node* root){
     }
 
     // Each recursive call build as LL and sets the head and tail of ll
-    // based on the type of children nodes
+    // based on the type of children nodes.
+    // inorder traversal-> sorted for BST
 
     if(root->left ==NULL && root->right==NULL)
         l.head =l.tail=root;
