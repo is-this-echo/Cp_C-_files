@@ -8,7 +8,7 @@ using namespace std;
 #define INF 2e18
 #define mod 998244353
 double eps = 1e-12;
-    
+
 
 // min-heap implementation
 class Heap {

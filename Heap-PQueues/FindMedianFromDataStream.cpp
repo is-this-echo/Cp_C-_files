@@ -24,7 +24,6 @@ void google(int t) {cout << "Case #" << t << ": ";}
     priority_queue<int, vector<int>, greater<int>>minh;
 public:
     MedianFinder() {
-
     }
     
     void addNum(int num) {
@@ -66,7 +65,70 @@ public:
  * obj->addNum(num);
  * double param_2 = obj->findMedian();
  */
+
+ class MedianFinder {
+    std::priority_queue<int>leftq;
+    std::priority_queue<int, vector<int>, greater<int>>rightq;
+
+public:
+    MedianFinder() {}
+
+    void addNum(int num)
+    {
+        if (leftq.size() > rightq.size())
+        {
+            if (num > leftq.top())
+            {
+                rightq.push(num);
+            }
+            else
+            {
+                rightq.push(leftq.top());
+                leftq.pop();
+                leftq.push(num);
+            }
+        }
+        else if (leftq.size() < rightq.size())
+        {
+            if (num > rightq.top())
+            {   
+                leftq.push(rightq.top());
+                rightq.pop();
+                rightq.push(num);
+            }
+            else
+            {
+                leftq.push(num);
+            }
+        }
+        else
+        {
+            if (num > findMedian())
+                rightq.push(num);
+            else
+                leftq.push(num);
+        }
+    }
     
+    double findMedian()
+    {
+        if (leftq.size() > rightq.size())
+            return leftq.top();
+
+        else if (leftq.size() < rightq.size())
+            return rightq.top();
+
+        else
+        {
+            int l = leftq.empty() ? 0 : leftq.top();
+            int r = rightq.empty() ? 0 : rightq.top();
+
+            return (l + r) / 2.0;
+        }
+    }
+};
+
+
 int main() {
     fastio();
 

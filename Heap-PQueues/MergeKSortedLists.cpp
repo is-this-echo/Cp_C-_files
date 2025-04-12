@@ -79,6 +79,85 @@ void solve(vector<vector<int>>lists){
     }
 }
 
+// Using k-pointer approach where the k-pointers are in a heap
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+    class Triplet
+    {
+    public:
+        int element;
+        int arrIdx;
+        ListNode* ptr;
+
+        Triplet(int x, int y, ListNode* ptr) : element(x), arrIdx(y), ptr(ptr) {}
+    };
+
+    class Compare
+    {
+    public :
+        bool operator()(Triplet a, Triplet b)
+        {
+            return a.element > b.element;
+        }
+    };
+
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        if (lists.size() == 0)
+            return nullptr;
+    
+        priority_queue<Triplet, vector<Triplet>, Compare> pq;
+        for (int i = 0; i < lists.size(); ++i)
+        {
+            if (lists[i])
+                pq.push(Triplet(lists[i]->val, i, lists[i]));
+        }
+
+        if (pq.empty())
+            return nullptr;
+
+        Triplet x = pq.top();
+        pq.pop();
+
+        int elem = x.element;
+        int arrIdx = x.arrIdx;
+        ListNode* elemPtr = x.ptr;
+
+        if (elemPtr->next)
+            pq.push(Triplet(elemPtr->next->val, arrIdx, elemPtr->next));
+
+        ListNode* head{nullptr};
+        ListNode* temp = elemPtr;
+        head = temp;
+
+        while (!pq.empty())
+        {
+            x = pq.top();
+            pq.pop();
+
+            elem = x.element;
+            arrIdx = x.arrIdx;
+            elemPtr = x.ptr;
+
+            temp->next = elemPtr;
+            temp = temp->next;
+
+            if (elemPtr->next)
+                pq.push(Triplet(elemPtr->next->val, arrIdx, elemPtr->next));
+        }
+        return head;
+        
+    }
+};
     
 int main() {
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
