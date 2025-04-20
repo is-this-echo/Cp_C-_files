@@ -23,17 +23,18 @@ class Solution {
 public:
     int scheduleCourse(vector<vector<int>>& courses) {
         int n = courses.size();
-        sort(courses.begin(), courses.end(), [&](const vector<int>& a,
-                                                    const vector<int>& b)
+        // we want to sort based on last day as if we pick longer-deadline
+        // course early, we might miss out on short-deadline, small courses
+        // that could have been scheduled earlier
+        sort(courses.begin(), courses.end(), [&](const vector<int>& a, const vector<int>& b)
         {
             return a[1] < b[1];
         });
 
-        priority_queue<int> pq; // max heap to store duration of courses
         int currDay = 0;
-        // idea is to be greedy and decrease the currDay while
-        // accumulating more number of courses
-        for (int i = 0; i < n; ++i)
+        priority_queue<int> pq; // max heap to store duration of courses
+        // idea is to be greedy and decrease the currDay while covering more number of courses
+        for (int i = 0; i < n; ++i) // loop runs till n and not courses.size()
         {   int duration = courses[i][0];
             int lastDay = courses[i][1];
 
@@ -50,13 +51,12 @@ public:
                 if (!pq.empty())
                 {
                     int maxExistingDuration = pq.top();
-                    if ((maxExistingDuration > duration) &&
-                        (currDay - maxExistingDuration + duration) <= lastDay)
+                    if ((maxExistingDuration > duration) && // overall days can only be decreased if this condition is true
+                        (currDay - maxExistingDuration + duration) <= lastDay) // check if we can complete course when overall days lowered
                     {
-                        currDay -= maxExistingDuration;
                         pq.pop();
+                        currDay -= (maxExistingDuration - duration);
                         pq.push(duration);
-                        currDay += duration;
                     }
                 }
             }
