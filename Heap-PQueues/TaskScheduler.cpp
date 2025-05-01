@@ -48,7 +48,7 @@ public:
             }
 
             // no two tasks can have same time of next occurrence as 
-            // n is same for all, so only one
+            // n is same for all and so is idx+n, so only one
             // element can match the if condition at any given idx
             if (!q.empty() && idx == q.front().second)
             {

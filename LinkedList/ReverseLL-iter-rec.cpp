@@ -17,8 +17,8 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";} 
-    
- 
+
+
 class Node
 {
 public:
@@ -59,7 +59,7 @@ Node* ReverseLLRecursive(Node* head)
 {
     if (head == NULL || head->next == NULL)
         return head;
-    
+
     Node* revHead = ReverseLLRecursive(head->next);
     head->next->next = head;
     head->next = NULL;
@@ -91,6 +91,6 @@ int main() {
     ReverseLLIterative(head);
     // head = ReverseLLRecursive(head);
     PrintLL(head);
-    
+
     return 0;
 }

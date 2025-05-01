@@ -28,12 +28,7 @@ struct Node
 };
 
 
-int ways(int n, int k)
-{
-    if (n < 0) return 0;
 
-    if ()
-}
 
 
 void print(vector<int>& arr)
@@ -49,10 +44,12 @@ int main()
 {
     fastio();
 
-    std::vector<int> arr{2, 9, 0, 4, 6, 1, 23, 15};
-    // print(arr);
+    int n = 5, k = 3;
 
-    vector<int> 
+    vector<int> dp(n+1, 0);
+    cout << countWays(n, k, dp) << endl;
+    cout << countWaysBU(n, k) << endl;
+    
 
     return 0;
 }  

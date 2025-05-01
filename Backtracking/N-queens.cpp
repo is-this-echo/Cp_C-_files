@@ -49,6 +49,7 @@ void rec(int row, int n, vector<int>&placed, vector<vector<string>>&board){
 
             if(col == pCol || abs(pRow-row)==abs(pCol-col)){
                 isSafe = false;
+                break; // if not safe then no need to check further for this col
             }
         }
         if(isSafe){

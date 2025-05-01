@@ -40,7 +40,7 @@ void solve() {
                 dp2[i][j] = max(dp2[i][j+1], dp2[i+1][j]);
         }
     }
-    
+
     int lcs = dp1[n][m];
     int ans = 0;
     for(int j=0; j<=m; j++) {
