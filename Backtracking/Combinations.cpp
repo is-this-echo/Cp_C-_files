@@ -28,10 +28,10 @@ void rec(vector<vector<int>>& ans, vector<int>& temp, int n, int k, int i)
         return;
     }
 
-    for (int idx = i+1; idx <= n; ++idx)
+    for (int idx = i; idx <= n; ++idx)
     {   
         temp.emplace_back(idx);
-        rec(ans, temp, n, k, idx);
+        rec(ans, temp, n, k, idx + 1);
         temp.pop_back();
     }
 }
@@ -42,7 +42,7 @@ vector<vector<int>> combine(int n, int k)
     vector<vector<int>> ans;
     vector<int> temp;
 
-    rec(ans, temp, n, k, 0);
+    rec(ans, temp, n, k, 1);
     return ans;
 } 
 

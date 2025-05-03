@@ -31,7 +31,7 @@ int findTheWinner(int n, int k) {
 
     // TC = O(n)
     while (dq.size() >  1)
-    {   
+    {
         // TC = O(k)
         // pop from front and append at back the first k-1 elements
         for (int i = 1; i < k; ++i)
