@@ -3,7 +3,7 @@
 using namespace std;
 
 
-void generateBrackets(string s, int n, int nob, int ncb, int i){
+void generateBrackets(const string& s, int n, int nob, int ncb, int i){
     // base case
     if(i==2*n){
         cout<<s<<endl;

@@ -41,7 +41,6 @@ bool sudokuSolver(vector<vector<char>>&board){
                 
                         if(sudokuSolver(board)==true)
                             return true;
-                        
                         else
                             board[i][j]='.';
                     }
