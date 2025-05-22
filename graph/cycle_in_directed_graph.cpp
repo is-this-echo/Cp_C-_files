@@ -25,10 +25,12 @@ class Graph {
         for(auto nbr:l[node]){
             // if nbr node not visited, visit it
             if(!visited[nbr]){
+                // could lead to a backedge later
                 bool foundCycle = dfs(nbr,visited,stack);
                 if(foundCycle)
                     return true;
             }
+            // immediately leads to a backedge
             // if nbr is present in  call stack of dfs path, then its a cyclic graph
             else if(stack[nbr]==true){
                 return true;

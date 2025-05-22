@@ -73,7 +73,7 @@ void topView(Node* root)
     while (!q.empty())
     {
         auto [currNode, hd] = q.front();
-        q.pop();
+        q.pop(); 
 
         if (!mp.count(hd))  // only need the first node value from top
             mp[hd] = currNode->data;

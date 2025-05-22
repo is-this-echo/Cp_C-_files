@@ -18,7 +18,9 @@ double eps = 1e-12;
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
 
-
+/*
+https://takeuforward.org/data-structure/subset-sum-equal-to-target-dp-14/
+*/
 
 int countSubsets(const vector<int>& arr, int i, const int n, int sum)
 {

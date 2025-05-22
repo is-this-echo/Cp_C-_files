@@ -28,8 +28,10 @@ int dfs(vector<vector<int>>&grid, vector<vector<int>>&dp, int m, int n, int i, i
     
     
 void longestIncreasingPath(vector<vector<int>>& matrix) {    
-//  dfs from each cell, taking it as start node
-//  dp[i][j], 2 states to denote longest increasing path from node at (i,j)
+//  dfs from each cell, taking it as start node.
+//  dp[i][j], 2 states to denote longest increasing path from node at (i,j).
+// visited array not required here as we have dp grid which stores default value of 0
+// for unvisited cells.
     
     int m = matrix.size();
     int n = matrix[0].size();
