@@ -26,13 +26,13 @@ public:
         ll n = nums.size();
         unordered_map<int,int>mp;
         ll currPairs = 0, ans = 0;
-        
+
         for(int i=0; i<n; i++){
             // expanding window right
             // on first time, any number has 0 freq, so pairs are incremented by 0;  
             currPairs += mp[nums[i]];
             mp[nums[i]]++;
-            
+
             while(currPairs>=k){
                 // start contracting window from left
                 // if a subarray is good, all subarrays containing that subarray is good as well

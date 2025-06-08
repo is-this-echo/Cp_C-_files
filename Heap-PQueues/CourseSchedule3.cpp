@@ -34,7 +34,7 @@ public:
         int currDay = 0;
         priority_queue<int> pq; // max heap to store duration of courses
         // idea is to be greedy and decrease the currDay while covering more number of courses
-        for (int i = 0; i < n; ++i) // loop runs till n and not courses.size()
+        for (int i = 0; i < n; ++i) // loop runs till n and not number of courses
         {   int duration = courses[i][0];
             int lastDay = courses[i][1];
 

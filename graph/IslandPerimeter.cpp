@@ -33,8 +33,6 @@ int dfs(vector<vector<int>>&grid, vector<vector<bool>>&vis, int m, int n, int i,
     return perimeter;
 }
 
-
-// BFS solution
 int islandPerimeter(vector<vector<int>>& grid) {
     int m = grid.size(), n = grid[0].size();
     int ans;
@@ -50,7 +48,7 @@ int islandPerimeter(vector<vector<int>>& grid) {
     return ans;
 } 
 
-
+// BFS solution
 class Solution {
 public:
     int islandPerimeter(vector<vector<int>>& grid) {
@@ -108,6 +106,22 @@ public:
         return perimeter;
     }
 };
+
+
+// Using grid geometry and loops
+int islandPerimeter(vector<vector<int>>& grid) {
+    int m = grid.size(), n = grid[0].size(), perim = 0;
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (grid[i][j] == 1) {
+                perim += 4;
+                if (i+1 < m && grid[i+1][j] == 1) perim -= 2;
+                if (j+1 < n && grid[i][j+1] == 1) perim -= 2;
+            }
+        }
+    }
+    return perim;
+}
 
 
 int main() {
