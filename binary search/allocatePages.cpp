@@ -20,26 +20,49 @@ using namespace std;
 
 double eps = 1e-12;
 
-
+// Checkout Capacity To Ship Packages Within D Days from leetcode for better understanding
 bool allocationPossible(vector<int> &arr,int s, int max_pages){
-    int sn=1, n = arr.size();
+    int sn=1, n = arr.size(); // we can start with sn = 0
     int allocated = 0;
 
     for(int i=0;i<n;i++){
         // since the pages required must contain one whole book, partial allocation not possible
-        if(max_pages<arr[i])
-            return false;
+        if(max_pages<arr[i]) // this line will not be required if the search space start with the
+            return false;    // max pages book as it definitely has to be assigned to one student
 
         // count how many students are required to distribute curr_min pages
         if(allocated+arr[i]>max_pages){
                 sn++;
                 allocated=arr[i];
-                //allocated=0;
-            if(sn>s)
-                return false;
+
+            if(sn>s) // can also check for sn == s, this means we have already allocated pages
+                return false; // to req students and we have extra pages left so return false
         } 
         else 
             allocated+=arr[i];
+    }
+    return true;
+}
+
+
+bool allocationPossible(vector<int>& arr, int s, int max_pages)
+{
+    int sn = 0;
+    int allocatedPages = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (allocatedPages + arr[i] > max_pages)
+        {
+            sn++;
+            allocated = arr[i];
+
+            if (sn == s)
+                return false
+        } 
+        else
+        {
+            allocated += arr[i];
+        }
     }
     return true;
 }

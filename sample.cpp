@@ -28,7 +28,51 @@ struct Node
 };
 
 
+bool canPlace(vector<int>&nests, int dist, int birds)
+{
+    int birdsPlaced = 1
+    int prevLocation = nests[0];
 
+    for (int i = 1; i < nests.size(); ++i)
+    {
+        int currLocation = nests[i];
+        if (currLocation - prevLocation >= dist)
+        {
+            birdsPlaced++;
+            prevLocation = currLocation;
+
+            if (birdsPlaced == birds)
+                return true;
+        }
+    }
+    return true;
+}
+
+
+int angryBirds(vector<int>& nests, int birds)
+{
+    std::ranges::sort(nests);
+
+    int n = nests.size();
+    int start = 0;
+    int end = nests[n - 1] - nests[0];
+    int ans = -1;
+
+    while (start <= end)
+    {
+        int dist = start + (end - start) / 2;
+        if (canPlace(nests, dist, birds))
+        {
+            ans = dist;
+            start = dist + 1;
+        }
+        else
+        {
+            end = dist - 1;
+        }
+    }
+    return ans;
+}
 
 
 void print(vector<int>& arr)
@@ -44,11 +88,7 @@ int main()
 {
     fastio();
 
-    int n = 5, k = 3;
 
-    vector<int> dp(n+1, 0);
-    cout << countWays(n, k, dp) << endl;
-    cout << countWaysBU(n, k) << endl;
     
 
     return 0;
