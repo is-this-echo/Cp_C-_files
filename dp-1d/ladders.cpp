@@ -14,31 +14,31 @@ int ladderRec(int n, int k)
 
     int ans = 0;
     for (int jump = 1; jump <= k; ++jump)
-    {
         ans += ladderRec(n - jump, k);
-    }
+
     return ans;
 }
 
 // TC = O(nk), SC = O(n)
 // bottom up approach using DP
-int ladderBU(int n, int k){
+int ladderBU(int n, int k)
+{
     int dp[100]={0};
     dp[0]=1;
 
-    for (int i=1;i<=n;i++){
+    for (int i=1;i<=n;i++)
         for (int jump = 1; jump <= k; jump++)
-        {
             if (i - jump >= 0)
                 dp[i] += dp[i - jump];
-        }
-    }
+
     return dp[n];
 }
 
+
 // TC = O(nk), SC = O(n)
 // top down approach using DP
-int ladderTD(int n, int k, int *dp){
+int ladderTD(int n, int k, int *dp)
+{
     if(n==0)
         return 1;
 
@@ -56,18 +56,16 @@ int ladderTD(int n, int k, int *dp){
 }
 
 // TC = O(n), SC = O(n)
-int laddersOptimized(int n, int k){
+int laddersOptimized(int n, int k)
+{
     int dp[100]= {0};
-
     dp[0]=dp[1]=1;
 
-    for(int i=2;i<=k;i++){
+    for(int i=2;i<=k;i++)
         dp[i] = 2*dp[i-1];
-    }
 
-    for(int i=k+1;i<=n;i++){
+    for(int i=k+1;i<=n;i++)
         dp[i] = 2*dp[i-1] - dp[i-k-1];
-    }
 
     return dp[n];
 }

@@ -3,7 +3,7 @@
 #include<climits>
 using namespace std;
 
-
+// 45. Jump Game II
 // Top down dp approach
 int minArrayJumps(vector<int> arr, vector<int> &dp, int n, int i=0){
     if(i==n-1)
@@ -23,6 +23,30 @@ int minArrayJumps(vector<int> arr, vector<int> &dp, int n, int i=0){
     }
     return dp[i]=ans;
 }
+
+// Bottom-up approach
+// dp[i] -> min number of steps required to reach (n-1)th index from ith index
+class Solution {
+public:
+    int jump(vector<int>& nums)
+    {
+        int n = nums.size();
+        vector<int> dp(n, INT_MAX);
+        dp[n-1] = 0;
+
+        for (int i = n - 2; i >= 0; --i)
+        {   
+            for (int jump = nums[i]; jump > 0; --jump)
+            {
+                int nextLoc = i + jump;
+                if (nextLoc < n && dp[nextLoc] != INT_MAX)
+                    dp[i] = min(dp[i], dp[nextLoc] + 1);
+            }
+        }
+        return dp[0];
+    }
+};
+
 
 
 // using BFS approach

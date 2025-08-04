@@ -68,7 +68,9 @@ vector<int> nextGreaterElement(const vector<int>& nums1, const vector<int>& nums
             stk.pop();
             ans[mp[val]] = nums2[i];
         }
-        if (mp.count(nums2[i]))
+        if (mp.count(nums2[i])) // we do this check before pushing to stack
+        // as stack should only contain those elements whose greater element
+        // is required to be found
             stk.push(nums2[i]);
     }
     return ans;
