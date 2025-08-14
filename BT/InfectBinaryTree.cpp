@@ -66,7 +66,7 @@ public:
 
         queue<TreeNode*> q;
         unordered_map<int, bool> visited;
-
+ 
         q.push(startPtr);
         q.push(NULL);
 

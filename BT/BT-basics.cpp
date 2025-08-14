@@ -33,7 +33,7 @@ public:
 Node* buildTree() {
     int d;
     cin>>d;
-
+ 
     if(d == -1)
         return NULL;
 
@@ -83,7 +83,7 @@ so, depth of tree = max height of tree.
 
 int treeHeight(Node *root) {
     if(root == NULL)
-        return 0;
+        return 0; // should ideally return -1
 
     int leftH = treeHeight(root->left);
     int rightH = treeHeight(root->right);
@@ -129,6 +129,35 @@ void bfsTraversal(Node *root) {
             if(curr->right)
                 q.push(curr->right);
         }
+    }
+}
+
+// Using size of queue to find number of nodes in level instead of nullptr
+void bfsTraversal(Node *root) {
+    if (!root) return;
+
+    queue<Node*> q;
+    q.push(root);
+
+    while (!q.empty())
+    {
+        int levelSize = q.size();  // Number of nodes at the current level
+        // Loop over all nodes at the current level
+        for (int i = 0; i < levelSize; ++i)
+        {
+            Node* curr = q.front();
+            q.pop();
+
+            cout << curr->val << " ";
+
+            if (curr->left)
+                q.push(curr->left);
+
+            if (curr->right)
+                q.push(curr->right);
+        }
+
+        cout << endl;  // End of the current level
     }
 }
 
@@ -183,13 +212,13 @@ Node* insertBST(Node* root, int key)
 {
     if (root == NULL)
         return new Node(key);
-    
+
     if (root->val < key)
         root->right = insertBST(root->right, key);
-    
+
     else
         root->left = insertBST(root->left, key);
-    
+
     return root;
 }
 
