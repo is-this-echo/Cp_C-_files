@@ -8,10 +8,9 @@ using namespace std;
 #define INF 2e18
 #define mod 998244353
 double eps = 1e-12;
-    
+
 
  //  Leetcode 658. Find K Closest Elements
-
 vector<int> findClosestElements(vector<int>& arr, int k, int x) {
     // using max-heap and pushing elements in a vector after sorting
     // T.C =O(nlogk), S.C = O(k)+O(k)
@@ -37,8 +36,8 @@ vector<int> findClosestElements(vector<int>& arr, int k, int x) {
 } 
 
 
-    // using binary search approach, T.C = O(klogn)
-    // S.C = O(k) 
+// using binary search approach, T.C = O(klogn)
+// S.C = O(k) 
 vector<int> solve(vector<int>& arr, int k, int x){
     vector<int>ans;
     int dist=0, n = arr.size();

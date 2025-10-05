@@ -77,7 +77,7 @@ vector<int> diagonalOptimized(Node* root)
     {
         Node* curr = q.front();
         q.pop();
-        
+
         if (curr == nullptr)
         {
             if (!q.empty())
@@ -89,7 +89,7 @@ vector<int> diagonalOptimized(Node* root)
             {
                 ans.push_back(curr->data);
 
-                // if left child is present push into queue to be part of the next diangonal
+                // if left child is present push into queue to be part of the next diagonal
                 if (curr->left)
                     q.emplace(curr->left);
 

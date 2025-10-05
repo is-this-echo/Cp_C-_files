@@ -48,6 +48,41 @@ bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
 }
 
 
+class Solution {
+public:
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+        // Edge-case: no courses
+        if (numCourses <= 0) return true;
+
+        // Build adjacency list: prereq -> course
+        vector<vector<int>> adj(numCourses);
+        vector<int> indeg(numCourses, 0);
+
+        for (const auto &edge : prerequisites) {
+            int course = edge[0];
+            int prereq = edge[1];
+            adj[prereq].push_back(course);
+            indeg[course]++;
+        }
+
+        queue<int> q;
+        for (int i = 0; i < numCourses; ++i) {
+            if (indeg[i] == 0) q.push(i);
+        }
+
+        int processed = 0;
+        while (!q.empty()) {
+            int node = q.front(); q.pop();
+            processed++;
+            for (int nei : adj[node]) {
+                if (--indeg[nei] == 0) q.push(nei);
+            }
+        }
+
+        return processed == numCourses;
+    }
+};
+
 
 int main()
 {

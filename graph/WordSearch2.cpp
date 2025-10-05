@@ -11,7 +11,7 @@ const double eps = 1e-12;
 
 
 // Leetcode 212. Word Search II   
- 
+
 class Node{
 public:
     char ch;
@@ -53,35 +53,33 @@ public:
 
 
  void dfs(vector<vector<char>>& board, vector<string>& words, vector<vector<bool>>&vis,
-        unordered_set<string>&ans, Node* root, int i, int j, int m, int n){
-        
+        unordered_set<string>&ans, Node* root, int i, int j, int m, int n)
+    {
         char ch = board[i][j];
 
         // base case, if char not in trie
-        if(root->mp.count(ch)==0){
+        if(root->mp.count(ch)==0)
             return;
-        }
 
         // if char found in trie
         vis[i][j] = true;
         root = root->mp[ch];
-         
-        if(root->isTerminal==true){
+
+        if(root->isTerminal==true)
             ans.insert(root->word);
-        }
-    
+
         // perform 8-way dfs
         int dx[] = {0,0,1,1,1,-1,-1,-1};
         int dy[] = {1,-1,0,1,-1,0,1,-1};
 
-        for(int k=0;k<8;k++){
+        for(int k=0;k<8;k++)
+        {
             int nx = i + dx[k];
             int ny = j + dy[k];
 
-        // condition to check for visited  or out of bounds
-            if(nx>=0 && nx<m && ny>=0 && ny<n && !vis[nx][ny]){
+            // condition to check for visited  or out of bounds
+            if(nx>=0 && nx<m && ny>=0 && ny<n && !vis[nx][ny])
                 dfs(board,words,vis,ans,root,nx,ny,m,n);
-            }
         }
 
         // backtracking
@@ -102,21 +100,18 @@ int main() {
 
     int m = board.size(), n = board[0].size();
     unordered_set<string> ans;
-    vector<vector<bool>>vis(m,vector<bool>(n,false));    
-    Trie t;
+    vector<vector<bool>>vis(m,vector<bool>(n,false));
 
+    Trie t;
     for(auto word : words)
         t.insert(word);
 
-    for(int i=0;i<m;i++){
-        for(int j=0;j<n;j++){
+    for(int i=0;i<m;i++)
+        for(int j=0;j<n;j++)
             dfs(board,words,vis,ans,t.root,i,j,m,n);
-        }
-    }
-    
-    for(auto word : ans){
+
+    for(auto word : ans)
         cout<<word<<"\n";
-    }
 
     return 0;
 }

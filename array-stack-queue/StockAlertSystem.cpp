@@ -16,41 +16,29 @@ using namespace std;
 double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
-void meta(int t) {cout << "Case #" << t << ": ";}
+void google(int t) {cout << "Case #" << t << ": ";}
+    
 
-
-struct Node
+struct Tick
 {
-    int val;
-    Node *left, *right;
-
-    Node(int d) : val(d), left(NULL), right(NULL) {}
-};
-
-
-struct Tick {
     long long timestamp; // in milliseconds
     double price;
 };
 
-class StockAlertSystem {
-private:
-    long long windowSize; // in milliseconds
-    double thresholdPct;  // X, in percentage
 
-    deque<Tick> ticks;      // store all ticks in the current window
-    deque<Tick> minDeque;   // increasing prices
-    deque<Tick> maxDeque;   // decreasing prices
-
+class StockAlertSystem
+{
 public:
     StockAlertSystem(long long windowSizeMs, double thresholdPct)
         : windowSize(windowSizeMs), thresholdPct(thresholdPct) {}
 
-    void processTick(long long timestamp, double price) {
+    void processTick(long long timestamp, double price)
+    {
         Tick newTick{timestamp, price};
 
         // 1. Evict expired ticks from the main queue
-        while (!ticks.empty() && ticks.front().timestamp <= timestamp - windowSize) {
+        while (!ticks.empty() && ticks.front().timestamp <= timestamp - windowSize)
+        {
             Tick old = ticks.front();
             ticks.pop_front();
 
@@ -69,11 +57,13 @@ public:
         // 3. Maintain minDeque: pop all elements larger than current price
         while (!minDeque.empty() && minDeque.back().price >= price)
             minDeque.pop_back();
+
         minDeque.push_back(newTick);
 
         // 4. Maintain maxDeque: pop all elements smaller than current price
         while (!maxDeque.empty() && maxDeque.back().price <= price)
             maxDeque.pop_back();
+
         maxDeque.push_back(newTick);
 
         // 5. Get current min and max price in the last Y minutes
@@ -83,23 +73,23 @@ public:
         // 6. Check percentage change condition
         double pctChange = ((maxPrice - minPrice) / minPrice) * 100.0;
 
-        if (pctChange >= thresholdPct) {
+        if (pctChange >= thresholdPct)
+        {
             cout << "[ALERT] Significant price change detected!" << endl;
             cout << "    Min price = " << minPrice
                  << ", Max price = " << maxPrice
                  << ", Change = " << pctChange << "%\n";
         }
     }
+
+private:
+    long long windowSize; // in milliseconds
+    double thresholdPct;  // X, in percentage
+
+    deque<Tick> ticks;      // store all ticks in the current window
+    deque<Tick> minDeque;   // increasing prices
+    deque<Tick> maxDeque;   // decreasing prices
 };
-
-
-void print(vector<int>& arr)
-{
-    for (int i : arr)
-        std::cout << i << " ";
-
-    std::cout << std::endl;
-}
 
 
 int main()  
@@ -119,5 +109,4 @@ int main()
         system.processTick(tick.first, tick.second);
 
     return 0;
-}  
-
+}

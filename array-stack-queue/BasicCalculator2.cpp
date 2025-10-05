@@ -26,9 +26,8 @@ void google(int t) {cout << "Case #" << t << ": ";}
     if we iterate normally over the string then we can't just do the addition when we get
     the first '+' operator as we don't know if the 2nd operand(one the right) will be 
     involved in multiplication or division. So, we store the current operator to be used
-    in next iteration and also by ease the calculations by defaulting the stack operation
+    in next iteration and also ease the calculations by defaulting the stack operation
     to be addition and store subtraction with a (- * currentNumber) in stack.
-
 */
 class Solution {
     bool isOperator(char ch)

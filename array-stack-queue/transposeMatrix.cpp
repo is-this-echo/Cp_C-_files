@@ -11,13 +11,13 @@ using namespace std;
 #define INF 2e18
 #define mod 998244353
 double eps = 1e-12;
-    
+
  
 vector<vector<int>> transpose(vector<vector<int>>& arr) {
     int m = arr.size(), n=arr[0].size();
     vector<vector<int>>ans(n,vector<int>(m));
     //vector<int>temp;
-    
+
     for(int i=0;i<n;i++){
         for(int j=0;j<m;j++){
             //temp.push_back(arr[j][i]);
