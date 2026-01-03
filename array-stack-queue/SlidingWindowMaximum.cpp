@@ -16,9 +16,11 @@ public:
                 dq.pop_front();
 
             // Maintain decreasing order in deque
+            // by removing elements smaller than the current element
             while (!dq.empty() && nums[dq.back()] <= nums[i]) 
                 dq.pop_back();
 
+            // Push current element to deque
             dq.push_back(i);
 
             // Add maximum for the current window

@@ -18,7 +18,7 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-    
+
 
 /*
 Design a Leaderboard class, which has 3 functions:
@@ -34,7 +34,7 @@ Initially, the leaderboard is empty.
 class Leaderboard
 {
 public:
-    void addScore(int playerId, int score)
+    void addScore(int playerId, int score) // O(log n), removing/adding score to the multiset
     {
         int oldScore = playerMap[playerId];
         playerMap[playerId] += score;
@@ -46,7 +46,7 @@ public:
         board.insert(playerMap[playerId]);
     }
 
-    int top(int k)
+    int top(int k) // O(k), linear search in ordered list(multiset)
     {
         int topSum = 0;
         for(const auto& score : board)
@@ -59,10 +59,10 @@ public:
         return topSum;
     }
 
-    void reset(int playerId)
+    void reset(int playerId) // O(log n), removing score from the multiset
     {
         int playerScore = playerMap[playerId];
-        playerMap.erase(playerMap.find(playerId));
+        playerMap.erase(playerMap.find(playerId)); // playerMap.erase(playerId);
         board.erase(board.find(playerScore));
     }
 
@@ -120,7 +120,7 @@ private:
     mutable std::shared_mutex mtx;
 };
 
-    
+
 int main()
 {
     fastio();

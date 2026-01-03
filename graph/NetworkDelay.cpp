@@ -7,13 +7,13 @@
 #include<climits>
 using namespace std;
 
-
+// SSSP -> Single Source Shortest Path
 // using Dijkstra's algo, as it has directed nodes and weights, also need to find minimum cost
 // Dijkstra's algo = BFS + minHeap
 int networkDelayTime(vector<vector<int>>& times, int n, int k) { 
     list<pair<int,int>> l[n+1];
     vector<int> dist(n+1,INT_MAX);
-    
+
     for(auto x : times){
         int src = x[0], des = x[1], cost = x[2];
         l[src].push_back({des,cost});
@@ -34,13 +34,13 @@ int networkDelayTime(vector<vector<int>>& times, int n, int k) {
         for(auto nbrs : l[node]){
             int distTillNow = curr_dist + nbrs.second;
             int des = nbrs.first;
-            
+
             if(distTillNow<dist[des]){
                 auto p = s.find({dist[des],des});
-                
+
                 if(p!=s.end())
                     s.erase(p);
-                
+
                 dist[des] = distTillNow;
                 s.insert({dist[des],des});
             }

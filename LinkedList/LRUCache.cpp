@@ -86,6 +86,104 @@ private:
     unordered_map<string, list<Node>::iterator> mp;
 };
 
+
+/*
+Why your current code is NOT thread-safe
+----------------------------------------
+Your get() and put() both:
+- mutate both lru (std::list), and listMap (unordered_map), and also move nodes (erase + push)
+
+Problems under concurrency:
+---------------------------
+Data races on listMap and lru
+Iterator invalidation
+ABA issues if two threads move the same key
+contains() + operator[] is not atomic
+
+Without synchronization, undefined behavior.
+Simplest correct solution: one mutex (coarse-grained)
+This is the industry-default baseline and often good enough.
+
+Idea:
+-----
+Protect all public operations with one std::mutex
+get() is not read-only (it mutates LRU order), so it needs a lock too
+*/
+// Thread-safe and improved using list::splice()
+class LRUCache
+{
+    int m_capacity;
+    std::list<pair<int,int>> lru; // key, value
+    unordered_map<int, std::list<pair<int,int>>::iterator> listMap;
+    std::mutex mtx;
+
+public:
+    LRUCache(int capacity) : m_capacity(capacity){}
+
+    int get(int key)
+    {
+        std::lock_guard<std::mutex> lock(mtx);
+        if (listMap.contains(key))
+        {
+            auto itr = listMap[key];
+            // This inserts the node (itr) at the start of the list before begin without copying
+            lru.splice(lru.begin(), lru, itr);
+
+            return listMap[key]->second;
+        }
+        return -1;
+    }
+
+    void put(int key, int value)
+    {
+        std::lock_guard<std::mutex> lock(mtx);
+        if (listMap.contains(key))
+        {
+            auto itr = listMap[key];
+            itr->second = value;
+
+            lru.push_front(*itr);
+            lru.erase(itr);
+
+            listMap[key] = lru.begin();
+        }
+        else
+        {
+            // check for capacity
+            if (lru.size() == m_capacity)
+            {
+                auto itr = lru.back();
+                listMap.erase(itr.first);
+                lru.pop_back();
+            }
+
+            lru.push_front(pair<int,int>(key, value));
+            listMap[key] = lru.begin();
+        }
+    }
+};
+
+
+/*
+Higher-performance design (used in real systems)
+------------------------------------------------
+Option A — Sharded LRU
+======================
+Partition cache into N shards
+Each shard has: its own mutex, its own LRU + map, Hash key → shard.
+This is how Redis, Memcached, and many in-house trading caches work.
+
+Option B — Read-optimized approximate LRU
+=========================================
+Don’t update LRU on every get
+Track recency probabilistically
+Batch updates
+Used when: Reads ≫ writes, Strict LRU is not required
+
+
+- The simplest correct approach is to protect both the map and list with a single mutex since get() mutates the LRU order. For higher concurrency, I’d shard the cache into multiple independent LRUs with per-shard locks. Fully lock-free LRU is impractical due to list mutations and iterator safety.
+*/
+
     
 int main() {
     fastio();

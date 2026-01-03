@@ -69,6 +69,29 @@ public:
 };
 
 
+// A shorter dfs solution
+class Solution
+{
+public:
+    unordered_map<Node*, Node*> m;
+    Node* cloneGraph(Node* node)
+    {
+        if (!node)
+            return nullptr;
+
+        if (m.find(node) == m.end())
+        {
+            m[node] = new Node(node->val, {});
+
+            for (auto a : node->neighbors)
+                m[node]->neighbors.push_back(cloneGraph(a));
+
+        }
+        return m[node];
+    }
+};
+
+
 // Bfs approach
 class Solution {
 public:

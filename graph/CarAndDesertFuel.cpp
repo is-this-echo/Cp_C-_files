@@ -93,7 +93,7 @@ bool desert(vector<vector<char>>& grid, int fuel)
         {
             if (desert[i][j] == "c")
                 car{i,j};
-            
+
             if (desert[i][j] == "o")
                 oasis{i,j};
 
@@ -105,9 +105,8 @@ bool desert(vector<vector<char>>& grid, int fuel)
         }
     }
 
-    int totalDistance = car.getDistance(fuelStation) + oasis.getDistance(fuelStation);
+    int totalDistance = car.getDistance(fuelStn) + oasis.getDistance(fuelStn);
     return totalDistance <= fuel + fuelCollected || car.getDistance(oasis) <= fuel;
-
 }
 
 
@@ -162,7 +161,7 @@ bool ride(vector<vector<string>>& desert, int gas)
 
         if (visited[x][y] != -1 && visited[x][y] >= currGas)
             continue;
-    
+
         visited[x][y] = currGas;
 
         if (currGas == 0)
@@ -175,14 +174,14 @@ bool ride(vector<vector<string>>& desert, int gas)
 
             if (nx < 0 || nx >= m || ny < 0 || ny >= n || desert[nx][ny] == "r")
                 continue;
-            
+
             q.push({nx, ny, currGas - 1});
         }
     }
     return false;
 }
 
-    
+
 int main() {
     fastio();
 

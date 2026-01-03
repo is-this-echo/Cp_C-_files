@@ -101,6 +101,37 @@ vector<int> diagonalOptimized(Node* root)
     return ans;
 }
 
+// Iterative function to print diagonal view without a need to separate the different diagonals
+vector<int> diagonalOptimizedNoLevelHandling(Node* root)
+{
+    vector<int> ans;
+
+    if (root == nullptr)
+        return ans;
+
+    std::queue<Node*> q;
+    q.emplace(root);
+
+    while (!q.empty())
+    {
+        Node* curr = q.front();
+        q.pop();
+
+        while (curr)
+        {
+            ans.push_back(curr->data);
+
+            // if left child is present push into queue to be part of the next diagonal
+            if (curr->left)
+                q.emplace(curr->left);
+
+            // current equals to right child, part of the same diagonal
+            curr = curr->right;
+        }
+    }
+    return ans;
+}
+
 
 void printList(vector<int> v) {
     int n = v.size();
