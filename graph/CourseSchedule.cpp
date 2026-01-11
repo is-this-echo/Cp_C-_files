@@ -29,8 +29,6 @@ bool dfs(int crs,vector<bool>& visited, unordered_map<int,vector<int>> &m)
     return true;
 }
 
-
-
 bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
     unordered_map<int,vector<int>> m;
     vector<bool> visited(numCourses,false);

@@ -35,7 +35,7 @@ public:
 
     void topologicalSort()
     {
-        // calculate the indgree(incoming edges) for every node
+        // calculate the indegree(incoming edges) for every node
         vector<int> indegree(V, 0);
         for (int i = 0; i < V; ++i)
         {

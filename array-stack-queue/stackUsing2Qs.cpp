@@ -8,42 +8,43 @@ using namespace std;
 #define INF 2e18
 #define mod 998244353
 double eps = 1e-12;
-    
- 
 
-class MyStack {
+
+
+class MyStack
+{
     queue<int>q1,q2;
-    
+
 public:
-    MyStack() {
-        
-    }
-    
-    void push(int x) {
+    MyStack() {}
+
+    void push(int x)
+    {
         q2.push(x);
         
-        while(!q1.empty()){
+        while(!q1.empty())
+        {
             int front = q1.front();
             q1.pop();
             q2.push(front);
         }
         swap(q1,q2);
     }
-    
-    
-    int pop() {
+
+    int pop()
+    {
         int val=q1.front();
         q1.pop();
         return val;
     }
-    
-    
-    int top() {
+
+    int top()
+    {
         return q1.front();
     }
-    
-    
-    bool empty() {
+
+    bool empty()
+    {
         return q1.empty();
     }
 };
@@ -56,8 +57,90 @@ public:
  * int param_3 = obj->top();
  * bool param_4 = obj->empty();
  */
+
+ // Using 2 queues, one temp queue among them
+ class MyStack
+ {
+public:
+    MyStack() {}
     
-int main() {
+    void push(int x)
+    {
+        queue<int> temp;
+        swap(temp, q);
+
+        q.push(x);
+        while (!temp.empty())
+        {
+            q.push(temp.front());
+            temp.pop();
+        }
+    }
+    
+    int pop()
+    {
+        int val = q.front();
+        q.pop();
+
+        return val;
+    }
+    
+    int top()
+    {
+
+        return q.front();
+    }
+    
+    bool empty()
+    {
+        return q.empty();
+    }
+
+private:
+    std::queue<int> q;
+};
+
+// Using only one queue
+class MyStack
+{
+public:
+    MyStack() {}
+    
+    void push(int x)
+    {
+        q.push(x);
+        for (int i = 0; i < q.size() - 1; ++i)
+        {
+            q.push(q.front());
+            q.pop();
+        }
+    }
+    
+    int pop()
+    {
+        int val = q.front();
+        q.pop();
+
+        return val;
+    }
+    
+    int top()
+    {
+        return q.front();
+    }
+    
+    bool empty()
+    {
+        return q.empty();
+    }
+
+private:
+    std::queue<int> q;
+};
+
+
+int main()
+{
     ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
     
     return 0;

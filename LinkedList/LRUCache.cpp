@@ -184,6 +184,59 @@ Used when: Reads ≫ writes, Strict LRU is not required
 - The simplest correct approach is to protect both the map and list with a single mutex since get() mutates the LRU order. For higher concurrency, I’d shard the cache into multiple independent LRUs with per-shard locks. Fully lock-free LRU is impractical due to list mutations and iterator safety.
 */
 
+
+/*
+Can the LRU cache be made singleton? What could be the need to do so?
+Ofcourse, it can be made a singleton.
+
+1. Shared global state / shared cache
+- I want all threads and components to see the same cache.
+    ex : Client configuration cache, FX holiday calendar
+
+2. Memory & capacity control
+LRU caches are:
+- capacity-bound
+- memory-heavy (map + list + nodes)
+
+Multiple instances = multiple independent eviction policies.
+Singleton ensures:
+------------------
+- One global capacity limit
+- Predictable memory usage
+
+3. Consistency of eviction policy
+
+- If each component has its own LRU:
+Same key may exist in multiple caches
+Evicted in one place but not another
+Hard-to-reason performance behavior.
+
+
+Yes, I can make it a Singleton using a Meyers Singleton for thread-safe initialization. Architecturally, an LRU cache is often a Singleton because it represents shared infrastructure state. Having a single instance ensures consistent eviction behavior, better cache hit rates, controlled memory usage, and avoids duplicate warm-ups. It also simplifies synchronization and observability. That said, I’d avoid Singleton if different components need different cache semantics or for better testability.
+*/
+
+class LRUCache
+{
+public:
+    static LRUCache& instance() 
+    {
+        static LRUCache cache(1000); // thread-safe since C++11 and exactly one instance
+        return cache;
+    }
+
+    int get(int key);
+    void put(int key, int value);
+
+private:
+    LRUCache(int capacity) : m_capacity(capacity) {}
+
+    int m_capacity;
+    std::list<std::pair<int,int>> lru;
+    std::unordered_map<int, std::list<std::pair<int,int>>::iterator> keyMap;
+    std::mutex mtx;
+};
+
+
     
 int main() {
     fastio();
