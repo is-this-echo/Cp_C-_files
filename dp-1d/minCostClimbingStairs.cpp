@@ -20,6 +20,8 @@ void google(int t) {cout << "Case #" << t << ": ";}
 
 
 /*
+    1st approach
+------------------
     dp[i] -> minimum cost to reach ith step from 0th staircase
     dp[i] = cost[i] + min(dp[i-1], dp[i-2]))
 
@@ -82,6 +84,8 @@ public:
 
 
 /*
+    2nd approach
+------------------
     dp[i] -> minimum cost to reach the top from the ith step
     dp[i] = cost[i] + min(dp[i+1], dp[i+2]))
 

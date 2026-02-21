@@ -36,7 +36,7 @@ vector<int> getMinimumLength(int road_nodes, vector<int> roads_from, vector<int>
     int n = road_nodes;
     int m = roads_from.size();
 
-    vector<vector<pair<int,int>>> graph(n + 1); // directed graph
+    vector<vector<pair<int,int>>> adj(n + 1); // directed graph
     for (int i = 0; i < m; i++)
         adj[roads_from[i]].push_back({roads_to[i], roads_weight[i]});
 
@@ -47,13 +47,12 @@ vector<int> getMinimumLength(int road_nodes, vector<int> roads_from, vector<int>
             source and then take the minimum among them to be the result.
             If no edge comes back to source node or the shortest path to that node
             is INF, then set result as 0.
-
         */
     vector<int> result(n + 1, 0);
     for (int src = 1; src <= n; ++src)
     {
         vector<ll> dist(n + 1, INF);
-        priority_queue<pair<ll,int>, vector<pair<ll,int>>, greater<>> pq;
+        priority_queue<pair<ll,int>, vector<pair<ll,int>>, greater<>> pq; // dist, node
 
         dist[src] = 0;
         pq.emplace(0, src);
@@ -66,7 +65,7 @@ vector<int> getMinimumLength(int road_nodes, vector<int> roads_from, vector<int>
             if (currDist > dist[node])
                 continue;
 
-            for (const auto& [nbr, weight] : adj[u])
+            for (const auto& [nbr, weight] : adj[node])
             {
                 if (dist[nbr] > currDist + weight)
                 {
@@ -100,6 +99,6 @@ vector<int> getMinimumLength(int road_nodes, vector<int> roads_from, vector<int>
 int main()
 {
     fastio();
-    
+
     return 0;
 }

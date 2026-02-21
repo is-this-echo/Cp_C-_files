@@ -57,7 +57,7 @@ class Solution
 
 public:
     bool isBipartite(vector<vector<int>>& graph)
-    {   
+    {
         int n = graph.size();
         vector<int> color(n, -1); // -1 means not visited, colors are 0 or 1
 
@@ -74,7 +74,6 @@ public:
 // unlike bfs dfs doesn't ensure that bipartite policy is violated.
 class Solution
 {
-
     bool dfs(vector<vector<int>>& graph, vector<int>& color, int node)
     {
         for (const auto& nbr : graph[node])
@@ -95,7 +94,7 @@ class Solution
 
 public:
     bool isBipartite(vector<vector<int>>& graph)
-    {   
+    {
         int n = graph.size();
         vector<int> color(n, -1);
 
@@ -108,7 +107,6 @@ public:
                 if (!dfs(graph, color, i))
                     return false;
             }
-
         }
         return true;
     }
@@ -118,6 +116,6 @@ public:
 int main()
 {
     fastio();
-    
+
     return 0;
 }

@@ -17,15 +17,17 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-    
 
-class Solution {
+
+class Solution
+{
     using ll = long long int;
 public:
     int countPaths(int n, vector<vector<int>>& roads)
     {
         constexpr int mod = (int)(1e9 + 7);
         vector<vector<pair<int, int>>> adjl(n); // node -> (nbr, wt)
+
         for (const auto& edge : roads)
         {   // undirected graph so two sided edges
             adjl[edge[0]].emplace_back(edge[1], edge[2]);
@@ -33,8 +35,7 @@ public:
         }
 
         vector<pair<ll, int>> dist(n, {LLONG_MAX, 0}); // dist, count
-        priority_queue<pair<ll,int>, vector<pair<ll,int>>, 
-                    greater<pair<ll,int>>> pq; // min-heap (dist, node)
+        priority_queue<pair<ll,int>, vector<pair<ll,int>>, greater<pair<ll,int>>> pq; // min-heap (dist, node)
 
         dist[0] = {0, 1};
         pq.push({0, 0});
@@ -71,8 +72,9 @@ public:
     }
 };
 
-    
-int main() {
+
+int main()
+{
     fastio();
     
     return 0;

@@ -64,7 +64,7 @@ private:
     int capacity_;
     int minFreq_;
     unordered_map<int, Node> keyMap; // key, node (unique to each key)
-    unordered_map<int, std::list<int>> freqMap; // freq, list
+    unordered_map<int, std::list<int>> freqMap; // freq, list of keys
 
     struct Node
     {
@@ -86,7 +86,7 @@ private:
             freqMap.erase(freq); // just to be safe, avoid empty list
             ++minFreq_;
         }
-        
+
         freqMap[freq + 1].push_front(key);
         keyMap[key].freq++;
         keyMap[key].listRef = freqMap[freq + 1].begin();

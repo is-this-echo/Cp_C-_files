@@ -16,32 +16,40 @@ using namespace std;
 double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
-void meta(int t) {cout << "Case #" << t << ": ";}
+void google(int t) {cout << "Case #" << t << ": ";}
+    
+ 
 
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums)
+    {
+        int i = 0, j = 1;
+        int count = 1;
 
-struct Node
-{
-    int val;
-    Node *left, *right;
-
-    Node(int d) : val(d), left(NULL), right(NULL) {}
+        while (j < nums.size())
+        {
+            if (nums[i]!= nums[j])
+            {
+                nums[++i] = nums[j];
+                count++;
+            }
+            j++;
+        }
+        return count;
+    }
 };
-class LRUCache
-{
 
 
-private:
-    std::list<std::pair<int,int>> lru; // key , val
-    std::unordered_map<int, std::list<std::pair<int,int>>::iterator> keyMap; // key, list iterator
-};
+// [1, 1, 1]
+// i = 0
+// j = 3
+// count = 1
+// 1
 
-
-
-
-int main()  
+int main()
 {
     fastio();
-
+    
     return 0;
-}  
-
+}
