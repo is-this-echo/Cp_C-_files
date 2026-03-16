@@ -33,6 +33,11 @@ public:
             return ans;
 
         // i -> ptr to first list, j -> ptr to the second list
+        // Total six cases possible for the intervals from 2 lists, out
+        // of these 4 can have overlaps, 2 will have no overlaps.
+        // So, we have an if condition for the simpler case
+        // and for overlaps we take the max of staring point
+        // and min of ending point.
         int i = 0, j = 0;
         while (i < fSize && j < sSize)
         {

@@ -40,7 +40,6 @@ public:
     }
 };
 
-    
 int main() {
     fastio();
     

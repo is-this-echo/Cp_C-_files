@@ -17,7 +17,7 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-    
+
 
 int minimumKnightMoves(int x, int y) {
     int dx[] = {1,1,2,2,-1,-1,-2,-2};
@@ -29,7 +29,7 @@ int minimumKnightMoves(int x, int y) {
     int ans = 1;
     set<pair<int,int>>st;
     st.insert({0,0});
-    
+
     while(!q.empty()){
         int len = q.size();
 
@@ -47,11 +47,10 @@ int minimumKnightMoves(int x, int y) {
 
                 if(st.find({nx,ny}) != st.end())
                     continue; 
-                
+
                 st.insert({nx,ny});
                 q.push({nx,ny});
             }
-
         }
         ans++;
     }

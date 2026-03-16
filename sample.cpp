@@ -26,21 +26,42 @@ struct Node
 
     Node(int d) : val(d), left(NULL), right(NULL) {}
 };
-class LRUCache
+
+
+class PricingStrategy
 {
-
-
-private:
-    std::list<std::pair<int,int>> lru; // key , val
-    std::unordered_map<int, std::list<std::pair<int,int>>::iterator> keyMap; // key, list iterator
+public:
+    virtual double price(double baseVal) = 0;
+    virtual ~PricingStrategy() = default;
 };
 
+
+class NormalPrice : public PricingStrategy
+{
+public:
+    double price(double baseVal) override
+    {
+        return baseVal;
+    }
+};
+
+class DiscountedPrice : public PricingStrategy
+{
+public:
+    double price(double baseVal) override
+    {
+        return baseVal * 0.75;
+    }
+};
 
 
 
 int main()  
 {
     fastio();
+
+    PricingStrategy *pr = new DiscountedPrice();
+    std::cout << pr->price(234);
 
     return 0;
 }  

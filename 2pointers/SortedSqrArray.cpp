@@ -19,43 +19,39 @@ ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} retur
 void google(int t) {cout << "Case #" << t << ": ";}
 
 
-// O(logn) TC
-// Solution 1 : if mid is less than mid - 1, next potential peak is mid - 1
-// else the current potential peak is the mid itself. At the end, return start index to get peak.
 class Solution
 {
 public:
-    int findPeakElement(vector<int>& nums)
-    {
-        int start = 0;
-        int end = nums.size() - 1;
+    vector<int> sortedSquares(vector<int>& nums)
+    {   
+        int n = nums.size();
+        vector<int> result(n, 0);
 
-        while (start < end)
+        int itr = n - 1;
+        int left = 0, right = n - 1;
+
+        while (left <= right)
         {
-            int mid = start + (end - start) / 2;
-            if (nums[mid] > nums[mid - 1])
+            if (abs(nums[left]) > abs(nums[right]))
             {
-                start = mid; // current peak
+                result[itr] = nums[left] * nums[left];
+                left++;
             }
             else
             {
-                end = mid - 1; // next potential peak
+                result[itr] = nums[right] * nums[right];
+                right--;
             }
+            itr--;
         }
-        return start;
+        return result;
     }
 };
-
-// Input: nums = [1,2,3,1]
-
-// Input: nums = [1,2,1,3,5,6,4]
-
-
 
 
 int main()
 {
     fastio();
-    
+
     return 0;
 }
