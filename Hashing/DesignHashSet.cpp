@@ -32,7 +32,7 @@ public:
             hashTable[hash].push_back(key);
         }
     }
-    
+
     void remove(int key)
     {
         int hash = key % hashKey;
@@ -41,7 +41,7 @@ public:
         if (itr != hashTable[hash].end())
             hashTable[hash].erase(itr);
     }
-    
+
     bool contains(int key)
     {
         int hash = key % hashKey;
@@ -72,6 +72,6 @@ private:
 int main()
 {
     fastio();
-    
+
     return 0;
 }

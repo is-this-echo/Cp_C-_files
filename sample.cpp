@@ -35,7 +35,6 @@ public:
     virtual ~PricingStrategy() = default;
 };
 
-
 class NormalPrice : public PricingStrategy
 {
 public:
@@ -66,3 +65,17 @@ int main()
     return 0;
 }  
 
+
+
+class Messaging
+{
+public:
+    Messaging(vector<Message> m = {}, char* name) : messages(m), msgName(new()) { auto size_t = st }
+    
+    void addMessage(string str){} 
+    void moveMessage(); 
+    void deleteMessage();
+
+private:
+    vector<Message*> messages; char* msgName; 
+};
