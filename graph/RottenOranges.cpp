@@ -62,7 +62,7 @@ public:
             for(int j=0; j<n; j++){
                 if(grid[i][j] == 1 && !vis[i][j])
                     return -1;
-                
+
                 else if(grid[i][j] != 0)
                     mins = max(mins, grid[i][j]);
             }

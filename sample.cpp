@@ -30,7 +30,7 @@ struct Node
 
 class PricingStrategy
 {
-public:
+public: 
     virtual double price(double baseVal) = 0;
     virtual ~PricingStrategy() = default;
 };
