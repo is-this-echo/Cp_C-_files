@@ -34,7 +34,7 @@ class Solution
 public:
     int minDistance(string word1, string word2)
     {
-        // word1 -> word2
+        // word1 -> word2, word1 is aligned in rows
         int m = word1.length();
         int n = word2.length();
 
@@ -59,6 +59,9 @@ public:
                 else
                     dp[i][j] = 1 + min({dp[i - 1][j - 1], // replace in word1
                                         dp[i][j - 1], // insert in word1
+                                        /*
+                                        inserted at word1[i] so look at dp[i][j - 1], word2[j - 1]
+                                        */ 
                                         dp[i - 1][j]}); // delete in word1
             }
         }
@@ -70,7 +73,7 @@ public:
 int main()
 {
     fastio();
-    
+
     return 0;
 }
 

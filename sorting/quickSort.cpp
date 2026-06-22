@@ -3,17 +3,21 @@
 using namespace std;
 
 // T.C = O(n^2) when we take pivot as the last element;
-int Partition(vector<int> &a, int s, int e){
+int Partition(vector<int> &a, int s, int e)
+{
     int i=s-1;
     int pivot = a[e];
 
-    for(int j=s;j<e;j++){
+    for(int j=s;j<e;j++)
+    {
     // ascending order
-        if(a[j] < pivot){
+        if(a[j] < pivot)
+        {
             i++;
             swap(a[j],a[i]);
         }
     }
+
     swap(a[e],a[i+1]);
     return i+1;
     // returns the correct index of the pivot element
@@ -21,8 +25,9 @@ int Partition(vector<int> &a, int s, int e){
 
 
 // taking last element as the pivot element
-void QuickSort(vector<int> &a, int s, int e){
-    if(s>=e)
+void QuickSort(vector<int> &a, int s, int e)
+{
+    if  (s >= e)
         return;
     // swap(vec[s+rand()%(e-s+1)],vec[s]);
     // randomized version to make time complexity O(nlogn)

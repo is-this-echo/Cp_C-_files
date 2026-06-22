@@ -7,28 +7,33 @@ using namespace std;
 double eps = 1e-12;
     
 
-void merge(vector<int> &arr, int s, int mid, int e){
-    int i=s,j=mid+1;
+void merge(vector<int> &arr, int s, int mid, int e)
+{
+    int i = s, j = mid + 1;
     //int *temp = new int[e-s+1];
-    vector<int>temp;
+    vector<int> temp;
 
-    while(i<=mid && j<=e){
-        
-        if(arr[i]<arr[j]){
+    while (i <= mid && j <= e)
+    {
+        if (arr[i]<arr[j])
+        {
             temp.push_back(arr[i]);
             i++;
         }
-        else{
+        else
+        {
             temp.push_back(arr[j]);
             j++;
         }
     }
 
-    while(i<=mid){
+    while (i <= mid)
+    {
         temp.push_back(arr[i]);
         i++;
     }
-    while(j<=e){
+    while (j <= e)
+    {
         temp.push_back(arr[j]);
         j++;
     }
@@ -36,19 +41,22 @@ void merge(vector<int> &arr, int s, int mid, int e){
     // std::copy(temp.begin(), temp.end(), arr.begin() + start);
 
     int k=0;
-    for(i=s;i<=e;i++){
-        arr[i]=temp[k];
+    for (i = s; i <= e; i++)
+    {
+        arr[i] = temp[k];
         k++;
     }
 }
 
 
-void mergeSort(vector<int> &arr, int s, int e){
-    if(s<e){
+void mergeSort(vector<int> &arr, int s, int e)
+{
+    if (s < e)
+    {
         int mid = (s+e)/2;
-        mergeSort(arr,s,mid);
-        mergeSort(arr,mid+1,e);
-        merge(arr,s,mid,e);
+        mergeSort(arr, s, mid);
+        mergeSort(arr, mid+1, e);
+        merge(arr, s, mid, e);
     }
 }
 

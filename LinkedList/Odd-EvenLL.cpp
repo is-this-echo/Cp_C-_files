@@ -20,27 +20,29 @@ void google(int t) {cout << "Case #" << t << ": ";}
 
  // Given head of a linked list, you need to group odd and even indexed nodes, connect them 
  // and return the head of the resulting LL, pointer manipulations are to be done inplace.
-
-
-class Node{
+class Node
+{
 public: 
     int data;
     Node* next;
 
-    Node(int data){
+    Node(int data)
+    {
         this->data = data;
         next = nullptr;
     }
 };
 
 
-void solve(Node* head){
+void solve(Node* head)
+{
     Node *odd, *even, *temp;
     odd = head;
     even = head->next;
     temp = even;
 
-    while(odd && odd->next && even && even->next){
+    while (odd && odd->next && even && even->next)
+    {
         odd->next = even->next;
         odd = odd->next;
         even->next = odd->next;
@@ -50,14 +52,68 @@ void solve(Node* head){
 }
 
 
-void printLL(Node* head){
-    while(head){
+void printLL(Node* head)
+{
+    while(head)
+    {
         cout<<head->data<<"->";
         head = head->next;
     }
     cout<<"Null";
     cout<<"\n\n";
 }
+
+
+// 328. Odd Even Linked List, O(n) time complexity and O(1) space complexity
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution
+{
+public:
+    ListNode* oddEvenList(ListNode* head)
+    {
+        using Node = ListNode;
+
+        if (!head)
+            return nullptr;
+
+        Node* odd = head;
+        Node* even = head->next;
+        Node* evenStart = even;
+
+        while (even && odd)
+        {
+            odd->next = even->next;
+            if (odd->next)
+                odd = odd->next;
+
+            even->next = odd->next;
+            even = even->next;
+        }
+
+        odd->next = evenStart;
+        return head;
+    }
+};
+
+// i = 7
+// j = null
+// 2->3->6->7
+// 1->5->4->null
+
+/*
+odd = 7
+even = null
+1->3->5->7->2->4->6->8->null
+*/
 
 
 int main() {

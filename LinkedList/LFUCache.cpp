@@ -17,10 +17,11 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
-    
- 
 
-class LFUCache {
+
+
+class LFUCache
+{
 public:
     LFUCache(int capacity) : capacity_(capacity), minFreq_(0) {}
 
@@ -71,7 +72,6 @@ private:
         int value;
         int freq;
         std::list<int>::iterator listRef;
-
     };
 
     void updateFreq(int key)
@@ -99,7 +99,7 @@ private:
  * int param_1 = obj->get(key);
  * obj->put(key,value);
  */
-    
+
 int main()
 {
     fastio();

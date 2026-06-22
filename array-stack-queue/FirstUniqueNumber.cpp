@@ -44,7 +44,7 @@ public:
 
 private:
     unordered_map<int, int> cnt;
-    deque<int> q;
+    deque<int> q;   
 };
 
     

@@ -17,44 +17,27 @@ double eps = 1e-12;
 
 ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
 void google(int t) {cout << "Case #" << t << ": ";}
+    
+ 
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int minPrice = prices[0];
+        int profit = 0;
 
-
-// TimeComplexity : O(n^2), best-case : O(n)
-// SpaceComplexity : O(1)
-
-void BubbleSort(vector<int> &arr)
-{
-    int n = arr.size();
-    for (int i=0;i<n-1;i++)
-    {
-        bool swapped = false;
-
-        for (int j=0;j<n-i-1;j++)
+        for (int i = 1; i < prices.size(); ++i)
         {
-            if (arr[j]>arr[j+1])
-            {
-                swapped = true;
-                swap(arr[j],arr[j+1]);
-            }
+            minPrice = min(minPrice, prices[i]);
+            profit = max(profit, prices[i] - minPrice);
         }
-
-        if (!swapped)
-            break;
+        return profit;
     }
-}
+};
 
-
-int main() {
+    
+int main()
+{
     fastio();
-
-    vector<int>sample = {2,9,3,6,8,1,5};
-
-    BubbleSort(sample);
-
-    for(int x : sample){
-        cout<<x<<" ";
-    }
-    cout<<endl;
-
+    
     return 0;
 }
